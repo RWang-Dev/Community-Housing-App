@@ -4,14 +4,17 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 ## App Info:
 
-* Team Name: TODO
-* App Name: TODO
+* Team Name: The Forge
+* App Name: 
 * App Link: <https://TODO.com/>
 
 ### Students
 
-* First Last, x500@umn.edu
-* ...
+* Ariel Larin, larin006@umn.edu
+* Stephen Ma, ma000094@umn.edu
+* Robert Wang, wan00379@umn.edu
+* Benjamin Lindeen, lind1669@umn.edu
+* Justin Lee, lee03360@umn.edu
 
 
 ## Key Features
