@@ -43,10 +43,6 @@ along with a very brief caption:**
 
 For our mock-up, we used moqups.com. Here is the link to our project's mock-up: https://app.moqups.com/YNMhuzHJvPp6BjuZ5UiGY9PxBvGqCi8I/view/page/a880590a1.
 
-**[Add images/photos that show your paper prototype (around 4)](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository) along with a very brief caption:**
-
-![](https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif)
-
 
 ## External Dependencies
 
