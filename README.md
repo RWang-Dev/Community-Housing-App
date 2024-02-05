@@ -43,7 +43,7 @@ along with a very brief caption:**
 
 For our mock-up, we used moqups.com. Here is the link to our project's mock-up: https://app.moqups.com/YNMhuzHJvPp6BjuZ5UiGY9PxBvGqCi8I/view/page/a880590a1.
 
-<img width="1630" alt="Screenshot 2024-02-05 at 11 21 27 AM" src="https://github.com/csci5117s24/project-1-the-forge/assets/84486871/bc51cf68-a101-4ce4-a042-d678ae13471f">
+<img width="1283" alt="Screenshot 2024-02-05 at 12 13 28 PM" src="https://github.com/csci5117s24/project-1-the-forge/assets/96703864/e5eb345f-e78a-448b-8811-e7dd30c89272">
 
 
 
