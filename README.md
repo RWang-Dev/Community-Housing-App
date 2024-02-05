@@ -43,9 +43,9 @@ along with a very brief caption:**
 
 For our mock-up, we used moqups.com. Here is the link to our project's mock-up: https://app.moqups.com/YNMhuzHJvPp6BjuZ5UiGY9PxBvGqCi8I/view/page/a880590a1.
 
-<img width="1283" alt="Screenshot 2024-02-05 at 12 13 28 PM" src="https://github.com/csci5117s24/project-1-the-forge/assets/96703864/e5eb345f-e78a-448b-8811-e7dd30c89272">
 
 
+<img width="1208" alt="Screenshot 2024-02-05 at 12 14 26 PM" src="https://github.com/csci5117s24/project-1-the-forge/assets/96703864/78e60ac7-31e3-41c6-b734-8515e09d562b">
 
 ## External Dependencies
 
