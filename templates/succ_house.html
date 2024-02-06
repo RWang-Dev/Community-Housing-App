@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Successful House Creation</title>
-    <link rel="stylesheet" href="/static/succ_house.css">
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "base.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/succ_house.css')}}"
+/>
+<title>Successful House Creation</title>
+{% endblock %} {% block body %} Succ House {% endblock %}
