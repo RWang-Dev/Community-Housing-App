@@ -39,7 +39,7 @@ def browse():
 
 # main house page (calendar w/ tasks, scheduling gpt)
 @app.route('/house')
-def browse():
+def house():
     return render_template('browse.html')
 
 # assign task page
@@ -47,7 +47,5 @@ def browse():
 def assign_task():
     return render_template('assign_task.html')
 
-# edit task page
-@app.route('/assign/task')
-def assign_task():
-    return render_template('assign_task.html')
+if __name__ == "__main__":
+    app.run(debug=True)
