@@ -1,4 +1,41 @@
 {% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}" />
 <title>Login</title>
-{% endblock %} {% block body %} Login {% endblock %}
+{% endblock %} {% block body %}
+
+<main>
+  <header>
+    <div class="logo">LOGO</div>
+  </header>
+
+  <h2>Sign In</h2>
+  <form action="/create/acct" method="post">
+    <input
+      type="text"
+      id="username"
+      placeholder="Username"
+      name="username"
+      required
+    />
+
+    <input
+      type="text"
+      id="password"
+      placeholder="Password"
+      name="password"
+      required
+    />
+
+    <button class="login-account-btn" type="submit" value="Login">Login</button>
+  </form>
+  <hr />
+  <div class="have-account">
+    Don't have an account? <a href="/create/acct">Create Account</a>
+  </div>
+  <div>
+    Or browse houses without an account:
+    <a href="/browse-houses-btn"><button>Browse Houses</button></a>
+  </div>
+</main>
+
+{% endblock %}
