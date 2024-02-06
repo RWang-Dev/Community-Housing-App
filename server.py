@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, url_for
 # kluver might want us to use psycopg2 instead
 from flask_sqlalchemy import SQLAlchemy 
 
@@ -18,7 +18,6 @@ def login():
 @app.route('/create/acct', methods=['GET', 'POST'])
 def create_acct():
     if request.method == 'POST':
-        flash("BAH")
         return redirect("/user/home")
     else:
         return render_template('create_acct.html')
@@ -46,7 +45,7 @@ def browse():
 # main house page (calendar w/ tasks, scheduling gpt)
 @app.route('/house')
 def house():
-    return render_template('browse.html')
+    return render_template('house.html')
 
 # assign task page
 @app.route('/assign/task')

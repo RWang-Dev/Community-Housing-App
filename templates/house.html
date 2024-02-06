@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House</title>
-    <link rel="stylesheet" href="/static/house.css">
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "base.html" %} {% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/house.css')}}" />
+<title>House</title>
+{% endblock %} {% block body %} House {% endblock %}
