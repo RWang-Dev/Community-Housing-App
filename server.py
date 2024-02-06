@@ -22,20 +22,11 @@ def create_acct():
     else:
         return render_template('create_acct.html')
 
-# successful account creation page
-@app.route('/succ/acct')
-def succ_acct():
-    return render_template('succ_acct.html')
 
 # user home page
 @app.route('/user/home')
 def user_home():
     return render_template('user_home.html')
-
-# successful house creation page
-@app.route('/succ/house')
-def succ_house():
-    return render_template('succ_house.html')
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')
