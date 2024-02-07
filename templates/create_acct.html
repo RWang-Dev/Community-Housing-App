@@ -6,10 +6,8 @@
 <link rel="stylesheet" href="/static/create_acct.css" />
 <title>Create Account</title>
 {% endblock %} {% block body %}
-<header>
-  <h1>Create Account</h1>
-</header>
 <main>
+    <h2>Create Account</h2>
   <form action="/create/acct" method="post">
     <label for="name">Full Name</label>
     <input type="text" id="name" placeholder="Full Name" name="name" required />
@@ -33,7 +31,7 @@
       minlength="8"
       required
     />
-    <input type="submit" value="Create Account" />
+    <button class="create-account-btn" type="submit" value="Create Account">Create Account</button>
   </form>
 </main>
 {% endblock %}
