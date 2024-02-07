@@ -53,7 +53,7 @@ button.create-account-btn {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 3vh;
 }
 
 button.create-account-btn:hover {
