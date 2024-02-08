@@ -3,27 +3,41 @@
   rel="stylesheet"
   href="{{url_for('static', filename='css/browse.css')}}"
 />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <title>Browse</title>
-{% endblock %} {% block body %} 
+{% endblock %} {% block body %}
 
 <main>
   <header>
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
+    </div>
   </header>
 
   <h2>Browse Houses</h2>
   <form>
-    <input type="text" placeholder="Search for a house" name="search" class="search-bar">
+    <input
+      type="text"
+      placeholder="Search for a house"
+      name="search"
+      class="search-bar"
+    />
     <button type="submit"><i class="fa fa-search search-btn"></i></button>
   </form>
 
   <table>
     <tr>
-      <td colspan="2">House A <button class="members-btn">Current Members</button></td>
+      <td colspan="2">
+        House A <button class="members-btn">Current Members</button>
+      </td>
     </tr>
     <tr>
-      <td colspan="2">House B <button class="members-btn">Current Members</button></td>
+      <td colspan="2">
+        House B <button class="members-btn">Current Members</button>
+      </td>
     </tr>
   </table>
 </main>
