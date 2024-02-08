@@ -3,3 +3,33 @@
   font-family: "Poppins", sans-serif;
   font-family: "Roboto Condensed", sans-serif;
 }
+
+table {
+  width: 20%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  position: relative; 
+}
+
+.join-btn {
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.join-btn:hover {
+  background-color: #0056b3;
+}
