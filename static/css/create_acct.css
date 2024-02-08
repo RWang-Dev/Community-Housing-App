@@ -53,9 +53,16 @@ button.create-account-btn {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 3vh;
 }
 
 button.create-account-btn:hover {
   background-color: #0056b3;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 3px;
 }
