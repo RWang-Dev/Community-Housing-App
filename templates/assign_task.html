@@ -2,6 +2,31 @@
 <link
   rel="stylesheet"
   href="{{url_for('static', filename='css/assign_task.css')}}"
+  
 />
 <title>Assign task</title>
-{% endblock %} {% block body %} Assign Task {% endblock %}
+{% endblock %} {% block body %}
+
+<h1>Assign a Task</h1>
+
+<main>
+  <form action="/submit-your-form">
+    <div>
+      <input type="text" name="task" value="Task name" />
+    </div>
+
+    <div>
+      <input type="text" name="person" value="Person Responsible" />
+    </div>
+
+    <div>
+      <label for="date">Select a date</label>
+      <input type="date" id="date" name="date" />
+    </div>
+
+    <div>
+      <input type="submit" value="Add to Calendar" />
+    </div>
+  </form>
+</main>
+{% endblock %}

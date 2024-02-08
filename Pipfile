@@ -19,6 +19,6 @@ typing-extensions = "==4.9.0"
 werkzeug = "==3.0.1"
 psycopg2-binary = "==2.9.9"
 bcrypt = "==4.1.2"
-flask-bcrypt = "==1.0.1"
+flask-bcrypt = "*"
 
 [dev-packages]
