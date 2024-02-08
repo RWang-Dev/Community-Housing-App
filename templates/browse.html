@@ -3,5 +3,22 @@
   rel="stylesheet"
   href="{{url_for('static', filename='css/browse.css')}}"
 />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Browse</title>
-{% endblock %} {% block body %} Browse {% endblock %}
+{% endblock %} {% block body %} 
+
+<main>
+  <h2>Browse Houses</h2>
+  <input type="text" placeholder="Search for a house" name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+  <table>
+    <tr>
+      <td colspan="2">House A <button class="join-btn">Join</button></td>
+    </tr>
+    <tr>
+      <td colspan="2">House B <button class="join-btn">Join</button></td>
+    </tr>
+  </table>
+</main>
+
+{% endblock %}
