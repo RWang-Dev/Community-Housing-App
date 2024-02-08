@@ -3,5 +3,46 @@
   rel="stylesheet"
   href="{{url_for('static', filename='css/user_home.css')}}"
 />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>User Home</title>
-{% endblock %} {% block body %} User Home {% endblock %}
+{% endblock %} {% block body %} 
+
+<main>
+  <!-- TODO: user will be replaced with actual user's name -->
+  <h2>Welcome user!</h2> 
+  <div class="my-houses">
+    <h3>My Houses:</h3>
+    <div class="house">
+      <p>House A</p>
+      <div class="buttons">
+        <button class="enter-btn">Enter</button>
+        <button class="leave-btn">Leave House</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="create-join-section">
+    <h3>Create or Join a House:</h3>
+    <form>
+      <input type="text" placeholder="Name your house" class="house-name-input">
+      <button type="submit" class="create-btn">Create<i class="fa fa-plus create-btn"></i></button>
+    </form>
+  </div>
+  <hr>
+
+  <form>
+    <input type="text" placeholder="Search for a house" name="search" class="search-bar">
+    <button type="submit"><i class="fa fa-search search-btn"></i></button>
+  </form>
+
+  <table>
+    <tr>
+      <td colspan="2">House A <button class="join-btn">Join</button></td>
+    </tr>
+    <tr>
+      <td colspan="2">House B <button class="join-btn">Join</button></td>
+    </tr>
+  </table>
+</main>
+
+{% endblock %}
