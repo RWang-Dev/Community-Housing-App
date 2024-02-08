@@ -8,15 +8,22 @@
 {% endblock %} {% block body %} 
 
 <main>
+  <header>
+    <div class="logo">LOGO</div>
+  </header>
+
   <h2>Browse Houses</h2>
-  <input type="text" placeholder="Search for a house" name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
+  <form>
+    <input type="text" placeholder="Search for a house" name="search" class="search-bar">
+    <button type="submit"><i class="fa fa-search search-btn"></i></button>
+  </form>
+
   <table>
     <tr>
-      <td colspan="2">House A <button class="join-btn">Join</button></td>
+      <td colspan="2">House A <button class="members-btn">Current Members</button></td>
     </tr>
     <tr>
-      <td colspan="2">House B <button class="join-btn">Join</button></td>
+      <td colspan="2">House B <button class="members-btn">Current Members</button></td>
     </tr>
   </table>
 </main>
