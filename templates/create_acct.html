@@ -1,13 +1,13 @@
-{% extends "base.html" %} {% block head %}
+{% extends 'base.html' %} {% block head %}
 <link
   rel="stylesheet"
-  href="{{url_for('static', filename='css/create_acct.css')}}"
+  href="{{ url_for('static', filename = 'css/create_acct.css') }}"
 />
-<link rel="stylesheet" href="/static/create_acct.css" />
+<script src="{{ url_for('static', filename = 'js/create_acct.js') }}"></script>
 <title>Create Account</title>
 {% endblock %} {% block body %}
 <main>
-    <h2>Create Account</h2>
+  <h2>Create Account</h2>
   <form action="/create/acct" method="post">
     <label for="name">Full Name</label>
     <input type="text" id="name" placeholder="Full Name" name="name" required />
@@ -31,7 +31,14 @@
       minlength="8"
       required
     />
-    <button class="create-account-btn" type="submit" value="Create Account">Create Account</button>
+    <p id="password-error" class="error"></p>
+    <button
+      class="create-account-btn"
+      type="submit"
+      onclick="return validatePasswords()"
+    >
+      Create Account
+    </button>
   </form>
 </main>
 {% endblock %}
