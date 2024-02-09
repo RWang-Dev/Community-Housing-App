@@ -1,5 +1,33 @@
 * {
-  font-family: "Oswald", sans-serif;
-  font-family: "Poppins", sans-serif;
-  font-family: "Roboto Condensed", sans-serif;
+    font-family: "Oswald", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
 }
+
+main {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+.task-name,
+.task-description,
+.task-due-date,
+.submit {
+    margin-bottom: 1em;
+}
+
+label {
+    display: block;
+}
+
+input[type="text"],
+textarea,
+input[type="datetime-local"] {
+    width: 100%;
+}
+
+

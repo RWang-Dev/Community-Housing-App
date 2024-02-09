@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 # kluver might want us to use psycopg2 instead
-from flask_sqlalchemy import SQLAlchemy 
+from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from data import *
+import os
 
 
 # static_url_path allows us to link js files without needing "../" in front
 app = Flask(__name__, static_url_path='/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://something'
 db = SQLAlchemy(app)
-app.config['SECRET_KEY'] = 'N^85r7b85rF&$%VR754e6cv43WC&*)&h(^42WNI69&6'  
+app.config['SECRET_KEY'] = 'N^85r7b85rF&$%VR754e6cv43WC&*)&h(^42WNI69&6'
 
 bcrypt = Bcrypt(app)
 
@@ -18,14 +19,14 @@ with app.app_context():  # Manually push an application context
 
 # login page
 @app.route('/', methods=['GET', 'POST'])
-def login():    
+def login():
     if request.method == 'POST':
         username = request.form.get("username")
         password = request.form.get("password")
         user_record = check_user_exists(username, password)
         if user_record:
             is_valid = bcrypt.check_password_hash(user_record[0], password)
-            if is_valid: 
+            if is_valid:
                 return redirect("/user/home")
             else:
                 flash("Incorrect username or password")
@@ -33,7 +34,7 @@ def login():
         else:
             flash("Incorrect username or password")
             return render_template('login.html')
-    
+
     return render_template('login.html')
 
 # create new account page
@@ -70,5 +71,11 @@ def house():
 def assign_task():
     return render_template('assign_task.html')
 
+@app.route('/edit/task')
+def edit_task():
+    return render_template('edit_task.html')
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    ip = os.environ.get("IP")
+    port = os.environ.get("PORT")
+    app.run(debug=True, host=ip, port=port)
