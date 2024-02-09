@@ -1,7 +1,30 @@
-{% extends "base.html" %} {% block head %}
-<link
-  rel="stylesheet"
-  href="{{url_for('static', filename='css/edit_task.css')}}"
-/>
-<title>Edit Task</title>
-{% endblock %} {% block body %} Edit Task {% endblock %}
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_task.css') }}"/>
+    <title>Edit Task</title>
+{% endblock %}
+{% block body %}
+    <h1>Edit Task</h1>
+    <main>
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="task-name">Task Name</label>
+                    <input type="text" id="task-name" name="task-name">
+                </div>
+                <div class="pure-control-group">
+                    <label for="task-description">Task Description</label>
+                    <textarea id="task-description" name="task-description"></textarea>
+                </div>
+                <div class="pure-control-group">
+                    <label for="task-due-date">Due Date</label>
+                    <input id="task-due-date" type="datetime-local" name="task-due-date">
+                </div>
+                <div class="pure-controls">
+                    <input type="submit" value="Add to Calendar" class="pure-button pure-button-primary">
+                </div>
+            </fieldset>
+        </form>
+    </main>
+{% endblock %}
