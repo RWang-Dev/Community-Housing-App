@@ -17,3 +17,11 @@ CREATE TABLE tasks (
     house_id INTEGER REFERENCES houses(house_id),
     added_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE user_houses (
+    user_id INT,
+    house_id INT,
+    PRIMARY KEY (user_id, house_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (house_id) REFERENCES houses(house_id) ON DELETE CASCADE
+);
