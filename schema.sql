@@ -1,4 +1,4 @@
-CREATE TABLE user_account (
+CREATE TABLE user_accounts (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE,
     email VARCHAR(255) UNIQUE,
@@ -13,7 +13,7 @@ CREATE TABLE houses (
 CREATE TABLE tasks (
     task_id SERIAL PRIMARY KEY,
     task_name VARCHAR(50) NOT NULL,
-    user_id INTEGER REFERENCES users(ID),
+    user_id INTEGER REFERENCES user_accounts(id),
     house_id INTEGER REFERENCES houses(house_id),
     added_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

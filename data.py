@@ -49,9 +49,9 @@ def get_db_cursor(commit=False):
 def add_user_account(username, email, password_hash):
     with get_db_cursor(True) as cur:
         current_app.logger.info("Adding user account %s", username)
-        cur.execute("INSERT INTO user_account (username, email, password_hash) values (%s, %s, %s)", (username, email, password_hash))
+        cur.execute("INSERT INTO user_accounts (username, email, password_hash) values (%s, %s, %s)", (username, email, password_hash))
 
 def check_user_exists(username, password):
     with get_db_cursor() as cur:
-        cur.execute("SELECT password_hash FROM user_account WHERE username = %s", (username,))
+        cur.execute("SELECT password_hash FROM user_accounts WHERE username = %s", (username,))
         return cur.fetchone()

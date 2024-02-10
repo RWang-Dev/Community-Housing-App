@@ -54,7 +54,7 @@ def create_acct():
 # user home page
 @app.route('/user/home')
 def user_home():
-    return render_template('user_home.html')
+    return render_template('user_homeV2.html')
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')
@@ -67,11 +67,11 @@ def house():
     return render_template('house.html')
 
 # assign task page
-@app.route('/assign/task')
+@app.route('/assign-task')
 def assign_task():
     return render_template('assign_task.html')
 
-@app.route('/edit/task')
+@app.route('/edit-task')
 def edit_task():
     return render_template('edit_task.html')
 
