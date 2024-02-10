@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/user_home.css')}}"
+/>
+<title>House</title>
+{% endblock %} {% block body %}
+
+<div class="navigation-bar">
+  <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
+</div>
+<div class="main-content">
+  <div class="left"></div>
+  <div class="center">
+    <h1>My Houses</h1>
+    <div class="my-houses">
+      <div class="house">
+        <div>House A</div>
+        <button>Enter</button>
+        <button>Leave House</button>
+      </div>
+    </div>
+    <h1>Create or Join a House</h2>
+    <input class="create-house-input" placeholder="Name your house">
+    <button class="create-house-button">Create</button>
+    <br>
+    <input class="search-house" placeholder="Search for a house by code">
+    <table>
+      <tbody>
+        <tr>
+          <td class="name-column">House B</td>
+          <td class="join-column"><button class="action-btn">Join</button></td>
+        </tr>
+        <tr>
+          <td class="name-column">House C</td>
+          <td><button class="action-btn">Join</button></td>
+        </tr>
+        <tr>
+          <td class="name-column">House D</td>
+          <td><button class="action-btn">Join</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+
+  </div>
+  <div class="right"></div>
+</div>
+
+{% endblock %}
