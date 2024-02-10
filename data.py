@@ -64,6 +64,7 @@ def check_house_exists(house_name):
     with get_db_cursor() as cur:
         cur.execute("SELECT * FROM houses WHERE house_name = %s", (house_name,))
         return cur.fetchone()
+    
 def get_houses():
     with get_db_cursor() as cur:
         cur.execute("SELECT house_name FROM houses")
