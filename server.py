@@ -45,16 +45,23 @@ def create_acct():
         email = request.form.get("email")
         password = request.form.get("password")
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
-        add_user_account(username, email, password_hash)
+        create_user_account(username, email, password_hash)
         return redirect("/user/home")
     else:
         return render_template('create_acct.html')
 
 
 # user home page
-@app.route('/user/home')
+@app.route('/user/home', methods=["GET", "POST"])
 def user_home():
-    return render_template('user_homeV2.html')
+    if request.method == "POST":
+        house_name = request.method.get("house-name")
+        create_house(house_name)
+        return redirect("/user/home")
+    else:
+        houses = get_houses()
+        print(houses)
+        return render_template('user_homeV2.html', houses=houses)
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')

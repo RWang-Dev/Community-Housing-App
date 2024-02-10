@@ -38,18 +38,12 @@
     <h2>Join a House</h2>
     <table>
       <tbody>
-        <tr>
-          <td class="name-column">House B</td>
-          <td class="join-column"><button class="action-btn">Join</button></td>
-        </tr>
-        <tr>
-          <td class="name-column">House C</td>
-          <td><button class="action-btn">Join</button></td>
-        </tr>
-        <tr>
-          <td class="name-column">House D</td>
-          <td><button class="action-btn">Join</button></td>
-        </tr>
+        {% for h in houses %}
+          <tr>
+            <td class="name-column">h.house_name</td>
+            <td class="join-column"><button class="action-btn">Join</button></td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
