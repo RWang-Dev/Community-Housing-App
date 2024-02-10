@@ -26,23 +26,31 @@
     </div>
     <h2>Create a House</h2>
     <form action="/user/home" method="post">
-      <input class="create-house-input" placeholder="Name your house" />
+      <input
+        class="create-house-input"
+        placeholder="Name your house"
+        name="house-name"
+      />
       <button type="submit" class="create-house-button">Create</button>
     </form>
     <br />
     <h2>Search for a House</h2>
     <form action="/user/home" method="post">
-      <input class="search-house" placeholder="Search for a house by code" />
+      <input
+        class="search-house"
+        placeholder="Search for a house by code"
+        name="house-name"
+      />
       <button type="submit" class="search-house-button">Search</button>
     </form>
     <h2>Join a House</h2>
     <table>
       <tbody>
         {% for h in houses %}
-          <tr>
-            <td class="name-column">h.house_name</td>
-            <td class="join-column"><button class="action-btn">Join</button></td>
-          </tr>
+        <tr>
+          <td class="name-column">{{h.house_name}}</td>
+          <td class="join-column"><button class="action-btn">Join</button></td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>

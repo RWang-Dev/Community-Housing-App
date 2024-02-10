@@ -55,8 +55,11 @@ def create_acct():
 @app.route('/user/home', methods=["GET", "POST"])
 def user_home():
     if request.method == "POST":
-        house_name = request.method.get("house-name")
-        create_house(house_name)
+        house_name = request.form.get("house-name")
+        if not check_house_exists(house_name):
+            create_house(house_name)
+        else:
+            flash("House name already taken")
         return redirect("/user/home")
     else:
         houses = get_houses()

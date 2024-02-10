@@ -51,15 +51,19 @@ def create_user_account(username, email, password_hash):
         current_app.logger.info("Adding user account %s", username)
         cur.execute("INSERT INTO user_accounts (username, email, password_hash) values (%s, %s, %s)", (username, email, password_hash))
 
-def check_user_exists(username, password):
+def check_user_exists(username):
     with get_db_cursor() as cur:
         cur.execute("SELECT password_hash FROM user_accounts WHERE username = %s", (username,))
         return cur.fetchone()
     
 def create_house(house_name):
-    with get_db_cursor() as cur:
-        cur.execute("INSERT INTO houses (house_name) VALUES (%s)", (house_name))
+    with get_db_cursor(True) as cur:
+        cur.execute("INSERT INTO houses (house_name) VALUES (%s)", (house_name,))
 
+def check_house_exists(house_name):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT * FROM houses WHERE house_name = %s", (house_name,))
+        return cur.fetchone()
 def get_houses():
     with get_db_cursor() as cur:
         cur.execute("SELECT house_name FROM houses")
