@@ -1,8 +1,50 @@
 * {
-  font-family: "Oswald", sans-serif;
-  font-family: "Poppins", sans-serif;
-  font-family: "Roboto Condensed", sans-serif;
-  color: #ffffff;
-  background-color: #121212;
-  text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
+    color: #ffffff;
+    background-color: #121212;
+    text-align: center;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 25%;
+    padding: 10px;
+    margin-right: 10px 1;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #e0e0e0;
+    height: 40px;
+}
+
+main {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+label {
+    display: block;
+}
+
+input[type="text"],
+textarea,
+input[type="datetime-local"] {
+    width: 100%;
 }

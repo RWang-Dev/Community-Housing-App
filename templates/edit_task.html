@@ -2,12 +2,15 @@
 {% block head %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_task.css') }}"/>
+    <script src="{{ url_for('static', filename='js/edit_task.js') }}"></script>
     <title>Edit Task</title>
 {% endblock %}
 {% block body %}
-    <h1>Edit Task</h1>
+    <header>
+        <h1>Edit Task</h1>
+    </header>
     <main>
-        <form class="pure-form pure-form-stacked">
+        <form class="pure-form pure-form-stacked" id="task-form">
             <fieldset>
                 <div class="pure-control-group">
                     <label for="task-name">Task Name</label>

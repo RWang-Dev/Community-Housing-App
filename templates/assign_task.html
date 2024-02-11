@@ -1,31 +1,31 @@
-{% extends "base.html" %} {% block head %}
-<link
-  rel="stylesheet"
-  href="{{url_for('static', filename='css/assign_task.css')}}"
-/>
-<title>Assign task</title>
-{% endblock %} {% block body %}
-
-<h1>Assign a Task</h1>
-
-<main>
-  <form action="/submit-your-form">
-    <div>
-      <input type="text" name="task" value="Task name" />
-    </div>
-
-    <div>
-      <input type="text" name="person" value="Person Responsible" />
-    </div>
-
-    <div>
-      <label for="date">Select a date</label>
-      <input type="date" id="date" name="date" />
-    </div>
-
-    <div>
-      <input type="submit" value="Add to Calendar" />
-    </div>
-  </form>
-</main>
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/assign_task.css') }}">
+    <script src="{{ url_for('static', filename='js/assign_task.js') }}"></script>
+    <title>Assign Task</title>
+{% endblock %}
+{% block body %}
+    <header>
+        <h1>Assign a Task</h1>
+    </header>
+    <main>
+        <form class="pure-form pure-form-stacked" id="task-form">
+            <div class="pure-control-group">
+                <label for="task-name">Task Name</label>
+                <input type="text" id="task-name" name="task-name" value="Task name">
+            </div>
+            <div class="pure-control-group">
+                <label for="person">Person Responsible</label>
+                <input type="text" id="person" name="person" value="Person Responsible">
+            </div>
+            <div class="pure-control-group">
+                <label for="task-due-date">Due Date</label>
+                <input id="task-due-date" type="datetime-local" name="task-due-date">
+            </div>
+            <div class="pure-controls">
+                <input type="submit" value="Add to Calendar" class="pure-button pure-button-primary">
+            </div>
+        </form>
+    </main>
 {% endblock %}
