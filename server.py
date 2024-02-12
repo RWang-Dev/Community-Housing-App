@@ -14,8 +14,8 @@ app.config['SECRET_KEY'] = 'N^85r7b85rF&$%VR754e6cv43WC&*)&h(^42WNI69&6'
 
 bcrypt = Bcrypt(app)
 
-with app.app_context():  # Manually push an application context
-    setup()  # Now you can call setup() and current_app will be available
+with app.app_context():  
+    setup()
 
 # login page
 @app.route('/', methods=['GET', 'POST'])
