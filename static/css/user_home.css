@@ -195,15 +195,13 @@ table tr:last-child {
 }
 
 .join-box::-webkit-scrollbar {
-	width: 10px; /* Width of the scrollbar */
+	width: 10px;
 }
 
-/* Scroll bar thumb */
 .join-box::-webkit-scrollbar-thumb {
 	background-color: #555;
 }
 
-/* Scroll bar track */
 .join-box::-webkit-scrollbar-track {
 	background: #333;
 }
