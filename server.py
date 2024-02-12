@@ -77,13 +77,25 @@ def house():
     return render_template('house.html')
 
 # assign task page
-@app.route('/assign-task')
+@app.route('/assign-task', methods=["GET", "POST"])
+# someone will have to implement the DB on the backend to handle this
 def assign_task():
-    return render_template('assign_task.html')
+    if request.method == "POST":
+        response = request.form.to_dict()
+        assign_task_db(response)
+        return redirect("/house")
+    elif request.method == "GET":
+        return render_template('assign_task.html')
 
-@app.route('/edit-task')
+@app.route('/edit-task' , methods=["GET", "POST"])
+# someone will have to implement the DB on the backend to handle this
 def edit_task():
-    return render_template('edit_task.html')
+    if request.method == "POST":
+        response = request.form.to_dict()
+        edit_task_db(response)
+        return redirect("/house")
+    elif request.method == "GET":
+        return render_template('edit_task.html')
 
 if __name__ == "__main__":
     ip = os.environ.get("IP")
