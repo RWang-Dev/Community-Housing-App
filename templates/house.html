@@ -1,42 +1,57 @@
 {% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/house.css')}}" />
-<link rel="stylesheet" href="calendar-library.css">
+<link rel="stylesheet" href="calendar-library.css" />
 <script src="{{ url_for('static', filename = 'js/house.js') }}"></script>
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 <title>House</title>
-{% endblock %} {% block body %} 
+{% endblock %} {% block body %}
 
 <div class="navigation-bar">
   <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
 </div>
+<div class="welcome-box">
+  <header>
+    <h1>Welcome, User!</h1>
+    <p>Explore your houses and join communities.</p>
+  </header>
+</div>
+
 <div class="main-content">
   <div class="left"></div>
   <div class="center">
-    <header>
-      <h1>House A</h1>
-      <p>View the calendar, add tasks, and use the Scheduling GPT feature.</p>
-    </header>
     <div class="calendar-wrapper">
-        <div id='calendar'></div>
+      <div id="calendar"></div>
     </div>
     <div class="sidebar">
-        <div class="sidebar-top">
-            <table>
-                <tr><td colspan="1">Current Members</td></tr>
-                <tr><td>Stephen</td></tr>
-                <tr><td>Robert</td></tr>
-                <tr><td>Akka</td></tr>
-                <tr><td>Ben</td></tr>
-                <tr><td>Ari</td></tr>
-            </table>
+      <div class="sidebar-top">
+        <table>
+          <tr>
+            <td colspan="1">Current Members</td>
+          </tr>
+          <tr>
+            <td>Stephen</td>
+          </tr>
+          <tr>
+            <td>Robert</td>
+          </tr>
+          <tr>
+            <td>Akka</td>
+          </tr>
+          <tr>
+            <td>Ben</td>
+          </tr>
+          <tr>
+            <td>Ari</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="button-div">
+          <button>Assign a task</button><br />
+          <button>Scheduling AI</button>
         </div>
-        
-        <div class="sidebar-bottom">
-            <div class="button-div">
-                <button>Assign a task</button><br>
-                <button>Scheduling AI</button>
-            </div>
-        </div>
+      </div>
     </div>
   </div>
   <div class="right"></div>

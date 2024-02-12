@@ -23,7 +23,7 @@ def login():
     if request.method == 'POST':
         username = request.form.get("username")
         password = request.form.get("password")
-        user_record = check_user_exists(username, password)
+        user_record = check_user_exists(username)
         if user_record:
             is_valid = bcrypt.check_password_hash(user_record[0], password)
             if is_valid:
