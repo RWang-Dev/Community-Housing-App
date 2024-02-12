@@ -56,6 +56,9 @@ def create_acct():
 def user_home():
     if request.method == "POST":
         house_name = request.form.get("house-name")
+        if house_name.isspace() or house_name == "":
+            flash("House name cannot be empty")
+            return redirect("/user/home")
         if not check_house_exists(house_name):
             create_house(house_name)
         else:
