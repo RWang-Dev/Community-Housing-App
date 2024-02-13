@@ -1,48 +1,77 @@
-{% extends "base.html" %} {% block head %}
-<link
-  rel="stylesheet"
-  href="{{url_for('static', filename='css/user_home.css')}}"
-/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>User Home</title>
-{% endblock %} {% block body %} 
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/user_home.css')}}" />
+<script src="{{ url_for('static', filename='js/user_home.js') }}"></script>
+<title>House</title>
+{% endblock %}
+{% block body %}
 
-<main>
-  <!-- TODO: user will be replaced with actual user's name -->
-  <h2>Welcome user!</h2> 
-  <div class="my-houses">
-    <h3>My Houses:</h3>
-    <div class="house">
-      <p>House A</p>
-      <div class="buttons">
-        <button class="enter-btn">Enter</button>
-        <button class="leave-btn">Leave House</button>
+<div class="navigation-bar">
+  <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
+</div>
+<div class="welcome-box">
+  <header>
+    <h1>Welcome {user}!</h1>
+    <p>Explore your houses and join communities.</p>
+  </header>
+</div>
+<div class="main-content">
+  <div class="left"></div>
+  <div class="center">
+    <div class="left-center">
+      <br/>
+      <h2>Create a House</h2>
+      <form action="/user/home" method="post">
+        <input
+          type="text"
+          class="create-house-input"
+          placeholder="Name your house"
+          name="house-name"
+        />
+        <button type="submit" class="create-house-button">Create</button>
+      </form>
+      <br/>
+      <h2>My Houses</h2>
+      <div class="my-houses">
+        <div class="house">
+          <div>House A</div>
+          <button>Enter</button>
+          <button>Leave House</button>
+        </div>
+      </div>
+    </div>
+    <div class="right-center">
+    </form>
+    <br/>
+    <h2>Search for a House</h2>
+    <form action="/user/home" method="post">
+      <input
+        type="text"
+        class="search-house-input"
+        placeholder="Search for a house by code"
+        name="house-name"
+      />
+      <button type="submit" class="search-house-button">Search</button>
+    </form>
+    <br/>
+      <h2>Join a House</h2>
+      <div class="join-box">
+        <table>
+          <tbody>
+            {% for h in houses %}
+            <tr>
+              <td class="name-column">{{h.house_name}}</td>
+              <td class="join-column">
+                <button class="action-btn">Join</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-
-  <div class="create-join-section">
-    <h3>Create or Join a House:</h3>
-    <form>
-      <input type="text" placeholder="Name your house" class="house-name-input">
-      <button type="submit" class="create-btn">Create<i class="fa fa-plus create-btn"></i></button>
-    </form>
-  </div>
-  <hr>
-
-  <form>
-    <input type="text" placeholder="Search for a house" name="search" class="search-bar">
-    <button type="submit"><i class="fa fa-search search-btn"></i></button>
-  </form>
-
-  <table>
-    <tr>
-      <td colspan="2">House A <button class="join-btn">Join</button></td>
-    </tr>
-    <tr>
-      <td colspan="2">House B <button class="join-btn">Join</button></td>
-    </tr>
-  </table>
-</main>
+  <div class="right"></div>
+</div>
 
 {% endblock %}
