@@ -129,13 +129,16 @@ def user_home():
         return redirect("/user/home")
     else:
         houses = get_houses()
+
         print(houses)
         return render_template('user_home.html', houses=houses)
+
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')
 def browse():
-    return render_template('browse.html')
+    houses = get_houses()
+    return render_template('browse.html', houses=houses)
 
 
 # main house page (calendar w/ tasks, scheduling gpt)
