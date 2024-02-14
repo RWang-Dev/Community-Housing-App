@@ -44,6 +44,17 @@ input[type="datetime-local"] {
   height: 40px;
 }
 
+#person {
+  width: 100%;
+  padding: 10px;
+  margin-right: 10px 1;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #e0e0e0;
+  height: 40px;
+}
+
 .pure-control-group {
     margin-bottom: 20px;
 }
