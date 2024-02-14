@@ -145,9 +145,10 @@ def assign_task():
         return render_template('assign_task.html')
 
 
+# edit task page
+@requires_auth
 @app.route('/edit-task', methods=["GET", "POST"])
 # someone will have to implement the DB on the backend to handle this
-@requires_auth
 def edit_task():
     if request.method == "POST":
         response = request.form.to_dict()
@@ -157,8 +158,10 @@ def edit_task():
         return render_template('edit_task.html')
 
 
-@app.route('/ai_schedule', methods=["GET"])
+# ai schedule page
 @requires_auth
+@app.route('/ai_schedule', methods=["GET"])
+# someone will have to implement the DB on the backend to handle this
 def ai_schedule():
     house_members = get_house_members(get_house_id())
     diet_members = get_dietary_restrictions(get_house_id())
@@ -172,18 +175,3 @@ if __name__ == "__main__":
     port = os.environ.get("PORT")
     # app.run(debug=True, host=ip, port=port)
     app.run(debug=True, host="0.0.0.0", port=env.get("PORT", 3000))
-
-
-# TO DELETE
-# create new account page
-@app.route('/create/acct', methods=['GET', 'POST'])
-def create_acct():
-    if request.method == 'POST':
-        username = request.form.get("username")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
-        create_user_account(username, email, password_hash)
-        return redirect("/user/home")
-    else:
-        return render_template('create_acct.html')
