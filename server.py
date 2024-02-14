@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
-# kluver might want us to use psycopg2 instead
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from data import *
@@ -56,8 +55,14 @@ def create_acct():
 def user_home():
     if request.method == "POST":
         house_name = request.form.get("house-name")
+        house_name = house_name.strip()
         if house_name.isspace() or house_name == "":
             flash("House name cannot be empty")
+            return redirect("/user/home")
+        if len(house_name) <= 20:
+            pass
+        else:
+            flash("House name must be alphanumeric and less than 20 characters")
             return redirect("/user/home")
         if not check_house_exists(house_name):
             create_house(house_name)
