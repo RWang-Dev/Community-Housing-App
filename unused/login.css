@@ -1,0 +1,120 @@
+* {
+  font-family: "Oswald", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  margin-top: -5vh;
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+
+button.login-account-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button.login-account-btn:hover {
+  background-color: #0056b3;
+}
+
+hr {
+  margin-top: 20px;
+  border: 0;
+  border-top: 1px solid #333;
+}
+
+.have-account,
+div > a > button {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
+
+.browse-houses {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 1vh;
+}
+
+a {
+  color: #4d9fef;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: #333;
+  color: #007bff;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
