@@ -14,9 +14,10 @@ body {
 
 header {
     background-color: #1c1c1c;
-    color: #ffffff;
+    color: #e0e0e0;
     padding: 20px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 input[type="text"] {
@@ -48,3 +49,14 @@ textarea,
 input[type="datetime-local"] {
     width: 100%;
 }
+
+#person {
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px 1;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #e0e0e0;
+    height: 40px;
+  }
