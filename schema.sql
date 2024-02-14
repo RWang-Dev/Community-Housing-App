@@ -26,3 +26,8 @@ CREATE TABLE user_houses (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (house_id) REFERENCES houses(house_id) ON DELETE CASCADE
 );
+
+SELECT * FROM user_accounts;
+SELECT * FROM houses;
+SELECT * FROM tasks;
+SELECT * FROM user_houses;
