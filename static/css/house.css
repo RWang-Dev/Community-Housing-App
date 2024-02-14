@@ -73,6 +73,7 @@ header {
 .sidebar-top,
 .sidebar-bottom {
   padding: 10px;
+  padding-top: 21%;
 }
 
 .sidebar-top table {
@@ -81,17 +82,22 @@ header {
 }
 
 .sidebar-top td {
-  border: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding: 8px;
 }
 
 .button-div {
-  border: 1px solid #ccc;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 115px;
   text-align: center;
+  /* border-left: 1px solid #ccc; */
+  /* border-right: 1px solid #ccc; */
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .button-div button {
   margin-bottom: 10px;
 }
+
