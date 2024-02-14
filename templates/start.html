@@ -3,26 +3,29 @@
 <title>Landing Page</title>
 {% endblock %} {% block body %}
 
-<main>
-  <header>
-    <div class="logo">
-      <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
-    </div>
-  </header>
-
-  <h2>Landing Page</h2> <hr>
-  <p>Need help with organizing tasks or chores for your roommates? This is the solution you've been looking for. Join today!</p>
-  <hr>
-  <br>
-  <div class="auth0-login">
-    Log in or Sign up:
-    <a href="/login">Click here</a>
+<body>
+  <div class="hero">
+    <video autoplay loop muted plays-inline class="back-video">
+      <source src="{{url_for('static', filename='img/pexels-cityxcape-17153645 (1080p).mp4')}}" type="video/mp4">
+    </video>
+    <nav>
+      <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" class="logo">
+      <ul>
+        <li>
+          <div class="auth0-login">
+            Log in or Sign up:
+            <a href="/login">Click here</a>
+          </div>
+        </li>
+        <li>
+          <div class="browse-houses">
+            Browse houses without an account:
+            <a href="/browse">Browse Houses</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <div class="browse-houses">
-    Browse houses without an account:
-    <a href="/browse">Browse Houses</a>
-  </div>
-  
-</main>
+</body>
 
 {% endblock %}
