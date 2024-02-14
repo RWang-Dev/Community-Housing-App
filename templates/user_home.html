@@ -15,7 +15,7 @@
 </div>
 <div class="welcome-box">
   <header>
-    <h1>Welcome {user}!</h1>
+    <h1>Welcome user!</h1>
     <p>Explore your houses and join communities.</p>
   </header>
 </div>
@@ -37,11 +37,7 @@
       <br/>
       <h2>My Houses</h2>
       <div class="my-houses">
-        <div class="house">
-          <div>House A</div>
-          <button>Enter</button>
-          <button>Leave House</button>
-        </div>
+        <!-- clicking Join will add houses here -->
       </div>
     </div>
     <div class="right-center">
@@ -63,10 +59,10 @@
         <table>
           <tbody>
             {% for h in houses %}
-            <tr>
+            <tr class="house">
               <td class="name-column">{{h.house_name}}</td>
               <td class="join-column">
-                <button class="action-btn">Join</button>
+                <button class="join-btn" onclick="joinHouse('{{h.house_name}}')">Join</button>
               </td>
             </tr>
             {% endfor %}
