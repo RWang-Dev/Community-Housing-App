@@ -205,3 +205,12 @@ table tr:last-child {
 .join-box::-webkit-scrollbar-track {
   background: #333;
 }
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #ffffff;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  border-radius: 4px;
+}

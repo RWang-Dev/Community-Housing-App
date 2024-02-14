@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename = 'css/create_acct.css') }}"
+/>
+<script src="{{ url_for('static', filename = 'js/create_acct.js') }}"></script>
+<title>Create Account</title>
+{% endblock %} {% block body %}
+<main>
+  <h2>Create Account</h2>
+  <form action="/create/acct" method="post">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      placeholder="Username"
+      name="username"
+      required
+    />
+    <label for="email">Email</label>
+    <input type="text" id="email" placeholder="Email" name="email" required />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      name="password"
+      minlength="8"
+      required
+    />
+    <label for="confirm_password">Confirm Password</label>
+    <input
+      type="password"
+      id="confirm_password"
+      placeholder="Confirm Password"
+      name="confirm_password"
+      minlength="8"
+      required
+    />
+    <p id="password-error" class="error"></p>
+    <button
+      class="create-account-btn"
+      type="submit"
+      onclick="return validatePasswords()"
+    >
+      Create Account
+    </button>
+  </form>
+</main>
+{% endblock %}

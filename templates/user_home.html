@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/user_home.css')}}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <script src="{{ url_for('static', filename='js/user_home.js') }}"></script>
 <title>House</title>
 {% endblock %}
@@ -44,14 +48,14 @@
     </form>
     <br/>
     <h2>Search for a House</h2>
-    <form action="/user/home" method="post">
+    <form>
       <input
         type="text"
-        class="search-house-input"
-        placeholder="Search for a house by code"
-        name="house-name"
+        placeholder="Filter by name"
+        name="search"
+        id="search-bar"
+        class="search-bar"
       />
-      <button type="submit" class="search-house-button">Search</button>
     </form>
     <br/>
       <h2>Join a House</h2>
@@ -69,6 +73,11 @@
           </tbody>
         </table>
       </div>
+      <!-- <form action="/logout" method="get">
+        <button type="submit" class="logout-button">
+          Logout
+        </button>
+      </form> -->
     </div>
   </div>
   <div class="right"></div>

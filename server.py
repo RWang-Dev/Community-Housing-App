@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, flash, url_for, session
-# kluver might want us to use psycopg2 instead
 from flask_bcrypt import Bcrypt
 from data import *
 import os, json
@@ -16,9 +15,7 @@ if ENV_FILE:
 # static_url_path allows us to link js files without needing "../" in front
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = env.get("APP_SECRET_KEY")
-
 bcrypt = Bcrypt(app)
-
 with app.app_context():  
     setup()
 
@@ -64,54 +61,26 @@ def logout():
         + "/v2/logout?"
         + urlencode(
             {
-                "returnTo": url_for("home", _external=True),
+                "returnTo": url_for("start", _external=True),
                 "client_id": env.get("AUTH0_CLIENT_ID"),
             },
             quote_via=quote_plus,
         )
     )
 
-# login page
+# landing page  
+@app.route('/start')
+def start():
+    return render_template("start.html")
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def login():
-    # if request.method == 'POST':
-    #     username = request.form.get("username")
-    #     password = request.form.get("password")
-    #     user_record = check_user_exists(username)
-    #     if user_record:
-    #         is_valid = bcrypt.check_password_hash(user_record[0], password)
-    #         if is_valid:
-    #             return redirect("/user/home")
-    #         else:
-    #             flash("Incorrect username or password")
-    #             return render_template('login.html')
-    #     else:
-    #         flash("Incorrect username or password")
-    #         return render_template('login.html')
-
-    # return render_template('login.html')
-    # Decide what to show based on user's authentication status
     if 'user' in session:
-        # User is logged in, redirect to a user-specific page or show a logout option
-        return redirect("/user/home")  # Assuming 'user_home' is a route you have
+        # User is logged in
+        return redirect("/user/home") # user home page
     else:
-        # User is not logged in, show the login link or public content
-        return redirect("/login")  # Show a page that includes a login link
-
-# create new account page
-@app.route('/create/acct', methods=['GET', 'POST'])
-def create_acct():
-    if request.method == 'POST':
-        username = request.form.get("username")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
-        create_user_account(username, email, password_hash)
-        return redirect("/user/home")
-    else:
-        return render_template('create_acct.html')
-
+        # User is not logged in
+        return redirect("/start") # landing page
 
 # user home page
 @requires_auth
@@ -133,13 +102,11 @@ def user_home():
         print(houses)
         return render_template('user_home.html', houses=houses)
 
-
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')
 def browse():
     houses = get_houses()
     return render_template('browse.html', houses=houses)
-
 
 # main house page (calendar w/ tasks, scheduling gpt)
 @requires_auth
@@ -174,4 +141,18 @@ if __name__ == "__main__":
     ip = os.environ.get("IP")
     port = os.environ.get("PORT")
     # app.run(debug=True, host=ip, port=port)
-    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
+    app.run(debug=True, host="0.0.0.0", port=env.get("PORT", 3000))
+
+# TO DELETE
+# create new account page
+@app.route('/create/acct', methods=['GET', 'POST'])
+def create_acct():
+    if request.method == 'POST':
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+        create_user_account(username, email, password_hash)
+        return redirect("/user/home")
+    else:
+        return render_template('create_acct.html')
