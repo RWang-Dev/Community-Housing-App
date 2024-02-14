@@ -69,3 +69,10 @@ def get_houses():
     with get_db_cursor() as cur:
         cur.execute("SELECT house_name FROM houses")
         return cur.fetchall()
+
+# get users' names given a house id    
+def get_house_members(house_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT u.username FROM user_accounts u JOIN user_houses uh ON u.id = uh.user_id WHERE uh.house_id = %s", (house_id,))
+        members = cur.fetchall()
+        return [member[0] for member in members] if members else ["No members"]

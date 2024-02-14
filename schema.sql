@@ -4,6 +4,7 @@ CREATE TABLE user_accounts (
     email VARCHAR(255) UNIQUE,
     password_hash VARCHAR(255)
 );
+
 CREATE TABLE houses (
     house_id SERIAL PRIMARY KEY,
     house_name VARCHAR(50) NOT NULL,
