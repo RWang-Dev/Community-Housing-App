@@ -59,8 +59,10 @@ li {
 
 .btn {
   display: inline-block;
-  padding: 12px 40px;
+  width: 100px;
+  padding: 12px 20px;
   background-color: #007bff;
+  text-align: center;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -70,6 +72,7 @@ li {
   margin-left: 3px;
   margin-right: 3px;
 }
+
 
 .btn:hover {
   background-color: #0056b3;
