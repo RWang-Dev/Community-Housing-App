@@ -1,4 +1,9 @@
-body, h1, h2, p, ul, li {
+body,
+h1,
+h2,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
 }
@@ -47,7 +52,8 @@ body, h1, h2, p, ul, li {
   z-index: 1;
 }
 
-.auth0-buttons, .browse-houses {
+.auth0-buttons,
+.browse-houses {
   margin-bottom: 20px;
 }
 
@@ -61,6 +67,8 @@ body, h1, h2, p, ul, li {
   transition: background-color 0.3s ease;
   margin-bottom: 10pt;
   font-weight: bold;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .btn:hover {
