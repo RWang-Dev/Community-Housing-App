@@ -41,6 +41,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url(../img/black-bg.jpg);
 }
 
 .logo {
@@ -52,7 +53,10 @@ li {
   z-index: 1;
 }
 
-.auth0-buttons,
+.auth0-buttons {
+  margin-bottom: 20px;
+  border-bottom: 5px solid #1d1d1d;
+}
 .browse-houses {
   margin-bottom: 20px;
 }
