@@ -1,31 +1,32 @@
 {% extends "base.html" %} {% block head %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/start.css')}}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/start.css') }}" />
 <title>Landing Page</title>
 {% endblock %} {% block body %}
-
 <body>
-  <div class="hero">
-    <video autoplay loop muted plays-inline class="back-video">
-      <source src="{{url_for('static', filename='img/pexels-cityxcape-17153645 (1080p).mp4')}}" type="video/mp4">
-    </video>
-    <nav>
-      <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" class="logo">
-      <ul>
-        <li>
-          <div class="auth0-login">
-            Log in or Sign up:
-            <a href="/login">Click here</a>
-          </div>
-        </li>
-        <li>
-          <div class="browse-houses">
-            Browse houses without an account:
-            <a href="/browse">Browse Houses</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </div>
+	<div class="container">
+		<div class="left-section">
+			<div class="hero">
+				<video autoplay loop muted plays-inline class="back-video">
+					<source src="{{ url_for('static', filename='img/pexels-cityxcape-17153645 (1080p).mp4') }}" type="video/mp4" />
+				</video>
+			</div>
+			<div class="sidebar">
+				<img src="{{ url_for('static', filename='img/The_Forge_Banner_Transparent.jpg') }}" class="logo" />
+			</div>
+    </div>
+				<div class="right-section">
+					<h2>Start Here</h2>
+					<div class="auth0-buttons">
+						<a href="/login" class="btn">Log in</a>
+						<a href="/create/acct" class="btn">Sign up</a>
+					</div>
+					<h2>Browse Houses</h2>
+					<div class="browse-houses">
+						<a href="/browse" class="btn">Browse Houses</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-
 {% endblock %}
