@@ -51,6 +51,13 @@ def auth0_login():
         redirect_uri=url_for("callback", _external=True)
     )
 
+@app.route("/signup")
+def auth0_signup():
+    return oauth.auth0.authorize_redirect(
+        redirect_uri=url_for("callback", _external=True),
+        screen_hint='signup'
+    )
+
 
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
