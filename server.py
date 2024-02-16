@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, url_for, session
+from flask import Flask, render_template, request, redirect, flash, url_for, session, jsonify
 from flask_bcrypt import Bcrypt
 from data import *
 import os, json
@@ -146,6 +146,13 @@ def user_home():
 def browse():
     houses = get_houses()
     return render_template('browse.html', houses=houses)
+
+# used for Current members button in browse.html
+@app.route('/get-members')
+def get_members():
+    house_id = request.args.get('house_id')
+    members = get_house_members(int(house_id))
+    return jsonify({'members': members})
 
 
 # main house page (calendar w/ tasks, scheduling gpt)

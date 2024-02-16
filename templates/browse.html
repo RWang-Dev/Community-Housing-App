@@ -33,7 +33,7 @@
     {% for house in houses %}
     <tr class="house">
       <td colspan="2">
-        {{ house.house_name }} <button class="members-btn">Current Members</button>
+        {{ house.house_name }} <button class="members-btn" data-house-id="{{ house.house_id }}">Current Members</button>
       </td>
     </tr>
     {% endfor %}
