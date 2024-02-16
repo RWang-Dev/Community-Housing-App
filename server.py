@@ -63,8 +63,24 @@ def auth0_signup():
 def callback():
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
-    return redirect("/")
+    # Manually construct the userinfo URL
+    userinfo_url = f'https://{os.getenv("AUTH0_DOMAIN")}/userinfo'
+    # Use the full URL to make the request
+    resp = oauth.auth0.get(userinfo_url)
+    userinfo = resp.json()
+    print(userinfo)
+    username = userinfo["nickname"]
+    user_email = userinfo["email"]
+    
+    session["username"] = username
+    session["user_email"] = user_email 
 
+    if not check_user_exists(user_email):
+        create_user_account(username, user_email)
+        print("created account")
+
+    print(username, user_email)
+    return redirect("/")
 
 @app.route("/logout")
 def logout():
