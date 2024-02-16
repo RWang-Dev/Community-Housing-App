@@ -51,16 +51,16 @@ def get_db_cursor(commit=False):
             cursor.close()
 
 
-def create_user_account(username, email, password_hash):
+def create_user_account(username, email):
     with get_db_cursor(True) as cur:
         current_app.logger.info("Adding user account %s", username)
-        cur.execute("INSERT INTO user_accounts (username, email, password_hash) values (%s, %s, %s)",
-                    (username, email, password_hash))
+        cur.execute("INSERT INTO users (username, email) values (%s, %s)",
+                    (username, email))
 
 
-def check_user_exists(username):
+def check_user_exists(email):
     with get_db_cursor() as cur:
-        cur.execute("SELECT password_hash FROM user_accounts WHERE username = %s", (username,))
+        cur.execute("SELECT username FROM users WHERE email = %s", (email,))
         return cur.fetchone()
 
 
@@ -85,7 +85,7 @@ def get_houses():
 def get_house_members(house_id):
     with get_db_cursor() as cur:
         cur.execute(
-            "SELECT u.username FROM user_accounts u JOIN user_houses uh ON u.id = uh.user_id WHERE uh.house_id = %s",
+            "SELECT u.username FROM users u JOIN user_houses uh ON u.id = uh.user_id WHERE uh.house_id = %s",
             (house_id,))
         members = cur.fetchall()
         return [member[0] for member in members] if members else ["No members"]
