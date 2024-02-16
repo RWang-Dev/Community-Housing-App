@@ -14,7 +14,7 @@ CREATE TABLE houses (
 CREATE TABLE tasks (
     task_id SERIAL PRIMARY KEY,
     task_name VARCHAR(50) NOT NULL,
-    user_id INTEGER REFERENCES user_accounts(id),
+    user_id INTEGER REFERENCES users(id),
     house_id INTEGER REFERENCES houses(house_id),
     added_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -27,7 +27,10 @@ CREATE TABLE user_houses (
     FOREIGN KEY (house_id) REFERENCES houses(house_id) ON DELETE CASCADE
 );
 
-SELECT * FROM user_accounts;
+SELECT * FROM users;
 SELECT * FROM houses;
 SELECT * FROM tasks;
 SELECT * FROM user_houses;
+
+-- Example query for adding an entry to user_houses
+INSERT INTO user_houses (user_id, house_id) VALUES (1, 33);

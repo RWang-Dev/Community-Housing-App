@@ -77,7 +77,7 @@ def check_house_exists(house_name):
 
 def get_houses():
     with get_db_cursor() as cur:
-        cur.execute("SELECT house_name FROM houses")
+        cur.execute("SELECT house_name, house_id FROM houses")
         return cur.fetchall()
 
 
