@@ -68,7 +68,7 @@ def callback():
     # Use the full URL to make the request
     resp = oauth.auth0.get(userinfo_url)
     userinfo = resp.json()
-    print(userinfo)
+    # print(userinfo)
     username = userinfo["nickname"]
     user_email = userinfo["email"]
     
@@ -158,6 +158,15 @@ def leave_house():
 
     return jsonify({"result": "ok"})
 
+# for join button in user home
+@app.route('/join-house', methods=['POST'])
+@requires_auth
+def join_house_route():
+    # do I need to define user_id in callback route?
+    user_id = session.get('user_id')
+    house_id = request.json.get('house_id')
+    join_house(user_id, house_id) # add entry to user_houses
+    return jsonify({'message': 'House joined successfully'})
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')

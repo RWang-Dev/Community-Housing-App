@@ -106,3 +106,8 @@ def get_house_members(house_id):
             (house_id,))
         members = cur.fetchall()
         return [member[0] for member in members] if members else ["No members"]
+    
+# for join button in user_home
+def join_house(user_id, house_id):
+    with get_db_cursor(True) as cur:
+        cur.execute("INSERT INTO user_houses (user_id, house_id) VALUES (%s, %s)", (user_id, house_id))
