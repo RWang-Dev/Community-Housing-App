@@ -7,7 +7,7 @@ from urllib.parse import quote_plus, urlencode
 from functools import wraps
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # from gpt import *
 
@@ -190,6 +190,21 @@ def house(house_id):
     house_name = get_house_name_by_id(house_id)
     members = get_house_members(house_id)
     return render_template('house.html', house_id=house_id, house_name=house_name, members=members, cur_user=session["username"])
+
+# for calendar in house page 
+@app.route("/get-tasks/<int:house_id>", methods=["GET"])
+def get_tasks(house_id):
+    tasks = get_tasks_by_house_id(house_id)
+    events = []
+    for task in tasks:
+        event = {
+            'title': task[1],  # task name
+            'start': task[5],  # due date
+            'end': task[5] + timedelta(hours=1)  # add some time from start 
+        }
+        events.append(event)
+    # print(events)
+    return jsonify(events)
 
 # assign task page
 @requires_auth
