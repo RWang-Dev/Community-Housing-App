@@ -155,6 +155,7 @@ def join_house():
 @app.route("/leave-house", methods=["POST"])
 def leave_house():
     data = request.get_json()
+    delete_tasks_by_user_and_house(session["user_id"], data["house_id"])
     remove_user_house(session["user_id"], data["house_id"])
 
     return jsonify({"result": "ok"})
