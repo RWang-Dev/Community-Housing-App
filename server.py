@@ -184,9 +184,9 @@ def get_members():
 
 # main house page (calendar w/ tasks, scheduling gpt)
 @requires_auth
-@app.route('/house')
-def house():
-    return render_template('house.html')
+@app.route('/house/<int:house_id>')
+def house(house_id):
+    return render_template('house.html', house_id=house_id)
 
 
 # assign task page

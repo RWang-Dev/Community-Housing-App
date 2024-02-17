@@ -46,7 +46,8 @@ async function joinHouse(houseID, houseName) {
   var enterButton = document.createElement("button");
   enterButton.textContent = "Enter";
   enterButton.addEventListener("click", function () {
-    window.location.href = "/house";
+    // have to use backticks if you're using something like ${}
+    window.location.href = `/house/${houseID}`;
   });
 
   var leaveButton = document.createElement("button");
