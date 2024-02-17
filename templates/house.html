@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/house.css')}}" />
-<link rel="stylesheet" href="calendar-library.css" />
 <script src="{{ url_for('static', filename = 'js/house.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 <title>House</title>
@@ -28,21 +27,11 @@
           <tr>
             <td colspan="1">Current Members</td>
           </tr>
+          {% for member in members %}
           <tr>
-            <td>Stephen</td>
+            <td>{{ member }}</td>
           </tr>
-          <tr>
-            <td>Robert</td>
-          </tr>
-          <tr>
-            <td>Akka</td>
-          </tr>
-          <tr>
-            <td>Ben</td>
-          </tr>
-          <tr>
-            <td>Ari</td>
-          </tr>
+          {% endfor %}
         </table>
       </div>
 
