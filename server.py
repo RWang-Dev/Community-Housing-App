@@ -7,6 +7,7 @@ from urllib.parse import quote_plus, urlencode
 from functools import wraps
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
+from datetime import datetime
 
 # from gpt import *
 
@@ -186,21 +187,24 @@ def get_members():
 @app.route('/house/<int:house_id>')
 def house(house_id):
     house_name = get_house_name_by_id(house_id)
-    return render_template('house.html', house_id=house_id, house_name=house_name, cur_user=session["username"])
-
+    members = get_house_members(house_id)
+    return render_template('house.html', house_id=house_id, house_name=house_name, members=members, cur_user=session["username"])
 
 # assign task page
 @requires_auth
 @app.route('/assign-task/<int:house_id>', methods=["GET", "POST"])
-# someone will have to implement the DB on the backend to handle this
 def assign_task(house_id):
     if request.method == "POST":
-        response = request.form.to_dict()
-        assign_task_db(response)
-        return redirect("/house")
-    elif request.method == "GET":
-        return render_template('assign_task.html', house_id=house_id)
+        task_name = request.form.get("task-name")
+        user_responsible = request.form.get("person")
+        task_due_date_str = request.form.get("task-due-date")
+        task_due_date = datetime.strptime(task_due_date_str, "%Y-%m-%dT%H:%M")
+        insert_task(task_name, user_responsible, house_id, task_due_date)
 
+        return redirect(url_for('house', house_id=house_id))
+    elif request.method == "GET":
+        member_id_dict = get_member_id_dict(house_id)
+        return render_template('assign_task.html', house_id=house_id, member_id_dict=member_id_dict)
 
 # edit task page
 @requires_auth

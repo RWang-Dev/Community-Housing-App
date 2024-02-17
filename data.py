@@ -14,6 +14,7 @@ import os
 import psycopg2
 from psycopg2.pool import ThreadedConnectionPool
 from psycopg2.extras import DictCursor
+from datetime import datetime
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -106,6 +107,15 @@ def get_house_members(house_id):
             (house_id,))
         members = cur.fetchall()
         return [member[0] for member in members] if members else ["No members"]
+
+# for assign_task page
+def get_member_id_dict(house_id):
+    with get_db_cursor() as cur:
+        cur.execute(
+            "SELECT u.id, u.username FROM users u JOIN user_houses uh ON u.id = uh.user_id WHERE uh.house_id = %s",
+            (house_id,))
+        members = cur.fetchall()
+        return {member[1]: member[0] for member in members}
     
 def get_house_name_by_id(house_id):
     with get_db_cursor() as cur:
@@ -120,3 +130,9 @@ def get_house_name_by_id(house_id):
 def join_house(user_id, house_id):
     with get_db_cursor(True) as cur:
         cur.execute("INSERT INTO user_houses (user_id, house_id) VALUES (%s, %s)", (user_id, house_id))
+
+# for assign-task page
+def insert_task(task_name, user_id, house_id, task_due_date):
+    with get_db_cursor(True) as cur:
+        query = "INSERT INTO tasks (task_name, user_id, house_id, added_timestamp, due_date) VALUES (%s, %s, %s, %s, %s)"
+        cur.execute(query, (task_name, user_id, house_id, datetime.now(), task_due_date))

@@ -16,7 +16,8 @@ CREATE TABLE tasks (
     task_name VARCHAR(50) NOT NULL,
     user_id INTEGER REFERENCES users(id),
     house_id INTEGER REFERENCES houses(house_id),
-    added_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    added_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    due_date TIMESTAMP
 );
 
 CREATE TABLE user_houses (
