@@ -25,13 +25,23 @@ header {
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   transition: top 0.3s ease;
 }
 
 .navigation-bar img {
   width: 25%;
+}
+
+.logout-icon {
+  margin-right: 20px; 
+  color: white; 
+  text-decoration: none;
+}
+
+.logout-icon:hover {
+  color: gray; 
 }
 
 .welcome-box {
@@ -98,7 +108,7 @@ header {
   margin-bottom: 10px;
   padding: 15px;
   border-radius: 8px;
-  width: max-content;
+  min-width: max-content;
 }
 
 .house div {
@@ -116,6 +126,33 @@ header {
 }
 
 .house button:hover {
+  background-color: #0056b3;
+}
+
+.my-houses-list {
+  background-color: #222;
+  border: 1px solid #444;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  width: max-content;
+}
+
+.my-houses-list div {
+  margin-bottom: 10px;
+}
+
+.my-houses-list button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.my-houses-list button:hover {
   background-color: #0056b3;
 }
 
