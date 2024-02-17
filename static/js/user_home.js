@@ -14,35 +14,7 @@ function toggleNavbarOnScroll() {
     };
   }
   
-  window.onload = toggleNavbarOnScroll;
-  
-function joinHouse(houseName) {
-  var newHouseDiv = document.createElement("div");
-  newHouseDiv.classList.add("house");
-
-  var houseNameDiv = document.createElement("div");
-  houseNameDiv.textContent = houseName;
-
-  // enter and leave buttons
-  var enterButton = document.createElement("button");
-  enterButton.textContent = "Enter";
-  enterButton.addEventListener("click", function() {
-    window.location.href = "/house";
-  });
-
-  var leaveButton = document.createElement("button");
-  leaveButton.textContent = "Leave House";
-  leaveButton.addEventListener("click", function() {
-    newHouseDiv.remove();
-  });
-
-  newHouseDiv.appendChild(houseNameDiv);
-  newHouseDiv.appendChild(enterButton);
-  newHouseDiv.appendChild(leaveButton);
-
-  var myHousesDiv = document.querySelector(".my-houses");
-  myHousesDiv.appendChild(newHouseDiv);
-}
+window.onload = toggleNavbarOnScroll;
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchBar = document.getElementById("search-bar");
@@ -61,3 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
       })
   })
 });
+
+function joinHouse(houseId) {
+  fetch('/join-house', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ house_id: houseId })
+    })
+    .then(response => {
+        if(response.ok) {
+          return response.json();
+        } 
+        else {
+          throw new Error('error');
+        }
+    })
+    .then(data => {
+      console.log('House joined successfully');
+    })
+    .catch(error => {
+      console.error('Error joining house:', error);
+    });
+}
