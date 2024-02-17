@@ -162,7 +162,6 @@ def leave_house():
 @app.route('/join-house', methods=['POST'])
 @requires_auth
 def join_house_route():
-    # do I need to define user_id in callback route?
     user_id = session.get('user_id')
     house_id = request.json.get('house_id')
     join_house(user_id, house_id) # add entry to user_houses
@@ -192,15 +191,15 @@ def house(house_id):
 
 # assign task page
 @requires_auth
-@app.route('/assign-task', methods=["GET", "POST"])
+@app.route('/assign-task/<int:house_id>', methods=["GET", "POST"])
 # someone will have to implement the DB on the backend to handle this
-def assign_task():
+def assign_task(house_id):
     if request.method == "POST":
         response = request.form.to_dict()
         assign_task_db(response)
         return redirect("/house")
     elif request.method == "GET":
-        return render_template('assign_task.html')
+        return render_template('assign_task.html', house_id=house_id)
 
 
 # edit task page
