@@ -107,6 +107,15 @@ def get_house_members(house_id):
         members = cur.fetchall()
         return [member[0] for member in members] if members else ["No members"]
     
+def get_house_name_by_id(house_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT house_name FROM houses WHERE house_id = %s", (house_id,))
+        result = cur.fetchone()
+        if result:
+            return result[0]  
+        else:
+            return None  # id not found
+    
 # for join button in user_home
 def join_house(user_id, house_id):
     with get_db_cursor(True) as cur:

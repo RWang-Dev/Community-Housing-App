@@ -186,7 +186,8 @@ def get_members():
 @requires_auth
 @app.route('/house/<int:house_id>')
 def house(house_id):
-    return render_template('house.html', house_id=house_id)
+    house_name = get_house_name_by_id(house_id)
+    return render_template('house.html', house_id=house_id, house_name=house_name, cur_user=session["username"])
 
 
 # assign task page
