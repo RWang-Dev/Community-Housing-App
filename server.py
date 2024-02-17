@@ -151,7 +151,7 @@ def browse():
 @app.route('/get-members')
 def get_members():
     house_id = request.args.get('house_id')
-    members = get_house_members(int(house_id))
+    members = get_house_members(house_id)
     return jsonify({'members': members})
 
 
