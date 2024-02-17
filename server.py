@@ -73,13 +73,15 @@ def callback():
     user_email = userinfo["email"]
     
     session["username"] = username
-    session["user_email"] = user_email 
+    session["user_email"] = user_email
+    
 
     if not check_user_exists(user_email):
         create_user_account(username, user_email)
         print("created account")
 
-    # print(username, user_email)
+    session["user_id"] = get_user_id(user_email)[0]
+    print(session["username"], session["user_email"])
     return redirect("/")
 
 @app.route("/logout")
@@ -136,7 +138,25 @@ def user_home():
         return redirect("/user/home")
     else:
         houses = get_houses()
-        return render_template('user_home.html', houses=houses)
+        user_houses = get_user_houses(session["user_id"])
+        
+        return render_template('user_home.html', houses=houses, user_houses=user_houses, cur_user=session["username"])
+
+@requires_auth
+@app.route("/join-house", methods=["POST"])
+def join_house():
+    data = request.get_json()
+    add_user_house(session["user_id"], data["house_id"])
+
+    return jsonify({"result": "ok"})
+
+@requires_auth
+@app.route("/leave-house", methods=["POST"])
+def leave_house():
+    data = request.get_json()
+    remove_user_house(session["user_id"], data["house_id"])
+
+    return jsonify({"result": "ok"})
 
 # for join button in user home
 @app.route('/join-house', methods=['POST'])

@@ -79,7 +79,24 @@ def get_houses():
     with get_db_cursor() as cur:
         cur.execute("SELECT house_name, house_id FROM houses")
         return cur.fetchall()
+    
+def get_user_id(user_email):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT id FROM users WHERE email = %s", (user_email,))
+        return cur.fetchone()
 
+def get_user_houses(user_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT house_name, house_id FROM user_houses LEFT JOIN houses USING (house_id) WHERE user_id = %s", (user_id,))
+        return cur.fetchall()
+    
+def add_user_house(user_id, house_id):
+    with get_db_cursor(True) as cur:
+        cur.execute("INSERT INTO user_houses (user_id, house_id) VALUES (%s, %s)", (user_id, house_id))
+
+def remove_user_house(user_id, house_id):
+    with get_db_cursor(True) as cur:
+        cur.execute("DELETE FROM user_houses WHERE user_id = %s AND house_id = %s", (user_id, house_id))
 
 # get users' names given a house id
 def get_house_members(house_id):
