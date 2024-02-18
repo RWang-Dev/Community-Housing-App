@@ -209,6 +209,7 @@ def get_tasks(house_id):
     for task in tasks:
         event = {
             'title': task[1],  # task name
+            'assignee': get_user_by_id(task[2])[0],
             'start': task[5],  # due date
             'end': task[5] + timedelta(hours=1),  # add some time from start 
             'end-day': day_rounder(task[5])

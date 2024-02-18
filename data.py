@@ -125,6 +125,12 @@ def get_house_name_by_id(house_id):
             return result[0]  
         else:
             return None  # id not found
+
+def get_user_by_id(user_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT username FROM users WHERE id = %s", (user_id, ))
+        result = cur.fetchone()
+        return result
     
 # for join button in user_home
 def join_house(user_id, house_id):
