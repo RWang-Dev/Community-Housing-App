@@ -44,7 +44,8 @@
         {% for h in user_houses %}
           <div class="my-houses-list" id="{{ 'house-' + h.house_id|string }}">
               <div>{{h.house_name}}</div>
-              <a href="{{'/house/' + h.house_id|string}}"><button>Enter</button></a>
+    <a href="/house/{{h.house_id}}"><button>Enter</button></a>
+
               <button id="leave-house" onclick="leaveHouse('{{h.house_id}}')">Leave House</button>
           </div>
         {% endfor %}
