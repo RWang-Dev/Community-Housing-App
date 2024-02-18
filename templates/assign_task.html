@@ -1,43 +1,62 @@
-{% extends "base.html" %}
-{% block head %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/assign_task.css') }}">
-    <script src="{{ url_for('static', filename='js/assign_task.js') }}"></script>
-    <title>Assign Task</title>
-{% endblock %}
-{% block body %}
+{% extends "base.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/assign_task.css') }}"
+/>
+<script src="{{ url_for('static', filename='js/assign_task.js') }}"></script>
+<title>Assign Task</title>
+{% endblock %} {% block body %}
 
-    <main>
-        <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">Home</a>
-            <a href="#contact">Schedule</a>
-            <a href="#about">Log-Out</a>
-          </div>
-        <header>
-            <h1>Assign a Task</h1>
-        </header>
-        <form class="pure-form pure-form-stacked" id="task-form" method="post">
-            <div class="pure-control-group">
-                <label for="task-name">Task Name</label>
-                <input type="text" id="task-name" name="task-name" placeholder="Task name" required>
-            </div>
-            <div class="pure-control-group">
-                <label for="person">Person Responsible</label>
-                <select id="person" name="person">
-                    {% for username, user_id in member_id_dict.items() %}
-                        <option value="{{user_id}}">{{username}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="pure-control-group">
-                <label for="task-due-date">Due Date</label>
-                <input id="task-due-date" type="datetime-local" name="task-due-date" required>
-            </div>
-            <div class="pure-controls">
-                <input type="submit" value="Add to Calendar" class="pure-button pure-button-primary">
-            </div>
-        </form>
-    </main>
+<main>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">Home</a>
+    <a href="#contact">Schedule</a>
+    <a href="#about">Log-Out</a>
+  </div>
+  <header>
+    <h1>Assign a Task</h1>
+  </header>
+  <form class="pure-form pure-form-stacked" id="task-form" method="post">
+    <div class="pure-control-group">
+      <label for="task-name">Task Name</label>
+      <input
+        type="text"
+        id="task-name"
+        name="task-name"
+        placeholder="Task name"
+        required
+      />
+    </div>
+    <div class="pure-control-group">
+      <label for="person">Person Responsible</label>
+      <select id="person" name="person">
+        {% for username, user_id in member_id_dict.items() %}
+        <option value="{{user_id}}">{{username}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="pure-control-group">
+      <label for="task-due-date">Due Date</label>
+      <input
+        id="task-due-date"
+        type="datetime-local"
+        name="task-due-date"
+        required
+      />
+    </div>
+    <div class="pure-controls">
+      <input
+        type="submit"
+        value="Add to Calendar"
+        class="pure-button pure-button-primary"
+      />
+    </div>
+  </form>
+</main>
 
 {% endblock %}

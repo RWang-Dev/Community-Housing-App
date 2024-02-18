@@ -1,0 +1,25 @@
+.navigation-bar {
+  background-color: black;
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.3s ease;
+}
+
+.navigation-bar img {
+  width: 25%;
+}
+
+.logout-icon {
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.logout-icon:hover {
+  color: gray;
+}
