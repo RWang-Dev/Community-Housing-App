@@ -40,52 +40,11 @@
 
       <div class="sidebar-bottom">
         <div class="button-div">
-          <h3>Assign Task</h3>
-          <form
-            class="pure-form pure-form-stacked"
-            id="task-form"
-            method="post"
-          >
-            <div class="pure-control-group">
-              <label for="task-name">Task Name</label>
-              <input
-                type="text"
-                id="task-name"
-                name="task-name"
-                placeholder="Task name"
-                required
-              />
-            </div>
-            <div class="pure-control-group">
-              <label for="person">Person Responsible</label>
-              <select id="person" name="person">
-                {% for username, user_id in member_id_dict.items() %}
-                <option value="{{user_id}}">{{username}}</option>
-                {% endfor %}
-              </select>
-            </div>
-            <div class="pure-control-group">
-              <label for="task-due-date">Due Date</label>
-              <input
-                id="task-due-date"
-                type="datetime-local"
-                name="task-due-date"
-                required
-              />
-            </div>
-            <div class="pure-controls">
-              <input
-                type="submit"
-                value="Add to Calendar"
-                class="pure-button pure-button-primary"
-              />
-            </div>
-          </form>
-          <!-- <a href="/assign-task/{{house_id}}">
+          <a href="/assign-task/{{house_id}}">
             <button class="assign-button pure-button pure-button-primary">
               Assign a task
             </button>
-          </a> -->
+          </a>
           <br />
           <button class="scheduling-button pure-button pure-button-primary">
             Scheduling AI
