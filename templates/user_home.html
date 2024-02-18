@@ -12,7 +12,9 @@
 
 <div class="navigation-bar">
   <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
-  <a href="/logout" class="logout-icon">Logout: <i class="fa fa-sign-out"></i></a>
+  <a href="/logout" class="logout-icon"
+    >Logout: <i class="fa fa-sign-out"></i
+  ></a>
 </div>
 <div class="welcome-box">
   <header>
@@ -42,7 +44,8 @@
         {% for h in user_houses %}
           <div class="my-houses-list" id="{{ 'house-' + h.house_id|string }}">
               <div>{{h.house_name}}</div>
-              <a href="/house/{{h.house_id}}"><button>Enter</button></a>
+    <a href="/house/{{h.house_id}}"><button>Enter</button></a>
+
               <button id="leave-house" onclick="leaveHouse('{{h.house_id}}')">Leave House</button>
           </div>
         {% endfor %}

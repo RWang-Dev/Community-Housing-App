@@ -189,7 +189,8 @@ def get_members():
 def house(house_id):
     house_name = get_house_name_by_id(house_id)
     members = get_house_members(house_id)
-    return render_template('house.html', house_id=house_id, house_name=house_name, members=members, cur_user=session["username"])
+    member_id_dict = get_member_id_dict(house_id)
+    return render_template('house.html', house_id=house_id, house_name=house_name, member_id_dict=member_id_dict, members=members, cur_user=session["username"])
 
 # for calendar in house page 
 @app.route("/get-tasks/<int:house_id>", methods=["GET"])
