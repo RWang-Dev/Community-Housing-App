@@ -1,10 +1,30 @@
 * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-family: "Oswald", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Roboto Condensed", sans-serif;
   text-align: center;
 }
 
+#cursor{
+  color: orange;
+  animation: blink 1s linear infinite;
+}
+#typewriter{
+  font-weight: bold;
+  color: orange;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+}
 body {
   background-color: #121212;
   color: #e0e0e0;

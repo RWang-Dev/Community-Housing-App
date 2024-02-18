@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", async function () {
   var calendarEl = document.getElementById("calendar");
   var calendar = new FullCalendar.Calendar(calendarEl, {

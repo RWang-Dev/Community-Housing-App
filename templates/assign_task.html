@@ -7,21 +7,16 @@
   rel="stylesheet"
   href="{{ url_for('static', filename='css/assign_task.css') }}"
 />
-<script src="{{ url_for('static', filename='js/assign_task.js') }}"></script>
+<script defer src="{{ url_for('static', filename='js/assign_task.js') }}"></script>
 <title>Assign Task</title>
 {% endblock %} {% block body %}
 
 <main>
-  <div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#news">Home</a>
-    <a href="#contact">Schedule</a>
-    <a href="#about">Log-Out</a>
-  </div>
   <header>
-    <h1>Assign a Task</h1>
+    <h1>Let's Assign a Task...<br />Who is <span id="typewriter"></span>
+    <span id="cursor">|</span></h1>
   </header>
-  <form class="pure-form pure-form-stacked" id="task-form" method="post">
+  <form class="pure-form pure-form-stacked" id="task-form">
     <div class="pure-control-group">
       <label for="task-name">Task Name</label>
       <input
@@ -29,25 +24,21 @@
         id="task-name"
         name="task-name"
         placeholder="Task name"
-        required
       />
     </div>
     <div class="pure-control-group">
       <label for="person">Person Responsible</label>
       <select id="person" name="person">
-        {% for username, user_id in member_id_dict.items() %}
-        <option value="{{user_id}}">{{username}}</option>
-        {% endfor %}
+        <option value="stephen">Stephen</option>
+        <option value="robert">Robert</option>
+        <option value="akka">Akka</option>
+        <option value="ben">Ben</option>
+        <option value="ari">Ari</option>
       </select>
     </div>
     <div class="pure-control-group">
       <label for="task-due-date">Due Date</label>
-      <input
-        id="task-due-date"
-        type="datetime-local"
-        name="task-due-date"
-        required
-      />
+      <input id="task-due-date" type="datetime-local" name="task-due-date" />
     </div>
     <div class="pure-controls">
       <input
