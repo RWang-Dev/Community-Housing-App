@@ -190,8 +190,17 @@ def house(house_id):
     house_name = get_house_name_by_id(house_id)
     members = get_house_members(house_id)
     member_id_dict = get_member_id_dict(house_id)
-    return render_template('house.html', house_id=house_id, house_name=house_name, member_id_dict=member_id_dict, members=members, cur_user=session["username"])
+    house_tasks = get_tasks_by_house_id(house_id)
+    print(house_tasks)
+    return render_template('house.html', house_id=house_id, house_tasks=house_tasks, house_name=house_name, member_id_dict=member_id_dict, members=members, cur_user=session["username"])
 
+def day_rounder(t):
+    if t.hour < 12 or (t.hour == 12 and t.minute == 0 and t.second == 0 and t.microsecond == 0):
+        return t.replace(hour=0, minute=0, second=0, microsecond=0)
+    else:
+        rounded_up = t.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
+        return rounded_up
+    
 # for calendar in house page 
 @app.route("/get-tasks/<int:house_id>", methods=["GET"])
 def get_tasks(house_id):
@@ -201,7 +210,8 @@ def get_tasks(house_id):
         event = {
             'title': task[1],  # task name
             'start': task[5],  # due date
-            'end': task[5] + timedelta(hours=1)  # add some time from start 
+            'end': task[5] + timedelta(hours=1),  # add some time from start 
+            'end-day': day_rounder(task[5])
         }
         events.append(event)
     # print(events)
