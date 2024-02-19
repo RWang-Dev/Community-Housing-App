@@ -18,6 +18,15 @@ window.onload = toggleNavbarOnScroll;
 
 async function leaveHouse(houseID) {
   const parentDiv = document.getElementById("house-" + String(houseID));
+  const isLastMember = await checkIfLastMember(houseID);
+  
+  if (isLastMember) {
+    const confirmation = confirm("You are the last member of this house. Are you sure you want to leave?");
+    if (!confirmation) {
+      return;
+    }
+  }
+  
   parentDiv.remove();
   const params = {
     method: "POST",
@@ -26,6 +35,14 @@ async function leaveHouse(houseID) {
   };
 
   const result = await fetch("/leave-house", params);
+
+  location.reload();
+}
+
+async function checkIfLastMember(houseID) {
+  const response = await fetch(`/check-last-member?house_id=${houseID}`);
+  const data = await response.json();
+  return data.is_last_member;
 }
 async function joinHouse(houseID, houseName) {
   const params = {

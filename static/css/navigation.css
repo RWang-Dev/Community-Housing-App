@@ -1,25 +1,28 @@
 .navigation-bar {
   background-color: black;
-  width: 100%;
+  width: calc(100% + 50px);
   height: 10vh;
   position: fixed;
-  top: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   transition: top 0.3s ease;
+  font-size: 1.2em;
+  padding: 0 20px;
+  overflow: hidden;
 }
 
 .navigation-bar img {
-  width: 25%;
+  width: 20%;
+  height: auto;
+  margin-left: -50px;
 }
 
-.logout-icon {
-  margin-right: 20px;
+.navigation-bar a {
   color: white;
   text-decoration: none;
 }
 
-.logout-icon:hover {
+.navigation-bar a:hover {
   color: gray;
 }
