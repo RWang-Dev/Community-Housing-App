@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, url_for, session
+from flask import Flask, render_template, request, redirect, flash, url_for, session, jsonify
 # kluver might want us to use psycopg2 instead
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -135,7 +135,7 @@ def user_home():
             flash("House name must be alphanumeric and less than 20 characters")
             return redirect("/user/home")
         if not check_house_exists(house_name):
-            create_house(house_name)
+            create_house(house_name, session["user_id"])
         else:
             flash("House name already taken")
         return redirect("/user/home")
@@ -144,6 +144,8 @@ def user_home():
         user_houses = get_user_houses(session["user_id"])
         
         return render_template('user_home.html', houses=houses, user_houses=user_houses, cur_user=session["username"])
+
+
 
 @requires_auth
 @app.route("/join-house", methods=["POST"])
@@ -155,12 +157,20 @@ def join_house():
 
 @requires_auth
 @app.route("/leave-house", methods=["POST"])
-def leave_house():
+def leave_house_route():
     data = request.get_json()
-    delete_tasks_by_user_and_house(session["user_id"], data["house_id"])
-    remove_user_house(session["user_id"], data["house_id"])
-
+    user_id = session.get('user_id')
+    house_id = data.get('house_id')
+    leave_house(user_id, house_id)
     return jsonify({"result": "ok"})
+
+@requires_auth
+@app.route("/check-last-member")
+def check_last_member():
+    house_id = request.args.get('house_id')
+    last_member_status = is_last_member(house_id)
+    return jsonify({"is_last_member": last_member_status})
+
 
 # for join button in user home
 @app.route('/join-house', methods=['POST'])

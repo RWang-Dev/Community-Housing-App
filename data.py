@@ -15,6 +15,9 @@ import psycopg2
 from psycopg2.pool import ThreadedConnectionPool
 from psycopg2.extras import DictCursor
 from datetime import datetime
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -65,9 +68,12 @@ def check_user_exists(email):
         return cur.fetchone()
 
 
-def create_house(house_name):
+def create_house(house_name, creator_id):
     with get_db_cursor(True) as cur:
-        cur.execute("INSERT INTO houses (house_name) VALUES (%s)", (house_name,))
+        cur.execute("INSERT INTO houses (house_name) VALUES (%s) RETURNING house_id", (house_name,))
+        house_id = cur.fetchone()[0]
+        cur.execute("INSERT INTO user_houses (user_id, house_id) VALUES (%s, %s)", (creator_id, house_id))
+
 
 
 def check_house_exists(house_name):
@@ -107,6 +113,27 @@ def get_house_members(house_id):
             (house_id,))
         members = cur.fetchall()
         return [member[0] for member in members] if members else ["No members"]
+
+
+# for leave button in user_home
+def leave_house(user_id, house_id):
+    if is_last_member(house_id):
+        delete_house(house_id)  # Delete the house itself
+        logging.info(f"User {user_id} left house {house_id} and deleted the house")
+    else:
+        remove_user_house(user_id, house_id)  # Remove the user from the house
+        logging.info(f"User {user_id} left house {house_id}")
+
+def is_last_member(house_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT COUNT(*) FROM user_houses WHERE house_id = %s", (house_id,))
+        num_members = cur.fetchone()[0]
+        return num_members == 1
+
+def delete_house(house_id):
+    with get_db_cursor(True) as cur:
+        cur.execute("DELETE FROM houses WHERE house_id = %s", (house_id,))
+
 
 # for assign_task page
 def get_member_id_dict(house_id):
