@@ -14,10 +14,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
     eventContent: function (arg) {
       // Decide content based on the view
-      if(arg.view.type === "dayGridMonth" && window.renderMonthly) {
+      if (arg.view.type === "dayGridMonth" && window.renderMonthly) {
         return { html: `<b>${arg.event.title}</b>` };
-      } 
-      else if(arg.view.type === "timeGridWeek" && window.renderWeekly) {
+      } else if (arg.view.type === "timeGridWeek" && window.renderWeekly) {
         const startTime = new Date(arg.event.start).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -29,8 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return {
           html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title}`,
         };
-      } 
-      else if(arg.view.type === "timeGridDay" && window.renderDaily) {
+      } else if (arg.view.type === "timeGridDay" && window.renderDaily) {
         const startTime = new Date(arg.event.start).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
     // Event listener for month, week, daily view buttons
     datesSet: function (info) {
-      switch(info.view.type) {
+      switch (info.view.type) {
         case "dayGridMonth":
           window.renderMonthly = true;
           window.renderWeekly = false;
@@ -96,8 +94,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 
   for (const [date, count] of Object.entries(dayCounts)) {
+    var t = "tasks";
+    if (count == 1) {
+      t = "task";
+    }
     calendar.addEvent({
-      title: `${count} task(s)`,
+      title: `${count} ` + t,
       start: date,
       allDay: true,
     });
