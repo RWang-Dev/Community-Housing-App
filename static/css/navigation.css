@@ -11,13 +11,30 @@
 }
 
 .navigation-bar img {
-  width: 25%;
+  width: 5%;
+  margin-left: 20px;
+}
+
+.active {
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+.active:hover {
+  color: gray;
 }
 
 .logout-icon {
   margin-right: 20px;
   color: white;
   text-decoration: none;
+  font-size: 1.2em;
 }
 
 .logout-icon:hover {
