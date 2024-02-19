@@ -103,23 +103,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  for (let i = 0; i < due_times.length; i++) {
-    calendar.addEvent({
-      title: task_titles[i],
-      start: due_times[i],
-      allDay: false,
-    });
-  }
-
-  // daily view
-  for (let i = 0; i < due_times.length; i++) {
-    calendar.addEvent({
-      title: task_titles[i] + " assigned to " + task_assignees[i],
-      start: due_times[i],
-      allDay: false,
-    });
-  }
-
   // // weekly view
   // for (let i = 0; i < due_times.length; i++) {
   //   calendar.addEvent({
@@ -137,7 +120,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   //     allDay: false,
   //   });
   // }
-
   calendar.render();
 });
 
