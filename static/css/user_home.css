@@ -64,15 +64,18 @@ header {
 }
 
 .create-house-input,
-.search-house-input {
-  width: 200px;
-  padding: 10px;
-  margin-right: 1px;
-  background-color: #333;
-  border: 1px solid #555;
-  border-radius: 5px;
-  color: #e0e0e0;
-  height: 40px;
+
+.search-house-input,
+input {
+	width: 200px;
+	padding: 10px;
+	margin-right: 1px;
+	background-color: #333;
+	border: 1px solid #555;
+	border-radius: 5px;
+	color: #e0e0e0;
+	height: 40px;
+
 }
 
 .my-houses {
@@ -151,10 +154,11 @@ header {
 }
 
 table {
-  width: 25%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  border: "0";
+
+	width: 25%;
+	border-collapse: collapse;
+	border: "0";
+
 }
 
 table td {
@@ -221,11 +225,13 @@ table tr:last-child {
   background: #333;
 }
 
-input {
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #555;
-  border-radius: 4px;
-}
+
+
+/* input {
+	padding: 10px;
+	background-color: #ffffff;
+	color: #000000;
+	border: 1px solid #555;
+	border-radius: 4px;
+} */
+
