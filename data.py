@@ -69,8 +69,20 @@ def check_user_exists(email):
 
 
 def create_house(house_name, creator_id):
+    stripped_name = house_name.strip()
+    formatted_name = ""
+    i = 0
+    while i < len(stripped_name):
+        if stripped_name[i] == " ":
+            formatted_name += " "
+            while i+1 < len(stripped_name) and stripped_name[i+1] == " ":
+                i += 1
+        else:
+            formatted_name += stripped_name[i]
+        i += 1
+        
     with get_db_cursor(True) as cur:
-        cur.execute("INSERT INTO houses (house_name) VALUES (%s) RETURNING house_id", (house_name,))
+        cur.execute("INSERT INTO houses (house_name) VALUES (%s) RETURNING house_id", (formatted_name,))
         house_id = cur.fetchone()[0]
         cur.execute("INSERT INTO user_houses (user_id, house_id) VALUES (%s, %s)", (creator_id, house_id))
 

@@ -185,7 +185,12 @@ def join_house_route():
 @app.route('/browse')
 def browse():
     houses = get_houses()
-    return render_template('browse.html', houses=houses)
+    
+    if 'username' in session:
+        user = True
+    else:
+        user = False
+    return render_template('browse.html', houses=houses, user=user)
 
 # used for Current members button in browse.html
 @app.route('/get-members')
