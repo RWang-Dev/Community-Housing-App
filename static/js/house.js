@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Since eventContent doesn't directly support aggregation, you might need to implement
         // a custom logic outside of FullCalendar to track and display aggregated counts.
         // This example shows a simple title modification.
-        return { html: `<b>${arg.event._def.title}</b>` }; // Placeholder for aggregated titles
+        return { html: `<b>${arg.event.title}</b>` }; // Placeholder for aggregated titles
       } else {
         // For weekly and daily views, show detailed time and title
         const startTime = new Date(arg.event.start).toLocaleTimeString([], {
@@ -49,19 +49,28 @@ document.addEventListener("DOMContentLoaded", async function () {
     task_titles.push(tasks[i]["title"]);
     task_assignees.push(tasks[i]["assignee"]);
   }
-  console.log(due_days);
-  console.log(due_times);
+  // console.log(due_days);
+  // console.log(due_times);
   const dayCounts = {};
+  due_days.forEach(date => {
+    if (dayCounts[date]) {
+      dayCounts[date]++;
+    } else {
+      dayCounts[date] = 1;
+    }
+  });
 
   // monthly view
-  for (let i = 0; i < due_days.length; i++) {
-    if (dayCounts.hasOwnProperty(due_days[i])) {
-      dayCounts[due_days[i]] += 1;
-    } else {
-      dayCounts[due_days[i]] = 1;
-    }
+  for (const [date, count] of Object.entries(dayCounts)) {
+    calendar.addEvent({
+      title: `${count} task(s)`,
+      start: date,
+      allDay: true,
+    });
+    // console.log(date)
+    // console.log(count)
   }
-
+  
   // weekly view
   for (let i = 0; i < due_times.length; i++) {
     calendar.addEvent({

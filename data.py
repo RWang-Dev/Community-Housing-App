@@ -149,13 +149,6 @@ def delete_tasks_by_user_and_house(user_id, house_id):
         query = "DELETE FROM tasks WHERE user_id = %s AND house_id = %s"
         cur.execute(query, (user_id, house_id))
 
-# count num of tasks for a specific house and day
-def get_tasks_for_day(house_id, date_string):
-    with get_db_cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM tasks WHERE house_id = %s AND DATE(due_date) = %s", (house_id, date_string,))
-        task_count = cur.fetchone()[0]
-        return task_count
-
 def get_tasks_by_house_id(house_id):
     with get_db_cursor() as cur:
         print(house_id)

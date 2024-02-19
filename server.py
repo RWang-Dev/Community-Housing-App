@@ -258,7 +258,6 @@ def ai_schedule():
     show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
     return render_template('gpt.html', show_schedule=show_schedule)
 
-
 if __name__ == "__main__":
     ip = os.environ.get("IP")
     port = os.environ.get("PORT")
