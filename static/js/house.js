@@ -1,3 +1,6 @@
+window.renderMonthly = true;
+window.renderWeekly = false;
+window.renderDaily = false;
 
 document.addEventListener("DOMContentLoaded", async function () {
   var calendarEl = document.getElementById("calendar");
@@ -11,14 +14,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
     eventContent: function (arg) {
       // Decide content based on the view
-      if (arg.view.type === "dayGridMonth") {
-        // For monthly view, just show count, but this requires pre-processing
-        // Since eventContent doesn't directly support aggregation, you might need to implement
-        // a custom logic outside of FullCalendar to track and display aggregated counts.
-        // This example shows a simple title modification.
-        return { html: `<b>${arg.event.title}</b>` }; // Placeholder for aggregated titles
-      } else {
-        // For weekly and daily views, show detailed time and title
+      if(arg.view.type === "dayGridMonth" && window.renderMonthly) {
+        return { html: `<b>${arg.event.title}</b>` };
+      } 
+      else if(arg.view.type === "timeGridWeek" && window.renderWeekly) {
         const startTime = new Date(arg.event.start).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -28,9 +27,46 @@ document.addEventListener("DOMContentLoaded", async function () {
           minute: "2-digit",
         });
         return {
-          html: `<b>${startTime} - ${endTime}</b><br>${arg.event._def.title}`,
+          html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title}`,
+        };
+      } 
+      else if(arg.view.type === "timeGridDay" && window.renderDaily) {
+        const startTime = new Date(arg.event.start).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        const endTime = new Date(arg.event.end).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        return {
+          html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title} assigned to ${arg.event.extendedProps.assignee}`,
         };
       }
+    },
+    // Event listener for month, week, daily view buttons
+    datesSet: function (info) {
+      switch(info.view.type) {
+        case "dayGridMonth":
+          window.renderMonthly = true;
+          window.renderWeekly = false;
+          window.renderDaily = false;
+          break;
+        case "timeGridWeek":
+          window.renderMonthly = false;
+          window.renderWeekly = true;
+          window.renderDaily = false;
+          break;
+        case "timeGridDay":
+          window.renderMonthly = false;
+          window.renderWeekly = false;
+          window.renderDaily = true;
+          break;
+        default:
+          break;
+      }
+
+      calendar.render();
     },
   });
 
@@ -49,10 +85,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     task_titles.push(tasks[i]["title"]);
     task_assignees.push(tasks[i]["assignee"]);
   }
-  // console.log(due_days);
-  // console.log(due_times);
+
   const dayCounts = {};
-  due_days.forEach(date => {
+  due_days.forEach((date) => {
     if (dayCounts[date]) {
       dayCounts[date]++;
     } else {
@@ -60,18 +95,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   });
 
-  // monthly view
   for (const [date, count] of Object.entries(dayCounts)) {
     calendar.addEvent({
       title: `${count} task(s)`,
       start: date,
       allDay: true,
     });
-    // console.log(date)
-    // console.log(count)
   }
-  
-  // weekly view
+
   for (let i = 0; i < due_times.length; i++) {
     calendar.addEvent({
       title: task_titles[i],
@@ -88,6 +119,24 @@ document.addEventListener("DOMContentLoaded", async function () {
       allDay: false,
     });
   }
+
+  // // weekly view
+  // for (let i = 0; i < due_times.length; i++) {
+  //   calendar.addEvent({
+  //     title: task_titles[i],
+  //     start: due_times[i],
+  //     allDay: false,
+  //   });
+  // }
+
+  // // daily view
+  // for (let i = 0; i < due_times.length; i++) {
+  //   calendar.addEvent({
+  //     title: task_titles[i] + " assigned to " + task_assignees[i],
+  //     start: due_times[i],
+  //     allDay: false,
+  //   });
+  // }
 
   calendar.render();
 });
