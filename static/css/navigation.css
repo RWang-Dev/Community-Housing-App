@@ -1,28 +1,34 @@
 .navigation-bar {
-  background-color: black;
-  width: calc(100% + 50px);
-  height: 10vh;
-  position: fixed;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  transition: top 0.3s ease;
-  font-size: 1.2em;
-  padding: 0 20px;
-  overflow: hidden;
+	background-color: black;
+	width: calc(100% + 50px);
+	height: 10vh;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	transition: top 0.3s ease;
+	font-size: 1.2em;
+	padding: 0 20px;
+	overflow: hidden;
+}
+
+.navigation {
+	width: 25%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .navigation-bar img {
-  width: 20%;
-  height: auto;
-  margin-left: -50px;
+	width: 20%;
+	height: auto;
+	margin-left: -50px;
 }
 
 .navigation-bar a {
-  color: white;
-  text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
 .navigation-bar a:hover {
-  color: gray;
+	color: gray;
 }
