@@ -107,3 +107,27 @@ table tr:last-child {
 .members-btn:hover {
   background-color: #0056b3;
 }
+
+hr {
+  border-color: rgb(56, 56, 56);
+}
+
+.btn {
+  display: block;
+  margin: 0 auto; 
+  width: fit-content;
+  padding: 12px 20px;
+  background-color: #007bff;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10pt;
+  font-weight: bold;
+}
+
+
+.btn:hover {
+  background-color: #0056b3;
+}

@@ -1,10 +1,7 @@
-# need to import database, and use the functions to query the data for the weekly menu
-# from data import
 from dotenv import load_dotenv, find_dotenv
 from openai import OpenAI
 import os
 
-# Load the environment variables, make sure that you have the openai api key in the .env file
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
@@ -13,47 +10,17 @@ api_key = os.environ.get('OPENAI_API_KEY')
 client = OpenAI(api_key=api_key)
 
 
-def get_test_data_members():
-    house_members = ["Alice", "Bob", "Charlie", "David"]
-    return house_members
-
-
-def get_test_data_diet():
-    house_members_diet = {
-        "Alice": ["beef", "pork", "onions"],
-        "Bob": ["pork", "chicken", "beef"],
-        "Charlie": ["beef", "onions"],
-        "David": ["pork", "chicken", "onions"]
-    }
-    return house_members_diet
-
-
-def get_test_data_schedule():
-    member_schedule = {
-        "Alice": ["6pm", "7pm", "8pm"],
-        "Bob": ["6pm", "7pm", "8pm"],
-        "Charlie": ["6pm", "7pm", "8pm"],
-        "David": ["6pm", "7pm", "8pm"]
-    }
-    return member_schedule
-
-
-def get_openai_weekly_menu():
-    # when using for real, replace the test data with the actual data
-    house_members = get_test_data_members()
-    house_members_diet = get_test_data_diet()
-    member_schedule = get_test_data_schedule()
-
-    # house_members = list_of_members
-    # house_members_diet = dict_of_diet
-    # member_schedule = dict_of_schedule
+def get_GPT_query_string(members_house, diet_members, schedule_members):
+    house_members = members_house
+    members_diet = diet_members
+    member_schedule = schedule_members
 
     diet_string = ""
     schedule_string = ""
 
     for i in house_members:
         diet_string += f"{i} does not eat "
-        for j in house_members_diet[i]:
+        for j in members_diet[i]:
             diet_string += f"{j}, "
 
     for i in house_members:
@@ -65,12 +32,9 @@ def get_openai_weekly_menu():
     return f"Here are the dietary restrictions: {diet_string}And here are the schedules: {schedule_string}"
 
 
-def get_openai_weekly_menu():
-    # when using for real, replace the test data with the actual data
-    menu_string = get_openai_weekly_menu()
-    house_members = get_test_data_members()
-
-    # house_members = list_of_members
+def get_openai_weekly_menu(members_house, diet_members, schedule_members):
+    menu_string = get_GPT_query_string(members_house, diet_members, schedule_members)
+    house_members = members_house
 
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -94,7 +58,3 @@ def get_openai_weekly_menu():
     )
 
     return completion.choices[0].message
-
-
-if __name__ == "__main__":
-    print(get_openai_weekly_menu())

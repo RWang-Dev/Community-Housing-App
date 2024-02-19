@@ -8,10 +8,26 @@ document.addEventListener("DOMContentLoaded", () => {
             const houseName = house.textContent.toLowerCase();
             if (houseName.includes(userInput)) {
                 house.style.display = "table-row";
-            } 
-            else {
+            } else {
                 house.style.display = "none"; 
             }
-        })
-    })
+        });
+    });
+
+    document.querySelectorAll(".members-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const houseId = button.dataset.houseId;
+            fetch(`/get-members?house_id=${houseId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const members = data.members;
+                    if (members.length === 0) {
+                        alert("No members");
+                    } 
+                    else {
+                        alert(`Members: ${members.join(", ")}`);
+                    }
+                })
+        });
+    });
 });

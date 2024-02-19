@@ -12,10 +12,13 @@
 
 <div class="navigation-bar">
   <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
+  <a href="/logout" class="logout-icon"
+    >Logout: <i class="fa fa-sign-out"></i
+  ></a>
 </div>
 <div class="welcome-box">
   <header>
-    <h1>Welcome user!</h1>
+    <h1>Welcome {{cur_user}}!</h1>
     <p>Explore your houses and join communities.</p>
   </header>
 </div>
@@ -38,6 +41,14 @@
       <h2>My Houses</h2>
       <div class="my-houses">
         <!-- clicking Join will add houses here -->
+        {% for h in user_houses %}
+          <div class="my-houses-list" id="{{ 'house-' + h.house_id|string }}">
+              <div>{{h.house_name}}</div>
+    <a href="/house/{{h.house_id}}"><button>Enter</button></a>
+
+              <button id="leave-house" onclick="leaveHouse('{{h.house_id}}')">Leave House</button>
+          </div>
+        {% endfor %}
       </div>
     </div>
     <div class="right-center">
@@ -62,18 +73,13 @@
             <tr class="house">
               <td class="name-column">{{h.house_name}}</td>
               <td class="join-column">
-                <button class="join-btn" onclick="joinHouse('{{h.house_name}}')">Join</button>
+                <button class="join-btn" onclick="joinHouse('{{h.house_id}}','{{h.house_name}}')">Join</button>
               </td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-      <!-- <form action="/logout" method="get">
-        <button type="submit" class="logout-button">
-          Logout
-        </button>
-      </form> -->
     </div>
   </div>
   <div class="right"></div>

@@ -19,6 +19,7 @@
   </header>
 
   <h2>Browse Houses</h2>
+  
   <form>
     <input
       type="text"
@@ -33,12 +34,16 @@
     {% for house in houses %}
     <tr class="house">
       <td colspan="2">
-        {{ house.house_name }} <button class="members-btn">Current Members</button>
+        {{ house.house_name }} <button class="members-btn" data-house-id="{{ house.house_id }}">Current Members</button>
       </td>
     </tr>
     {% endfor %}
   </table>
-
+  <hr><br>
+  
+  <a href="/start" class="btn">
+    Go back
+  </a>
 </main>
 
 {% endblock %}
