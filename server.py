@@ -127,17 +127,14 @@ def user_home():
         house_name = request.form.get("house-name")
         house_name = house_name.strip()
         if house_name.isspace() or house_name == "":
-            flash("House name cannot be empty")
             return redirect("/user/home")
         if len(house_name) <= 20:
             pass
         else:
-            flash("House name must be alphanumeric and less than 20 characters")
             return redirect("/user/home")
         if not check_house_exists(house_name):
             create_house(house_name, session["user_id"])
-        else:
-            flash("House name already taken")
+
         return redirect("/user/home")
     else:
         houses = get_houses()
@@ -186,12 +183,7 @@ def join_house_route():
 @app.route('/browse')
 def browse():
     houses = get_houses()
-    
-    if 'username' in session:
-        user = True
-    else:
-        user = False
-    return render_template('browse.html', houses=houses, user=user)
+    return render_template('browse.html', houses=houses)
 
 # used for Current members button in browse.html
 @app.route('/get-members')
