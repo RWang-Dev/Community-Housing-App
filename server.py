@@ -144,6 +144,7 @@ def user_home():
         user_houses = get_user_houses(session["user_id"])
         
         return render_template('user_home.html', houses=houses, user_houses=user_houses, cur_user=session["username"])
+    
 
 
 
