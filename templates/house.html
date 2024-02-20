@@ -1,63 +1,49 @@
 {% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/house.css')}}" />
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="{{ url_for('static', filename = 'js/house.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 <title>House</title>
-{% endblock %} {% block body %}
-
-<div class="navigation-bar">
-  <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
-  <a href="/logout" class="logout-icon"
-    >Logout: <i class="fa fa-sign-out"></i
-  ></a>
-</div>
+{% endblock %} {% block body %} {% include 'navbar.html' %}
 <div class="welcome-box">
-  <header>
-    <h1>Welcome {{cur_user}} to {{house_name}}!</h1>
-    <p>Assign tasks to roommates, and make use of the Scheduling AI feature.</p>
-  </header>
+	<header>
+		<h1>Welcome {{cur_user}} to {{house_name}}!</h1>
+		<p>Assign tasks to roommates, and make use of the Scheduling AI feature.</p>
+	</header>
 </div>
 
 <div class="main-content">
-  <div class="left"></div>
-  <div class="center">
-    <div class="calendar-wrapper">
-      <div id="calendar" data-house-id="{{house_id}}"></div>
-    </div>
-    <div class="sidebar">
-      <div class="sidebar-top">
-        <table>
-          <tr>
-            <td colspan="1">Current Members</td>
-          </tr>
-          {% for member in members %}
-          <tr>
-            <td>{{ member }}</td>
-          </tr>
-          {% endfor %}
-        </table>
-      </div>
+	<div class="left"></div>
+	<div class="center">
+		<div class="calendar-wrapper">
+			<div id="calendar" data-house-id="{{house_id}}"></div>
+		</div>
+		<div class="sidebar">
+			<div class="sidebar-top">
+				<table>
+					<tr>
+						<td colspan="1">Current Members</td>
+					</tr>
+					{% for member in members %}
+					<tr>
+						<td>{{ member }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
 
-      <div class="sidebar-bottom">
-        <div class="button-div">
-          <a href="/assign-task/{{house_id}}">
-            <button class="assign-button pure-button pure-button-primary">
-              Assign a task
-            </button>
-          </a>
-          <br />
-          <button class="scheduling-button pure-button pure-button-primary">
-            Scheduling AI
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="right"></div>
+			<div class="sidebar-bottom">
+				<div class="button-div">
+					<a href="/assign-task/{{house_id}}">
+						<button class="assign-button pure-button pure-button-primary">Assign a task</button>
+					</a>
+					<br />
+					<button class="scheduling-button pure-button pure-button-primary">Scheduling AI</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="right"></div>
 </div>
 
 {% endblock %}

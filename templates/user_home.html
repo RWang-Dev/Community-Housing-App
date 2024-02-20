@@ -10,12 +10,7 @@
 {% endblock %}
 {% block body %}
 
-<div class="navigation-bar">
-  <img src="{{url_for('static', filename='img/The_Forge_Banner.jpg')}}" />
-  <a href="/logout" class="logout-icon"
-    >Logout: <i class="fa fa-sign-out"></i
-  ></a>
-</div>
+{% include 'navbar.html' %}
 <div class="welcome-box">
   <header>
     <h1>Welcome {{cur_user}}!</h1>
@@ -34,6 +29,8 @@
           class="create-house-input"
           placeholder="Name your house"
           name="house-name"
+          minlength="3"
+          maxlength="20"
         />
         <button type="submit" class="create-house-button">Create</button>
       </form>
