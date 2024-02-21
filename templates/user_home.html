@@ -47,6 +47,20 @@
           <button type="submit" class="create-house-button">Create</button>
         </form>
       </div>
+      <div class="main-middle-block color-box">
+        <p>My Houses</p>
+        <div class="my-houses">
+        <!-- clicking Join will add houses here -->
+        {% for h in user_houses %}
+          <div class="my-houses-list" id="{{ 'house-' + h.house_id|string }}">
+              <div>{{h.house_name}}</div>
+              <a href="/house/{{h.house_id}}"><button>Enter</button></a>
+
+              <button id="leave-house" onclick="leaveHouse('{{h.house_id}}')">Leave House</button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
       <div class="main-right-block color-box">
         <p>Join House</p>
       </div>
