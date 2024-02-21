@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       allDay: true,
     });
   }
+  
 
   // // weekly view
   // for (let i = 0; i < due_times.length; i++) {
