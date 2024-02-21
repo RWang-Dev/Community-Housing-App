@@ -11,12 +11,50 @@
 {% block body %}
 
 {% include 'navbar.html' %}
-<div class="welcome-box">
-  <header>
-    <h1>Welcome {{cur_user}}!</h1>
-    <p>Explore your houses and join communities.</p>
-  </header>
-</div>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="left-block">
+      <h1>Your Gateway to Virtual Collaboration</h1>
+      <p>Welcome to The Forge, where creating, joining, and managing your virtual communities becomes a seamless experience.</p>
+      <!-- <button class="hero-button">Get Started</button> -->
+    </div>
+    <div class="right-block">
+      <img src="{{url_for('static', filename='img/hero-image.jpg') }}">
+    </div>
+  </div>
+  <hr class="section-divider">
+</section>
+
+<section class="main-section">
+  <div class="main-stuff">
+    <div class="main-stuff-top">
+      <h2>Manage Your Virtual Communities With Ease</h2>
+      <p>With The Forge, you can create, join, and manage virtual communities with ease.</p>
+    </div>
+    <div class="main">
+      <div class="main-left-block color-box">
+        <p>Create House</p>
+        <form action="/user/home" method="post">
+          <input
+            type="text"
+            class="create-house-input"
+            placeholder="Name your house"
+            name="house-name"
+            minlength="3"
+            maxlength="20"
+          />
+          <button type="submit" class="create-house-button">Create</button>
+        </form>
+      </div>
+      <div class="main-right-block color-box">
+        <p>Join House</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content-->
 <div class="main-content">
   <div class="left"></div>
   <div class="center">
