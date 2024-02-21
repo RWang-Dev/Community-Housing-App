@@ -8,11 +8,11 @@
   text-align: center;
 }
 
-#cursor{
+#cursor {
   color: orange;
   animation: blink 1s linear infinite;
 }
-#typewriter{
+#typewriter {
   font-weight: bold;
   color: orange;
 }
@@ -27,7 +27,6 @@
 }
 body {
   background-color: #121212;
-  color: #e0e0e0;
 }
 
 header {
@@ -40,6 +39,7 @@ header {
 
 main {
   text-align: center;
+  color: white;
 }
 
 form {
@@ -76,7 +76,7 @@ input[type="datetime-local"] {
 }
 
 .pure-control-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Add a black background color to the top navigation */
@@ -104,3 +104,4 @@ input[type="datetime-local"] {
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: #04AA6D;
+}
