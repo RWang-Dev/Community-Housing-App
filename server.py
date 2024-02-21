@@ -255,20 +255,26 @@ def edit_task():
     elif request.method == "GET":
         return render_template('edit_task.html')
 
+# @requires_auth
+@app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])
+def restrictions(house_id):
+    if request.method == "POST":
+        user_id = session["user_id"]
+        restriction = request.form.get("restriction")
+        insert_dietary_restriction(user_id, house_id, restriction)
+        return redirect(url_for('house', house_id=house_id))
+    elif request.method == "GET":
+        return render_template('restrictions.html', house_id)
 
 # ai schedule page
 @requires_auth
-@app.route('/ai_schedule', methods=["GET"])
-# someone will have to implement the DB on the backend to handle this
+@app.route('/ai_schedule/<int:house_id>', methods=["GET"])
 def ai_schedule():
-    house_members = get_house_members(get_house_id())
+    house_members = get_house_members(session["user_id"])
     diet_members = get_dietary_restrictions(get_house_id())
     schedule_members = get_schedule(get_house_id())
     show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
     return render_template('gpt.html', show_schedule=show_schedule)
 
 if __name__ == "__main__":
-    ip = os.environ.get("IP")
-    port = os.environ.get("PORT")
-    # app.run(debug=True, host=ip, port=port)
     app.run(debug=True, host="0.0.0.0", port=env.get("PORT", 3000))
