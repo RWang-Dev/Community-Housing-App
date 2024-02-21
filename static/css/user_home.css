@@ -2,6 +2,133 @@
   box-sizing: border-box;
 }
 
+/* CSS for Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa; /* Example background color */
+  padding: 100px 16px 100px 16px; /* Adjust padding as needed */
+  height: 100vh; /* Make the hero section full height of the viewport */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.left-block {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.right-block {
+  flex: 1;
+}
+
+.left-block h1 {
+  font-size: 80px;
+  margin-bottom: 20px;
+  font-weight: 1000;
+  color: black;
+  width: 80%;
+}
+
+.left-block p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: gray;
+}
+
+.right-block img {
+  display: block;
+  width: fit-content;
+  height: 620px;
+  position: relative;
+  max-width: 475px;
+  min-height: 500px;
+  border-radius: 30px;
+}
+
+.section-divider {
+  position: absolute; /* Position the line absolutely within the hero section */
+  bottom: -35px; /* Align the line to the bottom of the hero section */
+  width: 100%; /* Make the line span the entire width of the hero section */
+  border-bottom: 1px solid #ccc; /* Add a border as the line */
+}
+
+/* CSS for Main Section */
+
+.main-section {
+  display: flex; /* Make the main section a column layout */
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #f8f9fa; /* Example background color */
+  padding: 0 16px; /* Adjust padding as needed */
+  height: 100vh;
+}
+
+.main-stuff {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 20px; /* Add some spacing between elements */
+  max-width: 1200px;
+}
+
+.main-stuff-top {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  justify-content: center;
+  align-items: center;
+}
+
+.main-stuff-top h2 {
+  margin-right: 20px; /* Adjust spacing between h2 and p */
+  padding: 20px;
+  font-size: 40px;
+  font-weight: 1000;
+  width: 40%;
+  color: black;
+}
+
+.main-stuff-top p {
+  margin-left: 20px; /* Adjust spacing between h2 and p */
+  padding: 20px;
+  color: black
+}
+
+.main {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Add some spacing between elements */
+}
+
+.color-box {
+  max-width: 575px;
+  width: 100%;
+  min-height: 667px; /* Set a minimum height */
+  height: auto; /* Allow the height to adjust based on content */
+  position: relative;
+  background-color: #7ebcff; /* Example color (blue) */
+  /* opacity: 0.45; */
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  border-radius: 30px;
+}
+
+.color-box p {
+  color: black;
+  font-size: 26px;
+  text-align: center;
+}
+
+
+
 body {
   font-family: "Roboto Condensed", sans-serif;
   background-color: #121212;
@@ -35,6 +162,7 @@ header {
   padding-top: 5vh;
   justify-content: center;
   gap: 20px;
+  height: 100vh;
 }
 
 .left,
@@ -195,6 +323,11 @@ table tr:last-child {
 
 .name-column {
   padding-left: 50px;
+  width: 160px;
+  max-width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .join-column {
   width: 100px;
