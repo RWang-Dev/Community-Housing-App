@@ -25,6 +25,15 @@ if ENV_FILE:
 
 pool = None
 
+DAY_NAMES = {
+    0: "Monday",
+    1: "Tuesday",
+    2: "Wednesday",
+    3: "Thursday",
+    4: "Friday",
+    5: "Saturday",
+    6: "Sunday"
+}
 
 def setup():
     global pool
@@ -190,7 +199,27 @@ def delete_tasks_by_user_and_house(user_id, house_id):
 
 def get_tasks_by_house_id(house_id):
     with get_db_cursor() as cur:
-        print(house_id)
+        # print(house_id)
         cur.execute("SELECT * FROM tasks WHERE house_id = %s", (house_id,))
         tasks = cur.fetchall()
         return tasks
+
+def get_tasks_with_due_dates(house_id):
+    formatted_tasks = []
+    
+    tasks = get_tasks_by_house_id(house_id)  
+
+    for task in tasks:
+        task_id = task["task_id"]
+        task_name = task["task_name"]
+        task_due_date = task["due_date"]
+        due_date = task_due_date.strftime("%A, %I:%M%p").lstrip('0')
+        formatted_task = (task_id, f"{task_name} due {due_date}")
+        formatted_tasks.append(formatted_task)
+
+    return formatted_tasks
+
+    
+# for edit task page
+# def update_task(house_id):
+#     with get_db_cursor() as cur:

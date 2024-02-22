@@ -245,15 +245,15 @@ def assign_task(house_id):
 
 # edit task page
 @requires_auth
-@app.route('/edit-task', methods=["GET", "POST"])
-# someone will have to implement the DB on the backend to handle this
-def edit_task():
+@app.route('/edit-task/<int:house_id>', methods=["GET", "POST"])
+def edit_task(house_id):
     if request.method == "POST":
-        response = request.form.to_dict()
-        edit_task_db(response)
-        return redirect("/house")
+        # update_task(task_id, response)
+        return redirect(url_for('house', house_id=house_id))
     elif request.method == "GET":
-        return render_template('edit_task.html')
+        task_list = get_tasks_with_due_dates(house_id)
+        member_id_dict = get_member_id_dict(house_id)
+        return render_template('edit_task.html', task_list=task_list, member_id_dict=member_id_dict)
 
 @requires_auth
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])

@@ -4,34 +4,47 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_task.css') }}"/>
     <script src="{{ url_for('static', filename='js/edit_task.js') }}"></script>
     <title>Edit Task</title>
-{% endblock %}
-{% block body %}
+{% endblock %} {% block body %}
+    
+<main>
     <header>
         <h1>Edit Task</h1>
     </header>
-    <main>
-        <form class="pure-form pure-form-stacked" id="task-form">
-            <div class="pure-control-group">
-                <label for="task-name">Change Task Name</label>
-                <input type="text" id="task-name" name="task-name" placeholder="Task name">
-            </div>
-            <div class="pure-control-group">
-                <label for="person">Change Person Responsible</label>
-                <select id="person" name="person">
-                  <option value="stephen">Stephen</option>
-                  <option value="robert">Robert</option>
-                  <option value="akka">Akka</option>
-                  <option value="ben">Ben</option>
-                  <option value="ari">Ari</option>
-                </select>
-            </div>
-            <div class="pure-control-group">
-                <label for="task-due-date">Due Date</label>
-                <input id="task-due-date" type="datetime-local" name="task-due-date">
-            </div>
-            <div class="pure-controls">
-                <input type="submit" value="Submit" class="pure-button pure-button-primary">
-            </div>
-        </form>
-    </main>
+    <form class="pure-form pure-form-stacked" id="task-form">
+        <div class="pure-control-group">
+            <label for="task-list">Select Task</label>
+            <select id="task-list" name="task-list">
+                {% for task_id, task_formatted_string in task_list %}
+                    <option value="{{ task_id }}">{{ task_formatted_string }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="pure-control-group">
+            <label for="task-name">Change Task Name</label>
+            <input type="text" id="task-name" name="task-name" placeholder="Task name" required>
+        </div>
+        <div class="pure-control-group">
+            <label for="person">Change Person Responsible</label>
+            <select id="person" name="person">
+                {% for username, user_id in member_id_dict.items() %}
+                <option value="{{user_id}}">{{username}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="pure-control-group">
+            <label for="task-due-date">Due Date</label>
+            <input id="task-due-date" type="datetime-local" name="task-due-date">
+        </div>
+        <div class="pure-controls">
+            <input type="submit" value="Submit" class="pure-button pure-button-primary">
+        </div>
+    </form>
+    <br><br>
+    <p>OR</p>
+    <br>
+    <div class="back">
+        <button onclick="history.back()" class="pure-button pure-button-primary back-icon">Go Back</button>
+    </div>
+</main>
+
 {% endblock %}
