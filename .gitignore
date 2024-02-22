@@ -1,3 +1,13 @@
 .idea/
 node_modules/
 .env
+__pycache__/
+__pycache__/*
+/__pycache__/
+/__pycache__/*
+pycache/
+pycache/*
+pycache
+*.pyc
+__pycache__/data.cpython-311.pyc
+.DS_Store

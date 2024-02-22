@@ -31,19 +31,28 @@
 					{% endfor %}
 				</table>
 			</div>
-
-			<div class="sidebar-bottom">
-				<div class="button-div">
-					<a href="/assign-task/{{house_id}}">
-						<button class="assign-button pure-button pure-button-primary">Assign a task</button>
-					</a>
-					<br />
-					<button class="scheduling-button pure-button pure-button-primary">Scheduling AI</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="right"></div>
+      <div class="sidebar-bottom">
+        <div class="button-div">
+          <a href="/assign-task/{{house_id}}">
+            <button class="assign-button pure-button pure-button-primary">
+              Assign a task
+            </button>
+          </a>
+          <br />
+          <a href="/restrictions/{{house_id}}">
+              <button class="scheduling-button pure-button pure-button-primary">
+            Meal Prep Restrictions
+          </button>
+          </a>
+            <br />
+          <button class="scheduling-button pure-button pure-button-primary">
+            Scheduling AI
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right"></div>
 </div>
 
 {% endblock %}

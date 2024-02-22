@@ -10,6 +10,140 @@ body {
   padding: 0;
 }
 
+/* CSS for Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: 100px 16px 100px 16px;
+  height: 100vh;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.left-block {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.right-block {
+  flex: 1;
+}
+
+.left-block h1 {
+  font-size: 80px;
+  margin-bottom: 20px;
+  font-weight: 1000;
+  color: black;
+  width: 80%;
+}
+
+.left-block p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: gray;
+}
+
+.right-block img {
+  display: block;
+  width: fit-content;
+  height: 620px;
+  position: relative;
+  max-width: 600px;
+  min-height: 500px;
+  border-radius: 30px;
+}
+
+.section-divider {
+  position: absolute;
+  bottom: -35px;
+  width: 100%; 
+  border-bottom: 1px solid #ccc;
+}
+
+/* CSS for Main Section */
+
+.main-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: 0 16px;
+  height: 100vh;
+}
+
+.main-stuff {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+}
+
+.main-stuff-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-stuff-top h2 {
+  margin-right: 20px;
+  padding: 20px;
+  font-size: 40px;
+  font-weight: 1000;
+  width: 40%;
+  color: black;
+}
+
+.main-stuff-top p {
+  margin-left: 20px;
+  padding: 20px;
+  color: black
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.color-box {
+  display: inline;
+  max-width: 350px;
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  position: relative;
+  background-color: #7ebcff;
+  justify-content: center;
+  border-radius: 30px;
+  align-items: center;
+}
+
+.color-box p {
+  color: black;
+  font-size: 26px;
+  text-align: center;
+  max-height: 100px;
+  align-items: flex-start;
+}
+
+.color-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
 header {
   background-color: #1c1c1c;
   color: #ffffff;
@@ -35,6 +169,7 @@ header {
   padding-top: 5vh;
   justify-content: center;
   gap: 20px;
+  height: 100vh;
 }
 
 .left,
@@ -64,18 +199,16 @@ header {
 }
 
 .create-house-input,
-
 .search-house-input,
 input {
-	width: 200px;
+	width: 250px;
+  height: 40px;
 	padding: 10px;
 	margin-right: 1px;
 	background-color: #333;
 	border: 1px solid #555;
 	border-radius: 5px;
 	color: #e0e0e0;
-	height: 40px;
-
 }
 
 .my-houses {
@@ -195,6 +328,11 @@ table tr:last-child {
 
 .name-column {
   padding-left: 50px;
+  width: 160px;
+  max-width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .join-column {
   width: 100px;
@@ -224,14 +362,3 @@ table tr:last-child {
 .join-box::-webkit-scrollbar-track {
   background: #333;
 }
-
-
-
-/* input {
-	padding: 10px;
-	background-color: #ffffff;
-	color: #000000;
-	border: 1px solid #555;
-	border-radius: 4px;
-} */
-
