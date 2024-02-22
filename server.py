@@ -248,12 +248,21 @@ def assign_task(house_id):
 @app.route('/edit-task/<int:house_id>', methods=["GET", "POST"])
 def edit_task(house_id):
     if request.method == "POST":
-        # update_task(task_id, response)
+        data = request.get_json()
+        if data:
+            task_id = data.get('task-list')
+            task_name = data.get('task-name')
+            user_id = data.get('person')
+            task_due_date_str = data.get('task-due-date')
+            task_due_date = datetime.strptime(task_due_date_str, "%Y-%m-%dT%H:%M")
+            update_task(task_id, task_name, user_id, task_due_date)
+        else:
+            return jsonify({'error': 'No JSON data found in request'}), 400
         return redirect(url_for('house', house_id=house_id))
     elif request.method == "GET":
         task_list = get_tasks_with_due_dates(house_id)
         member_id_dict = get_member_id_dict(house_id)
-        return render_template('edit_task.html', task_list=task_list, member_id_dict=member_id_dict)
+        return render_template('edit_task.html', task_list=task_list, member_id_dict=member_id_dict, house_id=house_id)
 
 @requires_auth
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])
