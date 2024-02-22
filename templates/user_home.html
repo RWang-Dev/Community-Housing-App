@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/user_home.css')}}" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="{{ url_for('static', filename='js/user_home.js') }}"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+/>
 <title>House</title>
 {% endblock %} {% block body %} {% include 'navbar.html' %}
 <!-- Hero Section -->
@@ -10,13 +14,13 @@
 		<div class="left-block">
 			<h1>Your Gateway to Virtual Collaboration</h1>
 			<p>Welcome to The Forge, where creating, joining, and managing your virtual communities becomes a seamless experience.</p>
-			<!-- <button class="hero-button">Get Started</button> -->
+			<button class="hero-button pure-button">Get Started</button>
 		</div>
 		<div class="right-block">
 			<img src="{{url_for('static', filename='img/hero-image.jpg') }}" />
 		</div>
 	</div>
-	<hr class="section-divider" />
+	<!-- <hr class="section-divider" /> -->
 </section>
 
 <section class="main-section">
