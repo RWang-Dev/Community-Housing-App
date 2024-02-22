@@ -213,13 +213,18 @@ def get_tasks_with_due_dates(house_id):
         task_id = task["task_id"]
         task_name = task["task_name"]
         task_due_date = task["due_date"]
-        due_date = task_due_date.strftime("%A, %I:%M%p").lstrip('0')
-        formatted_task = (task_id, f"{task_name} due {due_date}")
+        formatted_due_date = task_due_date.strftime("%m/%d, %I:%M%p").replace(" 0", " ")
+        formatted_task = (task_id, f"{task_name} due {formatted_due_date}")
         formatted_tasks.append(formatted_task)
 
     return formatted_tasks
 
-    
 # for edit task page
-# def update_task(house_id):
-#     with get_db_cursor() as cur:
+def update_task(task_id, task_name, user_id, task_due_date):
+    with get_db_cursor(True) as cur:
+        query = """
+            UPDATE tasks 
+            SET task_name = %s, user_id = %s, due_date = %s
+            WHERE task_id = %s
+        """
+        cur.execute(query, (task_name, user_id, task_due_date, task_id))
