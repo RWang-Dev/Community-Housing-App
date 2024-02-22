@@ -1,28 +1,26 @@
-{% extends "base.html" %}
-{% block head %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/restrictions.css') }}"/>
-    <script src="{{ url_for('static', filename='js/restrictions.js') }}"></script>
-    <title>Restrictions</title>
-{% endblock %}
-{% block body %}
-    <header>
-        <h1>Dietary and Schedule Restrictions</h1>
-    </header>
-    <main>
-        <form class="pure-form pure-form-stacked" id="ai-form">
-            <div>
-                <label for="dietary-restrictions">Dietary Restrictions</label>
-                <textarea id="dietary-restrictions" name="dietary-restrictions" rows="5" cols="50" placeholder="e.g. Lactose intolerant, Vegetarian, No Onions"></textarea>
-            </div>
-            <div>
-                <label for="schedule-restrictions">Schedule Restrictions</label>
-                <textarea id="schedule-restrictions" name="schedule-restrictions" rows="5" cols="50" placeholder="e.g. Monday: 5:00-7:00, Thursday: 4:30-6:30"></textarea>
-            </div>
-            <div class="pure-controls">
-                <input type="submit" value="Submit" class="pure-button pure-button-primary">
-            </div>
-            <div id="house_id" data-houseid="{{ house_id }}"></div>
-        </form>
-    </main>
+{% extends "base.html" %} {% block head %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/restrictions.css') }}" />
+<script src="{{ url_for('static', filename='js/restrictions.js') }}"></script>
+<title>Restrictions</title>
+{% endblock %} {% block body %} {% include 'navbar.html' %}
+<header>
+	<h1>Dietary and Schedule Restrictions</h1>
+</header>
+<main>
+	<form class="pure-form pure-form-stacked" id="ai-form">
+		<div>
+			<label for="dietary-restrictions">Dietary Restrictions</label>
+			<textarea id="dietary-restrictions" name="dietary-restrictions" rows="5" cols="50" placeholder="e.g. Lactose intolerant, Vegetarian, No Onions"></textarea>
+		</div>
+		<div>
+			<label for="schedule-restrictions">Schedule Restrictions</label>
+			<textarea id="schedule-restrictions" name="schedule-restrictions" rows="5" cols="50" placeholder="e.g. Monday: 5:00-7:00, Thursday: 4:30-6:30"></textarea>
+		</div>
+		<div class="pure-controls">
+			<input type="submit" value="Submit" class="pure-button pure-button-primary" />
+		</div>
+		<div id="house_id" data-houseid="{{ house_id }}"></div>
+	</form>
+</main>
 {% endblock %}
