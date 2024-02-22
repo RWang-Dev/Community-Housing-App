@@ -100,3 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.querySelector('.main-middle-block.color-box').addEventListener('wheel', function(e) {
+  // Calculate the new scroll position
+  this.scrollTop += e.deltaY;
+  
+  // Prevent the default scrolling behavior
+  e.preventDefault();
+});
