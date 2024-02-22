@@ -10,3 +10,4 @@ pycache/*
 pycache
 *.pyc
 __pycache__/data.cpython-311.pyc
+.DS_Store
