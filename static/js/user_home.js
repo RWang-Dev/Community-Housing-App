@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const getStartedButton = document.querySelector(".hero-button");
+  getStartedButton.addEventListener("click", function(event) {
+    event.preventDefault(); 
+    const mainSection = document.querySelector(".main-section");
+    const mainSectionPosition = mainSection.offsetTop;
+    window.scrollTo({
+      top: mainSectionPosition,
+      behavior: "smooth"
+    });
+  });
+});
+
 function toggleNavbarOnScroll() {
   let prevScrollY = window.scrollY;
   let navbar = document.querySelector(".navigation-bar");
