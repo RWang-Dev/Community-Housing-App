@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   box-sizing: border-box;
 }
@@ -10,7 +11,7 @@ body {
   padding: 0;
 }
 
-/* CSS for Hero Section */
+/* Hero Section Styles */
 .hero-section {
   display: flex;
   align-items: center;
@@ -32,10 +33,6 @@ body {
   padding-right: 50px;
 }
 
-.right-block {
-  flex: 1;
-}
-
 .left-block h1 {
   font-size: 80px;
   margin-bottom: 20px;
@@ -48,6 +45,10 @@ body {
   font-size: 18px;
   margin-bottom: 40px;
   color: gray;
+}
+
+.right-block {
+  flex: 1;
 }
 
 .right-block img {
@@ -67,8 +68,7 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-/* CSS for Main Section */
-
+/* Main Section Styles */
 .main-section {
   display: flex;
   align-items: flex-start;
@@ -115,6 +115,7 @@ body {
   gap: 20px;
 }
 
+/* Color Box Styles */
 .color-box {
   display: inline;
   max-width: 350px;
@@ -140,10 +141,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 200px;
+  height: auto;
 }
 
+.main-middle-block.color-box {
+  max-width: 350px;
+  width: 100%;
+  max-height: 500px;
+  height: auto;
+  position: relative;
+  background-color: #7ebcff;
+  border-radius: 30px;
+  overflow-y: auto;
+}
+
+/* Header Styles */
 header {
   background-color: #1c1c1c;
   color: #ffffff;
@@ -152,10 +164,7 @@ header {
   margin-top: 10vh;
 }
 
-.pure-control-group {
-  margin-bottom: 20px;
-}
-
+/* Welcome Box Styles */
 .welcome-box {
   background-color: #1c1c1c;
   color: #ffffff;
@@ -163,65 +172,27 @@ header {
   text-align: center;
 }
 
-.main-content {
-  display: flex;
-  flex-direction: row;
-  padding-top: 5vh;
-  justify-content: center;
-  gap: 20px;
-  height: 100vh;
-}
-
-.left,
-.right {
-  flex: 1;
-}
-
-.center {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  width: 50%;
-}
-
-.left-center,
-.right-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.left-center form,
-.right-center form {
-  align-items: center;
-  justify-content: center;
-}
-
+/* Input Styles */
 .create-house-input,
 .search-house-input,
 input {
-	width: 250px;
+  width: 250px;
   height: 40px;
-	padding: 10px;
-	margin-right: 1px;
-	background-color: #333;
-	border: 1px solid #555;
-	border-radius: 5px;
-	color: #e0e0e0;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #e0e0e0;
 }
 
-.my-houses {
-  text-align: center;
-  margin-bottom: 5vh;
-}
-
+/* House Styles */
 .house {
   background-color: #222;
   border: 1px solid #444;
   margin-bottom: 10px;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   min-width: max-content;
 }
 
@@ -243,13 +214,25 @@ input {
   background-color: #0056b3;
 }
 
+/* My Houses Styles */
+.my-houses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
 .my-houses-list {
   background-color: #222;
   border: 1px solid #444;
   margin-bottom: 10px;
   padding: 15px;
-  border-radius: 8px;
-  width: max-content;
+  border-radius: 10px;
+  max-width: 240px;
+  width: 100%;
+  display: inline-block;
 }
 
 .my-houses-list div {
@@ -270,12 +253,12 @@ input {
   background-color: #0056b3;
 }
 
+/* Button Styles */
 .create-house-button,
 .search-house-button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 8px 16px;
   cursor: pointer;
   border-radius: 4px;
   height: 40px;
@@ -286,12 +269,18 @@ input {
   background-color: #0056b3;
 }
 
+/* Join Box Styles */
+.join-box {
+  max-width: 250px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow-x: hidden;
+}
+
 table {
-
-	width: 25%;
-	border-collapse: collapse;
-	border: "0";
-
+  border-collapse: collapse;
+  border: "0";
 }
 
 table td {
@@ -334,31 +323,40 @@ table tr:last-child {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .join-column {
   width: 100px;
 }
 
+/* Scrollbar Styles */
 .join-box {
   max-height: 215px;
   overflow-y: auto;
 }
 
-.join-box table {
-  width: 100%;
-}
-
-.join-column {
-  width: auto;
-}
-
 .join-box::-webkit-scrollbar {
   width: 10px;
+  border-radius: 0 5px 5px 0;
 }
 
 .join-box::-webkit-scrollbar-thumb {
   background-color: #555;
+  border-radius: 0 5px 5px 0;
 }
 
 .join-box::-webkit-scrollbar-track {
   background: #333;
+  border-radius: 0 5px 5px 0;
+}
+
+.main-middle-block.color-box::-webkit-scrollbar {
+  width: 0px;
+}
+
+.main-middle-block.color-box::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.main-middle-block.color-box::-webkit-scrollbar-track {
+  background: none;
 }
