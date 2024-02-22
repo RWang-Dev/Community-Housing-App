@@ -10,8 +10,7 @@ from functools import wraps
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from datetime import datetime, timedelta
-
-# from gpt import *
+from gpt import *
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -255,24 +254,25 @@ def edit_task():
     elif request.method == "GET":
         return render_template('edit_task.html')
 
-# @requires_auth
+@requires_auth
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])
 def restrictions(house_id):
     if request.method == "POST":
         user_id = session["user_id"]
-        restriction = request.form.get("restriction")
-        insert_dietary_restriction(user_id, house_id, restriction)
+        dietary_restrictions = request.form.get('dietary-restrictions')
+        schedule_restrictions = request.form.get('schedule-restrictions')
+        insert_dietary_restriction(house_id, user_id, dietary_restrictions, schedule_restrictions)
         return redirect(url_for('house', house_id=house_id))
     elif request.method == "GET":
-        return render_template('restrictions.html', house_id)
+        return render_template('restrictions.html', house_id=house_id)
 
 # ai schedule page
 @requires_auth
 @app.route('/ai_schedule/<int:house_id>', methods=["GET"])
-def ai_schedule():
+def ai_schedule(house_id):
     house_members = get_house_members(session["user_id"])
-    diet_members = get_dietary_restrictions(get_house_id())
-    schedule_members = get_schedule(get_house_id())
+    diet_members = get_dietary_restrictions(house_id)
+    schedule_members = get_schedule_restrictions(house_id)
     show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
     return render_template('gpt.html', show_schedule=show_schedule)
 
