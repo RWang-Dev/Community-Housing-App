@@ -1,7 +1,10 @@
+window.renderMonthly = true;
+window.renderWeekly = false;
+window.renderDaily = false;
+
 document.addEventListener("DOMContentLoaded", async function () {
   var calendarEl = document.getElementById("calendar");
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    timeZone: "UTC",
     initialView: "dayGridMonth",
     headerToolbar: {
       left: "prev,next today",
@@ -10,11 +13,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
     eventContent: function (arg) {
       // Decide content based on the view
-      if (arg.view.type === "dayGridMonth") {
+      if (arg.view.type === "dayGridMonth" && window.renderMonthly) {
         return { html: `<b>${arg.event.title}</b>` };
-      } else if (arg.view.type === "timeGridWeek") {
-        return { html: `${arg.event.title}` };
-      } else if (arg.view.type === "timeGridDay") {
+      } else if (arg.view.type === "timeGridWeek" && window.renderWeekly) {
         const startTime = new Date(arg.event.start).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -26,84 +27,91 @@ document.addEventListener("DOMContentLoaded", async function () {
         return {
           html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title}`,
         };
+      } else if (arg.view.type === "timeGridDay" && window.renderDaily) {
+        const startTime = new Date(arg.event.start).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        const endTime = new Date(arg.event.end).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        return {
+          html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title} assigned to ${arg.event.extendedProps.assignee}`,
+        };
       }
     },
     // Event listener for month, week, daily view buttons
     datesSet: function (info) {
       switch (info.view.type) {
         case "dayGridMonth":
-          refreshCalendar(calendar);
-          addMonthEvents(calendar);
+          calendar.removeAllEvents();
+          for (const date in dayCounts) {
+            const count = dayCounts[date];
+            var t = "tasks";
+            if (count == 1) {
+              t = "task";
+            }
+            calendar.addEvent({
+              title: `${count} ` + t,
+              start: date,
+              allDay: true,
+            });
+          }
+          window.renderMonthly = true;
+          window.renderWeekly = false;
+          window.renderDaily = false;
           break;
         case "timeGridWeek":
-          refreshCalendar(calendar);
-          addWeekEvents(calendar);
+          calendar.removeAllEvents();
+          for (const date in dayCounts) {
+            const count = dayCounts[date];
+            var t = "tasks";
+            if (count == 1) {
+              t = "task";
+            }
+            calendar.addEvent({
+              title: `${count} ` + t,
+              start: date,
+              allDay: true,
+            });
+          }
+          window.renderMonthly = false;
+          window.renderWeekly = true;
+          window.renderDaily = false;
           break;
         case "timeGridDay":
-          refreshCalendar(calendar);
-          addDayEvents(calendar);
+          calendar.removeAllEvents();
+          for (let i = 0; i < due_times.length; i++) {
+            let isoString = due_times[i];
+            let date = new Date(isoString);
+            date.setTime(date.getTime() + 1 * 60 * 60 * 1000);
+            let end_time = date.toISOString();
+
+            calendar.addEvent({
+              title: task_titles[i] + " assigned to " + task_assignees[i],
+              start: due_times[i],
+              end: end_time,
+              allDay: false,
+            });
+          }
+          window.renderMonthly = false;
+          window.renderWeekly = false;
+          window.renderDaily = true;
           break;
         default:
           break;
       }
+
+      calendar.render();
     },
   });
-  calendar.render();
-});
 
-async function addMonthEvents(calendar) {
   const tasks = await logMovies();
-  const { due_times, due_days } = extractTaskInfo(tasks);
-  const dayCounts = countDays(due_days);
-
-  for (const [date, count] of Object.entries(dayCounts)) {
-    let t;
-    if (count === 1) {
-      t = "task";
-    } 
-    else {
-      t = "tasks";
-    }
-    calendar.addEvent({
-      title: `${count} ${t}`,
-      start: date,
-      allDay: true,
-    });
-  }
-}
-
-async function addDayEvents(calendar) {
-  const tasks = await logMovies();
-  const { due_times, due_days, task_titles, task_assignees } = extractTaskInfo(tasks);
-
-  for (let i = 0; i < task_titles.length; i++) {
-    calendar.addEvent({
-      title: `${task_titles[i]} assigned to ${task_assignees[i]}`,
-      start: due_times[i],
-      allDay: false,
-    });
-  }
-}
-
-async function addWeekEvents(calendar) {
-  const tasks = await logMovies();
-  const { due_times, due_days, task_titles } = extractTaskInfo(tasks);
-
-  for (let i = 0; i < task_titles.length; i++) {
-    calendar.addEvent({
-      title: task_titles[i],
-      start: due_times[i],
-      allDay: false,
-    });
-  }
-}
-
-function extractTaskInfo(tasks) {
-  const due_times = [];
-  const due_days = [];
-  const task_titles = [];
-  const task_assignees = [];
-  
+  var due_times = [];
+  var due_days = [];
+  var task_titles = [];
+  var task_assignees = [];
   for (var i = 0; i < tasks.length; i++) {
     t_time = tasks[i]["end"];
     t_day = tasks[i]["end-day"];
@@ -115,31 +123,33 @@ function extractTaskInfo(tasks) {
     task_assignees.push(tasks[i]["assignee"]);
   }
 
-  return { due_times, due_days, task_titles, task_assignees };
-}
-
-function countDays(due_days) {
   const dayCounts = {};
   due_days.forEach((date) => {
     if (dayCounts[date]) {
-      dayCounts[date] += 1;
-    } 
-    else {
+      dayCounts[date]++;
+    } else {
       dayCounts[date] = 1;
     }
   });
-  return dayCounts;
-}
 
-function refreshCalendar(calendar) {
-  calendar.getEvents().forEach((event) => event.remove());
-}
+  // // // weekly view
+
+  // // // daily view
+  // for (let i = 0; i < due_times.length; i++) {
+  //   calendar.addEvent({
+  //     title: task_titles[i] + " assigned to " + task_assignees[i],
+  //     start: due_times[i],
+  //     allDay: false,
+  //   });
+  // }
+  calendar.render();
+});
 
 async function logMovies() {
   const houseCalendar = document.getElementById("calendar");
   const houseID = houseCalendar.getAttribute("data-house-id");
   const response = await fetch("/get-tasks/" + houseID);
   const movies = await response.json();
-  // console.log(movies);
+  console.log(movies);
   return movies;
 }
