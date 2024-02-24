@@ -83,6 +83,7 @@ body {
   background-color: #f8f9fa;
   padding: 0 16px;
   height: 100vh;
+  background-image: url("../img/city.jpg");
 }
 
 .main-stuff {
@@ -105,13 +106,13 @@ body {
   font-size: 40px;
   font-weight: 1000;
   width: 40%;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .main-stuff-top p {
   margin-left: 20px;
   padding: 20px;
-  color: black
+  color: rgb(255, 255, 255)
 }
 
 .main {
@@ -130,10 +131,15 @@ body {
   min-height: 500px;
   height: auto;
   position: relative;
-  background-color: #7ebcff;
+  background-image: linear-gradient(to right, rgb(255, 250, 224), rgb(255, 254, 248)); 
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 10px;
   align-items: center;
+  opacity: 50%;
+}
+
+.color-box:hover {
+  opacity: 100%; 
 }
 
 .color-box p {
@@ -172,8 +178,6 @@ body {
   max-height: 500px;
   height: auto;
   position: relative;
-  background-color: #7ebcff;
-  border-radius: 30px;
   overflow-y: auto;
 }
 
