@@ -264,6 +264,22 @@ def edit_task(house_id):
         member_id_dict = get_member_id_dict(house_id)
         return render_template('edit_task.html', task_list=task_list, member_id_dict=member_id_dict, house_id=house_id)
 
+# delete task page
+@requires_auth
+@app.route('/delete-task/<int:house_id>', methods=["GET", "POST"])
+def delete_task(house_id):
+    if request.method == "POST":
+        data = request.get_json()
+        if data:
+            task_id = data.get('task-list')
+            delete_task_by_id(task_id)
+        else:
+            return jsonify({'error': 'No JSON data found in request'}), 400
+        return redirect(url_for('house', house_id=house_id))
+    elif request.method == "GET":
+        task_list = get_tasks_with_due_dates(house_id)
+        return render_template('delete_task.html', task_list=task_list, house_id=house_id)
+
 # diet and schedule restrictions page
 @requires_auth
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])

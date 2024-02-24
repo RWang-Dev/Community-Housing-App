@@ -117,3 +117,8 @@ form {
 .button-div button {
   margin-bottom: 10px;
 }
+
+.button-div p {
+  font-size: 20px;
+  text-decoration: underline;
+}

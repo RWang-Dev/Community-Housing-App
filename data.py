@@ -191,6 +191,12 @@ def insert_task(task_name, user_id, house_id, task_due_date):
         query = "INSERT INTO tasks (task_name, user_id, house_id, added_timestamp, due_date) VALUES (%s, %s, %s, %s, %s)"
         cur.execute(query, (task_name, user_id, house_id, datetime.now(), task_due_date))
 
+# for delete task page
+def delete_task_by_id(task_id):
+    with get_db_cursor(True) as cur:
+        query = "DELETE FROM tasks WHERE task_id = %s"
+        cur.execute(query, (task_id,))        
+
 # for leave button in user_home: deletes user's tasks when they leave the house
 def delete_tasks_by_user_and_house(user_id, house_id):
     with get_db_cursor(True) as cur:
