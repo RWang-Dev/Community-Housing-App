@@ -10,24 +10,25 @@
         <h1>Dietary and Schedule Restrictions</h1>
     </header>
     <main>
+        <div id="restrictions" data-house-id="{{ house_id }}"></div>
         <form class="pure-form pure-form-stacked" id="ai-form">
             <div>
                 <label for="dietary-restrictions">Dietary Restrictions</label>
-                <textarea id="dietary-restrictions" name="dietary-restrictions" rows="5" cols="50" placeholder="e.g. Lactose intolerant, Vegetarian, No Onions"></textarea>
+                <textarea id="dietary-restrictions" name="dietary-restrictions" rows="5" cols="50"
+                          placeholder="e.g. Lactose intolerant, Vegetarian, No Onions"></textarea>
             </div>
             <div>
                 <label for="schedule-restrictions">Schedule Restrictions</label>
-                <textarea id="schedule-restrictions" name="schedule-restrictions" rows="5" cols="50" placeholder="e.g. Monday: 5:00-7:00, Thursday: 4:30-6:30"></textarea>
+                <textarea id="schedule-restrictions" name="schedule-restrictions" rows="5" cols="50"
+                          placeholder="e.g. Monday: 5:00-7:00, Thursday: 4:30-6:30"></textarea>
             </div>
             <div class="pure-controls">
                 <input type="submit" value="Submit" class="pure-button pure-button-primary">
             </div>
-            <div id="house_id" data-house-id="{{ house_id }}"></div>
             <p>OR</p>
             <div class="back">
                 <button onclick="history.back()" class="pure-button pure-button-primary back-icon">Go Back</button>
             </div>
-
         </form>
     </main>
 {% endblock %}

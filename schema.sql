@@ -28,10 +28,14 @@ CREATE TABLE user_houses (
     FOREIGN KEY (house_id) REFERENCES houses(house_id) ON DELETE CASCADE
 );
 
-SELECT * FROM users;
-SELECT * FROM houses;
-SELECT * FROM tasks;
-SELECT * FROM user_houses;
+CREATE TABLE restrictions (
+    user_id INTEGER REFERENCES users(id),
+    house_id INTEGER REFERENCES houses(house_id),
+    diet_restrictions VARCHAR(1023),
+    schedule_restrictions VARCHAR(1023),
+    UNIQUE(user_id, house_id)
+);
+
 
 -- Example query for adding an entry to user_houses
 INSERT INTO user_houses (user_id, house_id) VALUES (1, 33);

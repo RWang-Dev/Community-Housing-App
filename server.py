@@ -264,27 +264,28 @@ def edit_task(house_id):
         member_id_dict = get_member_id_dict(house_id)
         return render_template('edit_task.html', task_list=task_list, member_id_dict=member_id_dict, house_id=house_id)
 
+# diet and schedule restrictions page
 @requires_auth
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])
 def restrictions(house_id):
     if request.method == "POST":
+        data = request.get_json()
         user_id = session["user_id"]
-        dietary_restrictions = request.form.get('dietary-restrictions')
-        schedule_restrictions = request.form.get('schedule-restrictions')
-        insert_dietary_restriction(house_id, user_id, dietary_restrictions, schedule_restrictions)
+        dietary_restrictions = data.get('dietary_restrictions')
+        schedule_restrictions = data.get('schedule_restrictions')
+        insert_restrictions(house_id, user_id, dietary_restrictions, schedule_restrictions)
         return redirect(url_for('house', house_id=house_id))
     elif request.method == "GET":
         return render_template('restrictions.html', house_id=house_id)
 
 # ai schedule page
-@requires_auth
-@app.route('/ai_schedule/<int:house_id>', methods=["GET"])
-def ai_schedule(house_id):
-    house_members = get_house_members(session["user_id"])
-    diet_members = get_dietary_restrictions(house_id)
-    schedule_members = get_schedule_restrictions(house_id)
-    show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
-    return render_template('gpt.html', show_schedule=show_schedule)
+# @requires_auth
+# @app.route('/ai_schedule/<int:house_id>', methods=["GET"])
+# def ai_schedule(house_id):
+#     house_members = get_house_members(session["user_id"])
+#     diet_members = get_dietary_restrictions(house_id)
+#     show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
+#     return render_template('gpt.html', show_schedule=show_schedule)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=env.get("PORT", 3000))
