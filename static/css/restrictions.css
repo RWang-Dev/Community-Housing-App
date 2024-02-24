@@ -1,4 +1,5 @@
 * {
+
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -43,10 +44,13 @@ form {
 
 label {
   display: block;
+
 }
 
 input[type="text"],
 textarea,
 input[type="datetime-local"] {
+
   width: 100%;
+
 }
