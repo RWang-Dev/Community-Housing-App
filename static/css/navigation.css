@@ -19,19 +19,22 @@
   }
   
   .navigation-bar img {
-	height: 50px; /* Adjust height as needed */
+	height: 50px; 
   }
   
   .navigation a {
 	color: #fff;
 	text-decoration: none;
+	padding: 8px 8px 8px 8px;
   }
   
   .navigation a:hover {
-	text-decoration: underline;
+	background-color: white;
+	color: black;
+	border-radius: 15px;
   }
   
   .fa {
-	margin-right: 5px; /* Adjust spacing between icon and text */
+	margin-right: 5px; 
   }
   
