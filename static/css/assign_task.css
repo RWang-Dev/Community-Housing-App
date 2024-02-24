@@ -1,11 +1,14 @@
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: "Oswald", sans-serif;
-	font-family: "Poppins", sans-serif;
-	font-family: "Roboto Condensed", sans-serif;
-	text-align: center;
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+
 }
 
 #cursor {
@@ -103,5 +106,7 @@ input[type="datetime-local"] {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-	background-color: #04aa6d;
+
+  background-color: #04aa6d;
+
 }

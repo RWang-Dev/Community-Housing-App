@@ -3,7 +3,10 @@
 }
 
 body {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   background-color: #121212;
   color: #e0e0e0;
   margin: 0;
@@ -77,31 +80,40 @@ form {
 
 .sidebar {
   width: 30%;
+  margin-top: 0;
+  padding-top: 0;
   float: right;
 }
 
-.sidebar-top table tr:first-child {
+.sidebar-top table th {
   background-color: #cccccca4;
+  color: black;
+  height: 25px;
+  border-radius: 5px;
 }
 
 .sidebar-top {
   padding: 10px;
-  padding-top: 21%;
+  padding-top: 0;
+  margin-bottom: 25px;
 }
 
 .sidebar-bottom {
   padding: 10px;
+  padding-top: 0;
 }
-
 
 .sidebar-top table {
   width: 100%;
   border-collapse: collapse;
 }
+.sidebar-top table tr:nth-child(even) {
+  background-color: #222222; /* Lighter shade for even rows */
+}
 
 .sidebar-top td {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
   padding: 8px;
 }
 
@@ -110,8 +122,19 @@ form {
   text-align: center;
   /* border-left: 1px solid #ccc; */
   /* border-right: 1px solid #ccc; */
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+}
+
+hr {
+  border: none; /* Removes the default border */
+  height: 2px; /* Sets the thickness of the hr */
+  background: linear-gradient(
+    to right,
+    #2c3e5000 0%,
+    #575757 50%,
+    #2c3e5000 100%
+  ); /* Gradient effect */
 }
 
 .button-div button {
@@ -120,5 +143,41 @@ form {
 
 .button-div p {
   font-size: 20px;
-  text-decoration: underline;
+}
+
+.fc {
+  font-family: "Arial", sans-serif;
+  color: #fff; /* Light text for contrast */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures no internal borders peek outside the border-radius */
+}
+
+.fc .fc-daygrid-day {
+  background-color: #222222 !important; /* Example: Changing background color */
+}
+.fc,
+.fc * {
+  border-color: #121212 !important;
+}
+
+.fc .fc-daygrid-day {
+  background-color: #222222 !important; /* Dark background for day cells */
+}
+
+/* Change border color of day cells */
+.fc .fc-daygrid-day {
+  border-color: #121212 !important; /* Darker border color */
+  border-width: 7px;
+}
+
+.fc-header-toolbar {
+  background-color: #444; /* Slightly lighter than the main bg */
+  color: #ccc;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.fc .fc-day-today {
+  background-color: #3a4c55 !important; /* Slightly lighter or different color */
 }

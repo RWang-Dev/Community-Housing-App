@@ -85,4 +85,4 @@ def get_openai_weekly_menu(members_house, restrictions):
         ]
     )
 
-    return completion.choices[0].message
+    return completion.choices[0].message.content
