@@ -64,7 +64,10 @@ form {
 
 .center {
   flex: 4;
-  max-width: 1000px;
+}
+
+#calendar {
+  width: 100%;
 }
 
 .calendar-wrapper {
