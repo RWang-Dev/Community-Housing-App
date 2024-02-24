@@ -279,13 +279,21 @@ def restrictions(house_id):
         return render_template('restrictions.html', house_id=house_id)
 
 # ai schedule page
-# @requires_auth
-# @app.route('/ai_schedule/<int:house_id>', methods=["GET"])
-# def ai_schedule(house_id):
-#     house_members = get_house_members(session["user_id"])
-#     diet_members = get_dietary_restrictions(house_id)
-#     show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
-#     return render_template('gpt.html', show_schedule=show_schedule)
+@requires_auth
+@app.route('/ai_schedule/<int:house_id>', methods=["GET"])
+def ai_schedule(house_id):
+    member_id_dict = get_member_id_dict(house_id)
+    house_members = get_house_members(house_id)
+    restrictions = get_restrictions(house_id)
+    def get_member_by_id(member_id):
+        for key, value in member_id_dict.items():
+            if value == member_id:
+                return key
+    for i in range(len(restrictions)):
+        restrictions[i].pop(1)
+        restrictions[i][0] = get_member_by_id(restrictions[i][0])
+    show_schedule = get_openai_weekly_menu(house_members, restrictions)
+    return render_template('gpt.html', show_schedule=show_schedule)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=env.get("PORT", 3000))

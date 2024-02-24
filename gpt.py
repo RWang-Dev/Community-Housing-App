@@ -10,30 +10,58 @@ api_key = os.environ.get('OPENAI_API_KEY')
 client = OpenAI(api_key=api_key)
 
 
-def get_GPT_query_string(members_house, diet_members, schedule_members):
+def get_GPT_query_string(members_house, restrictions):
     house_members = members_house
-    members_diet = diet_members
-    member_schedule = schedule_members
-
+    members_diet = []
+    member_schedule = []
     diet_string = ""
     schedule_string = ""
 
-    for i in house_members:
-        diet_string += f"{i} does not eat "
-        for j in members_diet[i]:
-            diet_string += f"{j}, "
+    for member in house_members:
+        match_found = False
+        for restriction in restrictions:
+            if member == restriction[0]:
+                members_diet.append(restriction[1])
+                match_found = True
+                break
+        if not match_found:
+            members_diet.append('')
 
-    for i in house_members:
-        schedule_string += f"{i} has a class at "
-        for j in member_schedule[i]:
-            schedule_string += f"{j}, "
-        schedule_string += "and should not be expected to cook dinner that night. "
+    for member in house_members:
+        match_found = False
+        for restriction in restrictions:
+            if member == restriction[0]:
+                member_schedule.append(restriction[2])
+                match_found = True
+                break
+        if not match_found:
+            member_schedule.append('')
+
+    for member in house_members:
+        if members_diet[house_members.index(member)] != "":
+            diet_string += f"{member} does not eat "
+            if isinstance(members_diet[house_members.index(member)], list):
+                for restriction in members_diet[house_members.index(member)]:
+                    diet_string += f"{restriction}, "
+            else:
+                diet_string += f"{members_diet[house_members.index(member)]}, "
+            diet_string = diet_string.rstrip(', ') + '.\n'
+
+    for member in house_members:
+        if member_schedule[house_members.index(member)] != "":
+            schedule_string += f"{member} is not available "
+            if isinstance(member_schedule[house_members.index(member)], list):
+                for restriction in member_schedule[house_members.index(member)]:
+                    schedule_string += f"{restriction}, "
+            else:
+                schedule_string += f"{member_schedule[house_members.index(member)]}, "
+            schedule_string = schedule_string.rstrip(', ') + '.\n'
 
     return f"Here are the dietary restrictions: {diet_string}And here are the schedules: {schedule_string}"
 
 
-def get_openai_weekly_menu(members_house, diet_members, schedule_members):
-    menu_string = get_GPT_query_string(members_house, diet_members, schedule_members)
+def get_openai_weekly_menu(members_house, restrictions):
+    menu_string = get_GPT_query_string(members_house, restrictions)
     house_members = members_house
 
     completion = client.chat.completions.create(

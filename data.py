@@ -233,3 +233,8 @@ def insert_restrictions(house_id, user_id, dietary_restrictions, schedule_restri
     with get_db_cursor(True) as cur:
         query = "INSERT INTO restrictions (house_id, user_id, diet_restrictions, schedule_restrictions) VALUES (%s, %s, %s, %s)"
         cur.execute(query, (house_id, user_id, dietary_restrictions, schedule_restrictions))
+
+def get_restrictions(house_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT * FROM restrictions WHERE house_id = %s", (house_id,))
+        return cur.fetchall()
