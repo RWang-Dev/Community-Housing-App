@@ -1,6 +1,12 @@
 {% extends "base.html" %} {% block head %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/user_home.css')}}" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/user_home.css')}}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <script src="{{ url_for('static', filename='js/user_home.js') }}"></script>
 <link
   rel="stylesheet"
@@ -10,69 +16,97 @@
 {% endblock %} {% block body %} {% include 'navbar.html' %}
 <!-- Hero Section -->
 <section class="hero-section">
-	<div class="hero-content">
-		<div class="left-block">
-			<h1>Your Gateway to Virtual Collaboration</h1>
-			<p>Welcome to The Forge, where creating, joining, and managing your virtual communities becomes a seamless experience.</p>
-			<button class="hero-button pure-button">Get Started</button>
-		</div>
-		<div class="right-block">
-			<img src="{{url_for('static', filename='img/hero-image.jpg') }}" />
-		</div>
-	</div>
-	<!-- <hr class="section-divider" /> -->
+  <div class="hero-content">
+    <div class="left-block">
+      <h1>Your Gateway to Virtual Collaboration</h1>
+      <p>
+        Welcome to The Forge, where creating, joining, and managing your virtual
+        communities becomes a seamless experience.
+      </p>
+      <button class="hero-button pure-button">Get Started</button>
+    </div>
+    <div class="right-block">
+      <!-- <img src="{{url_for('static', filename='img/hero-image.jpg') }}" /> -->
+    </div>
+  </div>
+  <!-- <hr class="section-divider" /> -->
 </section>
 
 <section class="main-section">
-	<div class="main-stuff">
-		<div class="main-stuff-top">
-			<h2>Manage Your Virtual Communities With Ease</h2>
-			<p>With The Forge, you can create, join, and manage virtual communities with ease.</p>
-		</div>
-		<div class="main">
-			<div class="main-left-block color-box">
-				<p>Create House</p>
-				<form action="/user/home" method="post">
-					<input type="text" class="create-house-input" placeholder="Name your house" name="house-name" minlength="3" maxlength="20" />
-					<button type="submit" class="create-house-button">Create</button>
-				</form>
-			</div>
-			<div class="main-middle-block color-box">
-				<p>My Houses</p>
-				<div class="my-houses">
-					<!-- clicking Join will add houses here -->
-					{% for h in user_houses %}
-					<div class="my-houses-list" id="{{ 'house-' + h.house_id|string }}">
-						<div>{{h.house_name}}</div>
-						<a href="/house/{{h.house_id}}"><button>Enter</button></a>
+  <div class="main-stuff">
+    <div class="main-stuff-top">
+      <h2>Manage Your Virtual Communities With Ease</h2>
+      <p>
+        With The Forge, you can create, join, and manage virtual communities
+        with ease.
+      </p>
+    </div>
+    <div class="main">
+      <div class="main-left-block color-box">
+        <p>Create House</p>
+        <form action="/user/home" method="post">
+          <input
+            type="text"
+            class="create-house-input"
+            placeholder="Name your house"
+            name="house-name"
+            minlength="3"
+            maxlength="20"
+          />
+          <button type="submit" class="create-house-button">Create</button>
+        </form>
+      </div>
+      <div class="main-middle-block color-box">
+        <p>My Houses</p>
+        <div class="house-scroll">
+          <div class="my-houses">
+            <!-- clicking Join will add houses here -->
+            {% for h in user_houses %}
+            <div class="my-houses-list" id="{{ 'house-' + h.house_id|string }}">
+              <div>{{h.house_name}}</div>
+              <a href="/house/{{h.house_id}}"><button>Enter</button></a>
 
-						<button id="leave-house" onclick="leaveHouse('{{h.house_id}}')">Leave House</button>
-					</div>
-					{% endfor %}
-				</div>
-			</div>
-			<div class="main-right-block color-box">
-				<p>Join House</p>
-				<form>
-					<input type="text" placeholder="Filter by name" name="search" id="search-bar" class="search-bar" />
-				</form>
-				<div class="join-box">
-					<table>
-						<tbody>
-							{% for h in houses %}
-							<tr class="house">
-								<td class="name-column">{{h.house_name}}</td>
-								<td class="join-column">
-									<button class="join-btn" onclick="joinHouse('{{h.house_id}}','{{h.house_name}}')">Join</button>
-								</td>
-							</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+              <button id="leave-house" onclick="leaveHouse('{{h.house_id}}')">
+                Leave House
+              </button>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="main-right-block color-box">
+        <p>Join House</p>
+        <form>
+          <input
+            type="text"
+            placeholder="Filter by name"
+            name="search"
+            id="search-bar"
+            class="search-bar"
+          />
+        </form>
+        <div class="join-box">
+          <table>
+            <tbody>
+              {% for h in houses %}
+              <tr class="house">
+                <td class="name-column">{{h.house_name}}</td>
+                <td class="join-column">
+                  <button
+                    class="join-btn"
+                    onclick="joinHouse('{{h.house_id}}','{{h.house_name}}')"
+                  >
+                    Join
+                  </button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% endblock %}

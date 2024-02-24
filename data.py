@@ -107,6 +107,11 @@ def get_houses():
     with get_db_cursor() as cur:
         cur.execute("SELECT house_name, house_id FROM houses")
         return cur.fetchall()
+
+def get_houses_to_join(user_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT DISTINCT house_name, house_id FROM houses LEFT JOIN user_houses USING (house_id) WHERE house_id NOT IN (SELECT house_id FROM user_houses WHERE user_id = %s)", (user_id, ))
+        return cur.fetchall()
     
 def get_user_id(user_email):
     with get_db_cursor() as cur:
@@ -191,6 +196,12 @@ def insert_task(task_name, user_id, house_id, task_due_date):
         query = "INSERT INTO tasks (task_name, user_id, house_id, added_timestamp, due_date) VALUES (%s, %s, %s, %s, %s)"
         cur.execute(query, (task_name, user_id, house_id, datetime.now(), task_due_date))
 
+# for delete task page
+def delete_task_by_id(task_id):
+    with get_db_cursor(True) as cur:
+        query = "DELETE FROM tasks WHERE task_id = %s"
+        cur.execute(query, (task_id,))        
+
 # for leave button in user_home: deletes user's tasks when they leave the house
 def delete_tasks_by_user_and_house(user_id, house_id):
     with get_db_cursor(True) as cur:
@@ -228,3 +239,13 @@ def update_task(task_id, task_name, user_id, task_due_date):
             WHERE task_id = %s
         """
         cur.execute(query, (task_name, user_id, task_due_date, task_id))
+
+def insert_restrictions(house_id, user_id, dietary_restrictions, schedule_restrictions):
+    with get_db_cursor(True) as cur:
+        query = "INSERT INTO restrictions (house_id, user_id, diet_restrictions, schedule_restrictions) VALUES (%s, %s, %s, %s)"
+        cur.execute(query, (house_id, user_id, dietary_restrictions, schedule_restrictions))
+
+def get_restrictions(house_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT * FROM restrictions WHERE house_id = %s", (house_id,))
+        return cur.fetchall()

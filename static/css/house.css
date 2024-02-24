@@ -64,7 +64,10 @@ form {
 
 .center {
   flex: 4;
-  max-width: 1000px;
+}
+
+#calendar {
+  width: 100%;
 }
 
 .calendar-wrapper {
@@ -113,4 +116,9 @@ form {
 
 .button-div button {
   margin-bottom: 10px;
+}
+
+.button-div p {
+  font-size: 20px;
+  text-decoration: underline;
 }

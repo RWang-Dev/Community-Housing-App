@@ -136,13 +136,18 @@ def user_home():
 
         return redirect("/user/home")
     else:
-        houses = get_houses()
+        houses = get_houses_to_join(session["user_id"])
         user_houses = get_user_houses(session["user_id"])
         
         return render_template('user_home.html', houses=houses, user_houses=user_houses, cur_user=session["username"])
-    
 
-
+@requires_auth
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    if request.method == "POST":
+        return redirect(url_for('user_home')) 
+    elif request.method == "GET":
+        return render_template('profile.html')
 
 @requires_auth
 @app.route("/join-house", methods=["POST"])
@@ -170,13 +175,13 @@ def check_last_member():
 
 
 # for join button in user home
-@app.route('/join-house', methods=['POST'])
-@requires_auth
-def join_house_route():
-    user_id = session.get('user_id')
-    house_id = request.json.get('house_id')
-    join_house(user_id, house_id) # add entry to user_houses
-    return jsonify({'message': 'House joined successfully'})
+# @app.route('/join-house', methods=['POST'])
+# @requires_auth
+# def join_house_route():
+#     user_id = session.get('user_id')
+#     house_id = request.json.get('house_id')
+#     join_house(user_id, house_id) # add entry to user_houses
+#     return jsonify({'message': 'House joined successfully'})
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')
@@ -264,14 +269,32 @@ def edit_task(house_id):
         member_id_dict = get_member_id_dict(house_id)
         return render_template('edit_task.html', task_list=task_list, member_id_dict=member_id_dict, house_id=house_id)
 
+# delete task page
+@requires_auth
+@app.route('/delete-task/<int:house_id>', methods=["GET", "POST"])
+def delete_task(house_id):
+    if request.method == "POST":
+        data = request.get_json()
+        if data:
+            task_id = data.get('task-list')
+            delete_task_by_id(task_id)
+        else:
+            return jsonify({'error': 'No JSON data found in request'}), 400
+        return redirect(url_for('house', house_id=house_id))
+    elif request.method == "GET":
+        task_list = get_tasks_with_due_dates(house_id)
+        return render_template('delete_task.html', task_list=task_list, house_id=house_id)
+
+# diet and schedule restrictions page
 @requires_auth
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])
 def restrictions(house_id):
     if request.method == "POST":
+        data = request.get_json()
         user_id = session["user_id"]
-        dietary_restrictions = request.form.get('dietary-restrictions')
-        schedule_restrictions = request.form.get('schedule-restrictions')
-        insert_dietary_restriction(house_id, user_id, dietary_restrictions, schedule_restrictions)
+        dietary_restrictions = data.get('dietary_restrictions')
+        schedule_restrictions = data.get('schedule_restrictions')
+        insert_restrictions(house_id, user_id, dietary_restrictions, schedule_restrictions)
         return redirect(url_for('house', house_id=house_id))
     elif request.method == "GET":
         return render_template('restrictions.html', house_id=house_id)
@@ -280,10 +303,17 @@ def restrictions(house_id):
 @requires_auth
 @app.route('/ai_schedule/<int:house_id>', methods=["GET"])
 def ai_schedule(house_id):
-    house_members = get_house_members(session["user_id"])
-    diet_members = get_dietary_restrictions(house_id)
-    schedule_members = get_schedule_restrictions(house_id)
-    show_schedule = get_openai_weekly_menu(house_members, diet_members, schedule_members)
+    member_id_dict = get_member_id_dict(house_id)
+    house_members = get_house_members(house_id)
+    restrictions = get_restrictions(house_id)
+    def get_member_by_id(member_id):
+        for key, value in member_id_dict.items():
+            if value == member_id:
+                return key
+    for i in range(len(restrictions)):
+        restrictions[i].pop(1)
+        restrictions[i][0] = get_member_by_id(restrictions[i][0])
+    show_schedule = get_openai_weekly_menu(house_members, restrictions)
     return render_template('gpt.html', show_schedule=show_schedule)
 
 if __name__ == "__main__":

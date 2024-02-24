@@ -19,6 +19,11 @@ body {
   background-color: #f8f9fa;
   padding: 0px 16px 100px 16px;
   height: 100vh;
+  background-image: url("../img/geobg.avif");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -29,8 +34,9 @@ body {
 }
 
 .left-block {
-	flex: 1;
-	padding-right: 50px;
+  flex: 1;
+  padding-right: 50px;
+  padding-left: 10%;
 }
 
 .left-block h1 {
@@ -63,20 +69,20 @@ body {
 }
 
 .section-divider {
-	position: absolute;
-	bottom: -35px;
-	width: 100%;
-	border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: -35px;
+  width: 100%; 
+  border-bottom: 1px solid #ccc;
 }
 
 /* Main Section Styles */
 .main-section {
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	background-color: #f8f9fa;
-	padding: 0 16px;
-	height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: 0 16px;
+  height: 100vh;
 }
 
 .main-stuff {
@@ -94,18 +100,18 @@ body {
 }
 
 .main-stuff-top h2 {
-	margin-right: 20px;
-	padding: 20px;
-	font-size: 40px;
-	font-weight: 1000;
-	width: 40%;
-	color: black;
+  margin-right: 20px;
+  padding: 20px;
+  font-size: 40px;
+  font-weight: 1000;
+  width: 40%;
+  color: black;
 }
 
 .main-stuff-top p {
-	margin-left: 20px;
-	padding: 20px;
-	color: black;
+  margin-left: 20px;
+  padding: 20px;
+  color: black
 }
 
 .main {
@@ -118,24 +124,24 @@ body {
 
 /* Color Box Styles */
 .color-box {
-	display: inline;
-	max-width: 350px;
-	width: 100%;
-	min-height: 500px;
-	height: auto;
-	position: relative;
-	background-color: #7ebcff;
-	justify-content: center;
-	border-radius: 30px;
-	align-items: center;
+  display: inline;
+  max-width: 350px;
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  position: relative;
+  background-color: #7ebcff;
+  justify-content: center;
+  border-radius: 30px;
+  align-items: center;
 }
 
 .color-box p {
-	color: black;
-	font-size: 26px;
-	text-align: center;
-	max-height: 100px;
-	align-items: flex-start;
+  color: black;
+  font-size: 26px;
+  text-align: center;
+  max-height: 100px;
+  align-items: flex-start;
 }
 
 .color-box form {
@@ -148,8 +154,8 @@ body {
 .main-left-block,
 .main-middle-block,
 .main-right-block {
-    width: 30%;
-    margin: 0 1.5%; 
+  width: 30%;
+  margin: 0 1.5%;
 }
 
 /* Responsive design */
@@ -157,8 +163,8 @@ body {
   .main-left-block,
   .main-middle-block,
   .main-right-block {
-      width: 100%; 
-      margin: 0; 
+    width: 100%;
+    margin: 0;
   }
 }
 
@@ -166,8 +172,10 @@ body {
   max-height: 500px;
   height: auto;
   position: relative;
-  background-color: #7ebcff;
-  border-radius: 30px;
+}
+
+.house-scroll {
+  max-height: 275px;
   overflow-y: auto;
 }
 
@@ -192,16 +200,19 @@ header {
 .create-house-input,
 .search-house-input,
 input {
-	width: 250px;
-	height: 40px;
-	padding: 10px;
-	margin-bottom: 10px;
-	background-color: #333;
-	border: 1px solid #555;
-	border-radius: 5px;
-	color: #e0e0e0;
+  width: 250px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #e0e0e0;
 }
 
+.search-bar {
+  margin-bottom: 2vh;
+}
 /* House Styles */
 .house {
 	background-color: #222;
@@ -366,13 +377,27 @@ table tr:last-child {
 }
 
 .main-middle-block.color-box::-webkit-scrollbar {
-	width: 0px;
+  width: 0px;
 }
 
 .main-middle-block.color-box::-webkit-scrollbar-thumb {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 .main-middle-block.color-box::-webkit-scrollbar-track {
-	background: none;
+  background: none;
+}
+
+/* Responsive design: divs each appear on new line for mobile */
+@media (max-width: 768px) {
+  .main {
+    flex-wrap: wrap;
+  }
+
+  .main-left-block,
+  .main-middle-block,
+  .main-right-block {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }

@@ -1,12 +1,14 @@
-{% extends "base.html" %} {% block head %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
-<link rel="stylesheet" href="{{ url_for('static', filename='css/gpt.css') }}" />
-<title>Edit Task</title>
-{% endblock %} {% block body %}
-<header>
-	<h1>AI Meal Scheduling</h1>
-</header>
-<main>
-	<p>{{ show_schedule }}</p>
-</main>
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gpt.css') }}"/>
+    <title>AI Meal Scheduling</title>
+{% endblock %}
+{% block body %}
+    <header>
+        <h1>AI Meal Scheduling</h1>
+    </header>
+    <main>
+        <p>{{ show_schedule }}</p>
+    </main>
 {% endblock %}

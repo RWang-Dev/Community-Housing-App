@@ -36,12 +36,11 @@ header {
 
 main {
   width: 100%;
-  max-width: 20%;
+  max-width: 30%;
   padding: 20px;
   background-color: #222;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-  margin-top: -5vh;
 }
 
 /* input {
@@ -131,4 +130,26 @@ hr {
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+/* Responsive design */
+@media screen and (max-width: 1000px) {
+  table {
+    overflow-x: auto; 
+    max-width: 100%; 
+  }
+
+  .table-container {
+    overflow: auto; 
+  }
+  
+  table td {
+    position: relative; 
+  }
+
+  .members-btn {
+    position: relative;
+    display: block; 
+    margin-top: 10px;
+  }
 }
