@@ -22,7 +22,12 @@
             <div class="pure-controls">
                 <input type="submit" value="Submit" class="pure-button pure-button-primary">
             </div>
-            <div id="house_id" data-houseid="{{ house_id }}"></div>
+            <div id="house_id" data-house-id="{{ house_id }}"></div>
+            <p>OR</p>
+            <div class="back">
+                <button onclick="history.back()" class="pure-button pure-button-primary back-icon">Go Back</button>
+            </div>
+
         </form>
     </main>
 {% endblock %}
