@@ -1,10 +1,9 @@
 /* Global Styles */
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -13,7 +12,6 @@ body {
   color: #e0e0e0;
   margin: 0;
   padding: 0;
-
 }
 
 /* Hero Section Styles */
@@ -53,13 +51,13 @@ body {
 }
 
 .left-block p {
-	font-size: 18px;
-	margin-bottom: 40px;
-	color: gray;
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: gray;
 }
 
 .right-block {
-	flex: 1;
+  flex: 1;
 }
 
 .right-block img {
@@ -76,7 +74,7 @@ body {
 .section-divider {
   position: absolute;
   bottom: -35px;
-  width: 100%; 
+  width: 100%;
   border-bottom: 1px solid #ccc;
 }
 
@@ -88,6 +86,7 @@ body {
   background-color: #f8f9fa;
   padding: 0 16px;
   height: 100vh;
+  background-image: url("../img/city.jpg");
 }
 
 .main-stuff {
@@ -98,10 +97,10 @@ body {
 }
 
 .main-stuff-top {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-stuff-top h2 {
@@ -110,21 +109,21 @@ body {
   font-size: 40px;
   font-weight: 1000;
   width: 40%;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .main-stuff-top p {
   margin-left: 20px;
   padding: 20px;
-  color: black
+  color: rgb(255, 255, 255);
 }
 
 .main {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Color Box Styles */
@@ -135,25 +134,36 @@ body {
   min-height: 500px;
   height: auto;
   position: relative;
-  background-color: #7ebcff;
+  background-image: linear-gradient(
+    to right,
+    rgb(215, 254, 255),
+    rgb(231, 255, 255)
+  );
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 10px;
   align-items: center;
+  opacity: 75%;
+}
+
+.color-box:hover {
+  opacity: 90%;
 }
 
 .color-box p {
   color: black;
   font-size: 26px;
+  font-weight: bold;
   text-align: center;
   max-height: 100px;
-  align-items: flex-start;
+  align-items: center;
+  margin-top: 10vh;
 }
 
 .color-box form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
 }
 
 .main-left-block,
@@ -186,19 +196,19 @@ body {
 
 /* Header Styles */
 header {
-	background-color: #1c1c1c;
-	color: #ffffff;
-	padding: 20px;
-	text-align: center;
-	margin-top: 10vh;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10vh;
 }
 
 /* Welcome Box Styles */
 .welcome-box {
-	background-color: #1c1c1c;
-	color: #ffffff;
-	padding: 20px;
-	text-align: center;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
 }
 
 /* Input Styles */
@@ -208,7 +218,7 @@ input {
   width: 250px;
   height: 40px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 2vh;
   background-color: #333;
   border: 1px solid #555;
   border-radius: 5px;
@@ -220,176 +230,176 @@ input {
 }
 /* House Styles */
 .house {
-	background-color: #222;
-	border: 1px solid #444;
-	margin-bottom: 10px;
-	padding: 15px;
-	border-radius: 10px;
-	min-width: max-content;
+  background-color: #222;
+  border: 1px solid #444;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  min-width: max-content;
 }
 
 .house div {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .house button {
-	background-color: #007bff;
-	color: white;
-	border: none;
-	padding: 8px 12px;
-	margin: 5px;
-	border-radius: 4px;
-	cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .house button:hover {
-	background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* My Houses Styles */
 .my-houses {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5vh;
 }
 
 .my-houses-list {
-	background-color: #222;
-	border: 1px solid #444;
-	margin-bottom: 10px;
-	padding: 15px;
-	border-radius: 10px;
-	max-width: 240px;
-	width: 100%;
-	display: inline-block;
+  background-color: #222;
+  border: 1px solid #444;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 240px;
+  width: 100%;
+  display: inline-block;
 }
 
 .my-houses-list div {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .my-houses-list button {
-	background-color: #007bff;
-	color: white;
-	border: none;
-	padding: 8px 12px;
-	margin: 5px;
-	border-radius: 4px;
-	cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .my-houses-list button:hover {
-	background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Button Styles */
 .create-house-button,
 .search-house-button {
-	background-color: #007bff;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	border-radius: 4px;
-	height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 40px;
 }
 
 .create-house-button:hover,
 .search-house-button:hover {
-	background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Join Box Styles */
 .join-box {
-	max-width: 250px;
-	width: 100%;
-	margin: 0 auto;
-	border-radius: 10px;
-	overflow-x: hidden;
+  max-width: 250px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow-x: hidden;
 }
 
 table {
-	border-collapse: collapse;
-	border: "0";
+  border-collapse: collapse;
+  border: "0";
 }
 
 table td {
-	padding: 10px;
-	text-align: left;
-	position: relative;
-	height: 30px;
+  padding: 10px;
+  text-align: left;
+  position: relative;
+  height: 30px;
 }
 
 table tr {
-	border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333;
 }
 
 table tr:last-child {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .house-name-input {
-	width: calc(100% - 80px);
+  width: calc(100% - 80px);
 }
 
 .join-btn {
-	padding: 5px 10px;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .join-btn:hover {
-	background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .name-column {
-	padding-left: 50px;
-	width: 160px;
-	max-width: 160px;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  padding-left: 50px;
+  width: 160px;
+  max-width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .join-column {
-	width: 100px;
+  width: 100px;
 }
 
 /* Scrollbar Styles */
 .join-box {
-	max-height: 215px;
-	overflow-y: auto;
+  max-height: 215px;
+  overflow-y: auto;
 }
 
 .join-box::-webkit-scrollbar {
-	width: 10px;
-	border-radius: 0 5px 5px 0;
+  width: 10px;
+  border-radius: 0 5px 5px 0;
 }
 
 .join-box::-webkit-scrollbar-thumb {
-	background-color: #555;
-	border-radius: 0 5px 5px 0;
+  background-color: #555;
+  border-radius: 0 5px 5px 0;
 }
 
 .join-box::-webkit-scrollbar-track {
-	background: #333;
-	border-radius: 0 5px 5px 0;
+  background: #333;
+  border-radius: 0 5px 5px 0;
 }
 
-.main-middle-block.color-box::-webkit-scrollbar {
+.house-scroll::-webkit-scrollbar {
   width: 0px;
 }
 
-.main-middle-block.color-box::-webkit-scrollbar-thumb {
+.house-scroll::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
-.main-middle-block.color-box::-webkit-scrollbar-track {
+.house-scroll::-webkit-scrollbar-track {
   background: none;
 }
 
