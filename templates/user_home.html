@@ -38,6 +38,7 @@
 			<div class="main-middle-block color-box">
 				<img src="{{ url_for('static', filename="img/image2.jpg") }}" class="color-box-image">
 				<p>My Houses</p>
+        <div class="house-scroll">
 				<div class="my-houses">
 					<!-- clicking Join will add houses here -->
 					{% for h in user_houses %}
@@ -49,6 +50,7 @@
 					</div>
 					{% endfor %}
 				</div>
+      </div>
 			</div>
 			<div class="main-right-block color-box">
 				<img src="{{ url_for('static', filename="img/image3.jpg") }}" class="color-box-image">
