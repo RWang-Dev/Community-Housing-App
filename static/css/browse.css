@@ -1,7 +1,8 @@
 * {
   font-family: "Oswald", sans-serif;
-  font-family: "Poppins", sans-serif;
-  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -114,7 +115,7 @@ hr {
 
 .btn {
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
   width: fit-content;
   padding: 12px 20px;
   background-color: #007bff;
@@ -127,7 +128,6 @@ hr {
   font-weight: bold;
 }
 
-
 .btn:hover {
   background-color: #0056b3;
 }
@@ -135,21 +135,21 @@ hr {
 /* Responsive design */
 @media screen and (max-width: 1000px) {
   table {
-    overflow-x: auto; 
-    max-width: 100%; 
+    overflow-x: auto;
+    max-width: 100%;
   }
 
   .table-container {
-    overflow: auto; 
+    overflow: auto;
   }
-  
+
   table td {
-    position: relative; 
+    position: relative;
   }
 
   .members-btn {
     position: relative;
-    display: block; 
+    display: block;
     margin-top: 10px;
   }
 }
