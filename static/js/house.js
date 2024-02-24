@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           minute: "2-digit",
         });
         return {
-          html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title} assigned to ${arg.event.extendedProps.assignee}`,
+          html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title}`,
         };
       }
     },
