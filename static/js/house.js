@@ -16,17 +16,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (arg.view.type === "dayGridMonth" && window.renderMonthly) {
         return { html: `<b>${arg.event.title}</b>` };
       } else if (arg.view.type === "timeGridWeek" && window.renderWeekly) {
-        const startTime = new Date(arg.event.start).toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-        const endTime = new Date(arg.event.end).toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-        return {
-          html: `<b>${startTime} - ${endTime}</b><br>${arg.event.title}`,
-        };
+        return { html: `<b>${arg.event.title}</b>` };
       } else if (arg.view.type === "timeGridDay" && window.renderDaily) {
         const startTime = new Date(arg.event.start).toLocaleTimeString([], {
           hour: "2-digit",

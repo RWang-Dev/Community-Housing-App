@@ -80,30 +80,40 @@ form {
 
 .sidebar {
   width: 30%;
+  margin-top: 0;
+  padding-top: 0;
   float: right;
 }
 
-.sidebar-top table tr:first-child {
+.sidebar-top table th {
   background-color: #cccccca4;
+  color: black;
+  height: 25px;
+  border-radius: 5px;
 }
 
 .sidebar-top {
   padding: 10px;
-  padding-top: 21%;
+  padding-top: 0;
+  margin-bottom: 25px;
 }
 
 .sidebar-bottom {
   padding: 10px;
+  padding-top: 0;
 }
 
 .sidebar-top table {
   width: 100%;
   border-collapse: collapse;
 }
+.sidebar-top table tr:nth-child(even) {
+  background-color: #222222; /* Lighter shade for even rows */
+}
 
 .sidebar-top td {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
   padding: 8px;
 }
 
@@ -112,8 +122,19 @@ form {
   text-align: center;
   /* border-left: 1px solid #ccc; */
   /* border-right: 1px solid #ccc; */
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+}
+
+hr {
+  border: none; /* Removes the default border */
+  height: 2px; /* Sets the thickness of the hr */
+  background: linear-gradient(
+    to right,
+    #2c3e5000 0%,
+    #575757 50%,
+    #2c3e5000 100%
+  ); /* Gradient effect */
 }
 
 .button-div button {
@@ -122,7 +143,6 @@ form {
 
 .button-div p {
   font-size: 20px;
-  text-decoration: underline;
 }
 
 .fc {
