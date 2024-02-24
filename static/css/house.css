@@ -3,7 +3,10 @@
 }
 
 body {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   background-color: #121212;
   color: #e0e0e0;
   margin: 0;
@@ -93,7 +96,6 @@ form {
   padding: 10px;
 }
 
-
 .sidebar-top table {
   width: 100%;
   border-collapse: collapse;
@@ -121,4 +123,41 @@ form {
 .button-div p {
   font-size: 20px;
   text-decoration: underline;
+}
+
+.fc {
+  font-family: "Arial", sans-serif;
+  color: #fff; /* Light text for contrast */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures no internal borders peek outside the border-radius */
+}
+
+.fc .fc-daygrid-day {
+  background-color: #222222 !important; /* Example: Changing background color */
+}
+.fc,
+.fc * {
+  border-color: #121212 !important;
+}
+
+.fc .fc-daygrid-day {
+  background-color: #222222 !important; /* Dark background for day cells */
+}
+
+/* Change border color of day cells */
+.fc .fc-daygrid-day {
+  border-color: #121212 !important; /* Darker border color */
+  border-width: 7px;
+}
+
+.fc-header-toolbar {
+  background-color: #444; /* Slightly lighter than the main bg */
+  color: #ccc;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.fc .fc-day-today {
+  background-color: #3a4c55 !important; /* Slightly lighter or different color */
 }
