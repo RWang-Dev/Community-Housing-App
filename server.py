@@ -136,7 +136,7 @@ def user_home():
 
         return redirect("/user/home")
     else:
-        houses = get_houses()
+        houses = get_houses_to_join(session["user_id"])
         user_houses = get_user_houses(session["user_id"])
         
         return render_template('user_home.html', houses=houses, user_houses=user_houses, cur_user=session["username"])
@@ -170,13 +170,13 @@ def check_last_member():
 
 
 # for join button in user home
-@app.route('/join-house', methods=['POST'])
-@requires_auth
-def join_house_route():
-    user_id = session.get('user_id')
-    house_id = request.json.get('house_id')
-    join_house(user_id, house_id) # add entry to user_houses
-    return jsonify({'message': 'House joined successfully'})
+# @app.route('/join-house', methods=['POST'])
+# @requires_auth
+# def join_house_route():
+#     user_id = session.get('user_id')
+#     house_id = request.json.get('house_id')
+#     join_house(user_id, house_id) # add entry to user_houses
+#     return jsonify({'message': 'House joined successfully'})
 
 # browse existing houses page (unauthenticated users can view this)
 @app.route('/browse')

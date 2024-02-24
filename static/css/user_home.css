@@ -139,11 +139,11 @@ body {
   justify-content: center;
   border-radius: 10px;
   align-items: center;
-  opacity: 50%;
+  opacity: 75%;
 }
 
 .color-box:hover {
-  opacity: 100%;
+  opacity: 90%;
 }
 
 .color-box p {
@@ -184,6 +184,10 @@ body {
   max-height: 500px;
   height: auto;
   position: relative;
+}
+
+.house-scroll {
+  max-height: 275px;
   overflow-y: auto;
 }
 
@@ -211,13 +215,16 @@ input {
   width: 250px;
   height: 40px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 2vh;
   background-color: #333;
   border: 1px solid #555;
   border-radius: 5px;
   color: #e0e0e0;
 }
 
+.search-bar {
+  margin-bottom: 2vh;
+}
 /* House Styles */
 .house {
   background-color: #222;
@@ -381,15 +388,15 @@ table tr:last-child {
   border-radius: 0 5px 5px 0;
 }
 
-.main-middle-block.color-box::-webkit-scrollbar {
+.house-scroll::-webkit-scrollbar {
   width: 0px;
 }
 
-.main-middle-block.color-box::-webkit-scrollbar-thumb {
+.house-scroll::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
-.main-middle-block.color-box::-webkit-scrollbar-track {
+.house-scroll::-webkit-scrollbar-track {
   background: none;
 }
 
