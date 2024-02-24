@@ -107,6 +107,11 @@ def get_houses():
     with get_db_cursor() as cur:
         cur.execute("SELECT house_name, house_id FROM houses")
         return cur.fetchall()
+
+def get_houses_to_join(user_id):
+    with get_db_cursor() as cur:
+        cur.execute("SELECT DISTINCT house_name, house_id FROM houses LEFT JOIN user_houses USING (house_id) WHERE house_id NOT IN (SELECT house_id FROM user_houses WHERE user_id = %s)", (user_id, ))
+        return cur.fetchall()
     
 def get_user_id(user_email):
     with get_db_cursor() as cur:
