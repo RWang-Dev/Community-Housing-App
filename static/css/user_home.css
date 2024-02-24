@@ -1,418 +1,475 @@
 /* Global Styles */
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-color: #121212;
-  color: #e0e0e0;
-  margin: 0;
-  padding: 0;
+	font-family: "Oswald", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #121212;
+	color: #e0e0e0;
+	margin: 0;
+	padding: 0;
 }
 
 /* Hero Section Styles */
 .hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f9fa;
-  padding: 0px 16px 100px 16px;
-  height: 100vh;
-  background-image: url("../img/geobg.avif");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f8f9fa;
+	padding: 0px 16px 100px 16px;
+	height: 100vh;
+	background-image: url("../img/geobg.avif");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .hero-content {
-  display: flex;
-  flex-direction: row;
-  max-width: 80vw;
-  width: 100%;
+	display: flex;
+	flex-direction: row;
+	max-width: 80vw;
+	width: 100%;
 }
 
 .left-block {
-  flex: 1;
-  padding-right: 50px;
-  padding-left: 10%;
+	flex: 1;
+	padding-right: 50px;
+	padding-left: 10%;
 }
 
 .left-block h1 {
-  font-size: 80px;
-  margin-bottom: 20px;
-  font-weight: 1000;
-  color: black;
-  width: 100%;
+	font-size: 80px;
+	margin-bottom: 20px;
+	font-weight: 1000;
+	color: black;
+	width: 100%;
 }
 
 .left-block p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: gray;
+	font-size: 18px;
+	margin-bottom: 40px;
+	color: gray;
 }
 
 .right-block {
-  flex: 1;
+	flex: 1;
 }
 
 .right-block img {
-  display: block;
-  width: fit-content;
-  height: 100%;
-  position: relative;
-  max-width: 600px;
-  min-height: 500px;
-  border-radius: 30px;
-  margin-left: 10vw;
+	display: block;
+	width: fit-content;
+	height: 100%;
+	position: relative;
+	max-width: 600px;
+	min-height: 500px;
+	border-radius: 30px;
+	margin-left: 10vw;
 }
 
 .section-divider {
-  position: absolute;
-  bottom: -35px;
-  width: 100%;
-  border-bottom: 1px solid #ccc;
+	position: absolute;
+	bottom: -35px;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
 }
 
 /* Main Section Styles */
 .main-section {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  background-color: #f8f9fa;
-  padding: 0 16px;
-  height: 100vh;
-  background-image: url("../img/city.jpg");
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	background-color: #f8f9fa;
+	padding: 0 16px;
+	height: 100vh;
+	background-image: url("../img/city.jpg");
 }
 
 .main-stuff {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	max-width: 100%;
 }
 
 .main-stuff-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .main-stuff-top h2 {
-  margin-right: 20px;
-  padding: 20px;
-  font-size: 40px;
-  font-weight: 1000;
-  width: 40%;
-  color: rgb(255, 255, 255);
+	margin-right: 20px;
+	padding: 20px;
+	font-size: 40px;
+	font-weight: 1000;
+	width: 40%;
+	color: rgb(255, 255, 255);
 }
 
 .main-stuff-top p {
-  margin-left: 20px;
-  padding: 20px;
-  color: rgb(255, 255, 255);
+	margin-left: 20px;
+	padding: 20px;
+	color: rgb(255, 255, 255);
 }
 
 .main {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
 }
 
 /* Color Box Styles */
 .color-box {
-  display: inline;
-  max-width: 350px;
-  width: 100%;
-  min-height: 500px;
-  height: auto;
-  position: relative;
-  background-image: linear-gradient(
-    to right,
-    rgb(215, 254, 255),
-    rgb(231, 255, 255)
-  );
-  justify-content: center;
-  border-radius: 10px;
-  align-items: center;
-  opacity: 75%;
+	display: inline;
+	max-width: 350px;
+	width: 100%;
+	min-height: 500px;
+	height: auto;
+	position: relative;
+	background-image: linear-gradient(to right, rgb(128, 104, 237), rgb(213, 192, 255));
+	justify-content: center;
+	border-radius: 10px;
+	align-items: center;
+	opacity: 90%;
 }
 
 .color-box:hover {
-  opacity: 90%;
+	opacity: 95%;
+}
+
+.color-box-image {
+	position: absolute;
+	bottom: 0;
+	right: 50px;
+	width: 250px; /* Adjust the width as needed */
+	height: 350px;
+	object-fit: cover;
+	border-radius: 15px 15px 0 0;
+}
+
+.color-box .color-box-image {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 1s ease, opacity 1.5s ease;
+}
+
+.color-box:hover .color-box-image {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 1s ease, opacity 1.5s ease;
+}
+
+/* Input, button, and image styles */
+.color-box input,
+.color-box button {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 1s ease, opacity 1.5s ease;
+	position: relative;
+}
+
+/* Show inputs, buttons, and images on hover */
+.color-box:hover input,
+.color-box:hover button {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* Table and My Houses box styles */
+.house-scroll table,
+.my-houses,
+.join-box {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 1s ease, opacity 1.5s ease;
+}
+
+/* Show table and My Houses box on hover */
+.main-section .main-left-block:hover .house-scroll table,
+.main-section .main-middle-block:hover .my-houses,
+.main-right-block:hover .join-box {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* Show Join House box on hover */
+.main-right-block:hover .join-box {
+	visibility: visible;
+	opacity: 1;
 }
 
 .color-box p {
-  color: black;
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  max-height: 100px;
-  align-items: center;
-  margin-top: 10vh;
+	color: black;
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	max-height: 100px;
+	align-items: center;
+	margin-top: 10vh;
 }
 
 .color-box form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: auto;
 }
 
 .main-left-block,
 .main-middle-block,
 .main-right-block {
-  width: 30%;
-  margin: 0 1.5%;
+	width: 30%;
+	margin: 0 1.5%;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .main-left-block,
-  .main-middle-block,
-  .main-right-block {
-    width: 100%;
-    margin: 0;
-  }
+	.main-left-block,
+	.main-middle-block,
+	.main-right-block {
+		width: 100%;
+		margin: 0;
+	}
 }
 
 .main-middle-block.color-box {
-  max-height: 500px;
-  height: auto;
-  position: relative;
+	max-height: 500px;
+	height: auto;
+	position: relative;
 }
 
 .house-scroll {
-  max-height: 275px;
-  overflow-y: auto;
+	max-height: 275px;
+	overflow-y: auto;
 }
 
 /* Header Styles */
 header {
-  background-color: #1c1c1c;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
-  margin-top: 10vh;
+	background-color: #1c1c1c;
+	color: #ffffff;
+	padding: 20px;
+	text-align: center;
+	margin-top: 10vh;
 }
 
 /* Welcome Box Styles */
 .welcome-box {
-  background-color: #1c1c1c;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
+	background-color: #1c1c1c;
+	color: #ffffff;
+	padding: 20px;
+	text-align: center;
 }
 
 /* Input Styles */
 .create-house-input,
 .search-house-input,
 input {
-  width: 250px;
-  height: 40px;
-  padding: 10px;
-  margin-bottom: 2vh;
-  background-color: #333;
-  border: 1px solid #555;
-  border-radius: 5px;
-  color: #e0e0e0;
+	width: 250px;
+	height: 40px;
+	padding: 10px;
+	margin-bottom: 2vh;
+	background-color: #333;
+	border: 1px solid #555;
+	border-radius: 5px;
+	color: #e0e0e0;
 }
 
 .search-bar {
-  margin-bottom: 2vh;
+	margin-bottom: 2vh;
 }
 /* House Styles */
 .house {
-  background-color: #222;
-  border: 1px solid #444;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  min-width: max-content;
+	background-color: #222;
+	border: 1px solid #444;
+	margin-bottom: 10px;
+	padding: 15px;
+	border-radius: 10px;
+	min-width: max-content;
 }
 
 .house div {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .house button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  margin: 5px;
-  border-radius: 4px;
-  cursor: pointer;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 8px 12px;
+	margin: 5px;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .house button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 /* My Houses Styles */
 .my-houses {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 5vh;
 }
 
 .my-houses-list {
-  background-color: #222;
-  border: 1px solid #444;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  max-width: 240px;
-  width: 100%;
-  display: inline-block;
+	background-color: #222;
+	border: 1px solid #444;
+	margin-bottom: 10px;
+	padding: 15px;
+	border-radius: 10px;
+	max-width: 240px;
+	width: 100%;
+	display: inline-block;
 }
 
 .my-houses-list div {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .my-houses-list button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  margin: 5px;
-  border-radius: 4px;
-  cursor: pointer;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 8px 12px;
+	margin: 5px;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .my-houses-list button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 /* Button Styles */
 .create-house-button,
 .search-house-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  height: 40px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	border-radius: 4px;
+	height: 40px;
 }
 
 .create-house-button:hover,
 .search-house-button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 /* Join Box Styles */
 .join-box {
-  max-width: 250px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow-x: hidden;
+	max-width: 250px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 10px;
+	overflow-x: hidden;
 }
 
 table {
-  border-collapse: collapse;
-  border: "0";
+	border-collapse: collapse;
+	border: "0";
 }
 
 table td {
-  padding: 10px;
-  text-align: left;
-  position: relative;
-  height: 30px;
+	padding: 10px;
+	text-align: left;
+	position: relative;
+	height: 30px;
 }
 
 table tr {
-  border-bottom: 1px solid #333;
+	border-bottom: 1px solid #333;
 }
 
 table tr:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .house-name-input {
-  width: calc(100% - 80px);
+	width: calc(100% - 80px);
 }
 
 .join-btn {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	padding: 5px 10px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .join-btn:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 .name-column {
-  padding-left: 50px;
-  width: 160px;
-  max-width: 160px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	padding-left: 50px;
+	width: 160px;
+	max-width: 160px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .join-column {
-  width: 100px;
+	width: 100px;
 }
 
 /* Scrollbar Styles */
 .join-box {
-  max-height: 215px;
-  overflow-y: auto;
+	max-height: 215px;
+	overflow-y: auto;
 }
 
 .join-box::-webkit-scrollbar {
-  width: 10px;
-  border-radius: 0 5px 5px 0;
+	width: 10px;
+	border-radius: 0 5px 5px 0;
 }
 
 .join-box::-webkit-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 0 5px 5px 0;
+	background-color: #555;
+	border-radius: 0 5px 5px 0;
 }
 
 .join-box::-webkit-scrollbar-track {
-  background: #333;
-  border-radius: 0 5px 5px 0;
+	background: #333;
+	border-radius: 0 5px 5px 0;
 }
 
 .house-scroll::-webkit-scrollbar {
-  width: 0px;
+	width: 0px;
 }
 
 .house-scroll::-webkit-scrollbar-thumb {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 .house-scroll::-webkit-scrollbar-track {
-  background: none;
+	background: none;
 }
 
 /* Responsive design: divs each appear on new line for mobile */
 @media (max-width: 768px) {
-  .main {
-    flex-wrap: wrap;
-  }
+	.main {
+		flex-wrap: wrap;
+	}
 
-  .main-left-block,
-  .main-middle-block,
-  .main-right-block {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+	.main-left-block,
+	.main-middle-block,
+	.main-right-block {
+		width: 100%;
+		margin-bottom: 20px;
+	}
 }
