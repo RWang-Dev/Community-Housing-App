@@ -386,3 +386,17 @@ table tr:last-child {
 .main-middle-block.color-box::-webkit-scrollbar-track {
   background: none;
 }
+
+/* Responsive design: divs each appear on new line for mobile */
+@media (max-width: 768px) {
+  .main {
+    flex-wrap: wrap; 
+  }
+
+  .main-left-block,
+  .main-middle-block,
+  .main-right-block {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+}
