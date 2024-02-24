@@ -72,10 +72,10 @@ body {
 }
 
 .section-divider {
-  position: absolute;
-  bottom: -35px;
-  width: 100%;
-  border-bottom: 1px solid #ccc;
+	position: absolute;
+	bottom: -35px;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
 }
 
 /* Main Section Styles */
@@ -104,18 +104,18 @@ body {
 }
 
 .main-stuff-top h2 {
-  margin-right: 20px;
-  padding: 20px;
-  font-size: 40px;
-  font-weight: 1000;
-  width: 40%;
-  color: rgb(255, 255, 255);
+	margin-right: 20px;
+	padding: 20px;
+	font-size: 40px;
+	font-weight: 1000;
+	width: 40%;
+	color: black;
 }
 
 .main-stuff-top p {
-  margin-left: 20px;
-  padding: 20px;
-  color: rgb(255, 255, 255);
+	margin-left: 20px;
+	padding: 20px;
+	color: black;
 }
 
 .main {
@@ -128,35 +128,88 @@ body {
 
 /* Color Box Styles */
 .color-box {
-  display: inline;
-  max-width: 350px;
-  width: 100%;
-  min-height: 500px;
-  height: auto;
-  position: relative;
-  background-image: linear-gradient(
-    to right,
-    rgb(215, 254, 255),
-    rgb(231, 255, 255)
-  );
-  justify-content: center;
-  border-radius: 10px;
-  align-items: center;
-  opacity: 75%;
+	display: inline;
+	max-width: 350px;
+	width: 100%;
+	min-height: 500px;
+	height: auto;
+	position: relative;
+	background-color: #7ebcff;
+	justify-content: center;
+	border-radius: 30px;
+	align-items: center;
+	position: relative;
 }
 
-.color-box:hover {
-  opacity: 90%;
+.color-box-image {
+	position: absolute;
+	bottom: 0;
+	right: 50px;
+	width: 250px; /* Adjust the width as needed */
+    height: 350px;
+	object-fit: cover;
+	border-radius: 15px 15px 0 0;
+}
+
+.color-box .color-box-image {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s ease, opacity 1.5s ease;
+}
+
+
+.color-box:hover .color-box-image {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s ease, opacity 1.5s ease;
+}
+
+
+/* Input, button, and image styles */
+.color-box input,
+.color-box button {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 1s ease, opacity 1.5s ease;
+	position: relative;
+}
+
+/* Show inputs, buttons, and images on hover */
+.color-box:hover input,
+.color-box:hover button {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* Table and My Houses box styles */
+.house-scroll table,
+.my-houses,
+.join-box {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 1s ease, opacity 1.5s ease;
+}
+
+/* Show table and My Houses box on hover */
+.main-section .main-left-block:hover .house-scroll table,
+.main-section .main-middle-block:hover .my-houses,
+.main-right-block:hover .join-box {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* Show Join House box on hover */
+.main-right-block:hover .join-box {
+	visibility: visible;
+	opacity: 1;
 }
 
 .color-box p {
-  color: black;
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  max-height: 100px;
-  align-items: center;
-  margin-top: 10vh;
+	color: black;
+	font-size: 26px;
+	text-align: center;
+	max-height: 100px;
+	align-items: flex-start;
 }
 
 .color-box form {
@@ -212,14 +265,14 @@ header {
 .create-house-input,
 .search-house-input,
 input {
-  width: 250px;
-  height: 40px;
-  padding: 10px;
-  margin-bottom: 2vh;
-  background-color: #333;
-  border: 1px solid #555;
-  border-radius: 5px;
-  color: #e0e0e0;
+	width: 250px;
+	height: 40px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #333;
+	border: 1px solid #555;
+	border-radius: 5px;
+	color: #e0e0e0;
 }
 
 .search-bar {
