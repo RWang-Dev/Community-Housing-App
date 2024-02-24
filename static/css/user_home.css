@@ -71,7 +71,7 @@ body {
 .section-divider {
   position: absolute;
   bottom: -35px;
-  width: 100%; 
+  width: 100%;
   border-bottom: 1px solid #ccc;
 }
 
@@ -112,7 +112,7 @@ body {
 .main-stuff-top p {
   margin-left: 20px;
   padding: 20px;
-  color: rgb(255, 255, 255)
+  color: rgb(255, 255, 255);
 }
 
 .main {
@@ -131,7 +131,11 @@ body {
   min-height: 500px;
   height: auto;
   position: relative;
-  background-image: linear-gradient(to right, rgb(255, 250, 224), rgb(255, 254, 248)); 
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 250, 224),
+    rgb(255, 254, 248)
+  );
   justify-content: center;
   border-radius: 10px;
   align-items: center;
@@ -139,15 +143,17 @@ body {
 }
 
 .color-box:hover {
-  opacity: 100%; 
+  opacity: 100%;
 }
 
 .color-box p {
   color: black;
   font-size: 26px;
+  font-weight: bold;
   text-align: center;
   max-height: 100px;
-  align-items: flex-start;
+  align-items: center;
+  margin-top: 10vh;
 }
 
 .color-box form {
@@ -160,8 +166,8 @@ body {
 .main-left-block,
 .main-middle-block,
 .main-right-block {
-    width: 30%;
-    margin: 0 1.5%; 
+  width: 30%;
+  margin: 0 1.5%;
 }
 
 /* Responsive design */
@@ -169,8 +175,8 @@ body {
   .main-left-block,
   .main-middle-block,
   .main-right-block {
-      width: 100%; 
-      margin: 0; 
+    width: 100%;
+    margin: 0;
   }
 }
 
@@ -390,13 +396,13 @@ table tr:last-child {
 /* Responsive design: divs each appear on new line for mobile */
 @media (max-width: 768px) {
   .main {
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
   }
 
   .main-left-block,
   .main-middle-block,
   .main-right-block {
-    width: 100%; 
-    margin-bottom: 20px; 
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
