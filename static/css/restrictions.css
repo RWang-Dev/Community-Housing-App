@@ -1,10 +1,9 @@
 * {
-
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  color: #ffffff;
+  /* color: #ffffff; */
   /* background-color: #121212; */
   text-align: center;
 }
@@ -29,7 +28,6 @@ input[type="text"] {
   background-color: #333;
   border: 1px solid #555;
   border-radius: 5px;
-  color: #e0e0e0;
   height: 40px;
 }
 
@@ -44,13 +42,10 @@ form {
 
 label {
   display: block;
-
 }
 
 input[type="text"],
 textarea,
 input[type="datetime-local"] {
-
   width: 100%;
-
 }
