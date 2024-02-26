@@ -217,6 +217,11 @@ def delete_tasks_by_user_and_house(user_id, house_id):
         query = "DELETE FROM tasks WHERE user_id = %s AND house_id = %s"
         cur.execute(query, (user_id, house_id))
 
+def delete_restrictions_by_house(house_id):
+    with get_db_cursor(True) as cur:
+        query = "DELETE FROM restrictions WHERE house_id = %s"
+        cur.execute(query, (house_id,))
+
 def get_tasks_by_house_id(house_id):
     with get_db_cursor() as cur:
         # print(house_id)
