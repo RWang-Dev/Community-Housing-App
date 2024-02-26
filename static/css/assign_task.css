@@ -45,8 +45,12 @@ body {
     rgba(60, 132, 206, 1) 38%,
     rgba(48, 238, 226, 1) 68%,
     rgba(255, 25, 25, 1) 98%
+<<<<<<< HEAD
   );
 >>>>>>> b6dd641 (Fixed fonts)
+=======
+  ); */
+>>>>>>> e6f4fec (Fixed fonts)
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
