@@ -17,15 +17,15 @@ let current_phrase = 0;
 // Example color cycle - selected for contrast against the background
 // Adjust colors as needed to match or complement your background animation phases
 const colors = [
-  "red",
-  "teal",
-  "blue",
-  "purple",
-  "magenta",
-  "purple",
-  "blue",
-  "teal",
-  "red",
+  // "red",
+  // "teal",
+  // "blue",
+  // "purple",
+  // "magenta",
+  // "purple",
+  // "blue",
+  // "teal",
+  // "red",
 ];
 let colorIndex = 0;
 
