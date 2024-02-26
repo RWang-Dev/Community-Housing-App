@@ -126,6 +126,19 @@ form {
   border-bottom: 1px solid #ccc; */
 }
 
+.button-div button {
+  width: 80%;
+}
+
+@media screen and (max-width: 1250px) {
+  .button-div button {
+    width: 100%; 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 hr {
   border: none; /* Removes the default border */
   height: 2px; /* Sets the thickness of the hr */
