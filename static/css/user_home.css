@@ -506,3 +506,12 @@ table tr:last-child {
     margin-bottom: 20px;
   }
 }
+
+.button-container button {
+  display: inline-block;
+}
+
+.my-houses-list .button-container {
+  display: flex; 
+  gap: 20%;
+}
