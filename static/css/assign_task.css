@@ -42,15 +42,9 @@ body {
   /* background: linear-gradient(
     315deg,
     rgba(101, 0, 94, 1) 3%,
-<<<<<<< HEAD
     rgba(60, 132, 206, 1) 38%,
     rgba(48, 238, 226, 1) 68%,
     rgba(255, 25, 25, 1) 98%
-  ); */
-=======
-    rgb(3, 93, 183) 38%,
-    rgb(48, 162, 238) 68%,
-    rgb(82, 25, 255) 98%
   );
 >>>>>>> b6dd641 (Fixed fonts)
   animation: gradient 15s ease infinite;
