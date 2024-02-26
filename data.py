@@ -140,15 +140,20 @@ def get_house_members(house_id):
         members = cur.fetchall()
         return [member[0] for member in members] if members else ["No members"]
 
-
 # for leave button in user_home
 def leave_house(user_id, house_id):
-    if is_last_member(house_id):
-        delete_house(house_id)  # Delete the house itself
-        logging.info(f"User {user_id} left house {house_id} and deleted the house")
-    else:
-        remove_user_house(user_id, house_id)  # Remove the user from the house
-        logging.info(f"User {user_id} left house {house_id}")
+    with get_db_cursor(commit=True) as cur:
+        cur.execute("DELETE FROM user_houses WHERE user_id = %s AND house_id = %s", (user_id, house_id))
+        # Check if the user leaving is the last member of the house
+        cur.execute("SELECT COUNT(*) FROM user_houses WHERE house_id = %s", (house_id,))
+        count = cur.fetchone()[0]
+        if count == 0:
+            cur.execute("DELETE FROM houses WHERE house_id = %s", (house_id,))
+
+def delete_tasks_by_house(house_id):
+    with get_db_cursor(commit=True) as cur:
+        cur.execute("DELETE FROM tasks WHERE house_id = %s", (house_id,))
+        # print(f"All tasks associated with house {house_id} deleted successfully.")
 
 def is_last_member(house_id):
     with get_db_cursor() as cur:
@@ -189,6 +194,10 @@ def get_user_by_id(user_id):
 def join_house(user_id, house_id):
     with get_db_cursor(True) as cur:
         cur.execute("INSERT INTO user_houses (user_id, house_id) VALUES (%s, %s)", (user_id, house_id))
+
+def delete_house(house_id):
+    with get_db_cursor(commit=True) as cur:
+        cur.execute("DELETE FROM houses WHERE house_id = %s", (house_id,))
 
 # for assign-task page
 def insert_task(task_name, user_id, house_id, task_due_date):
