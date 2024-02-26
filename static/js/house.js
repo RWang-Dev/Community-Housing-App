@@ -105,8 +105,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   for (var i = 0; i < tasks.length; i++) {
     t_time = tasks[i]["end"];
     t_day = tasks[i]["end-day"];
-    const parsedTime = new Date(t_time);
-    const parsedDay = new Date(t_day);
+    const parsedTime = convertTime(t_time);
+    const parsedDay = convertTime(t_day);
     due_times.push(parsedTime.toISOString());
     due_days.push(parsedDay.toISOString().split("T")[0]);
     task_titles.push(tasks[i]["title"]);
@@ -121,17 +121,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       dayCounts[date] = 1;
     }
   });
-
-  // // // weekly view
-
-  // // // daily view
-  // for (let i = 0; i < due_times.length; i++) {
-  //   calendar.addEvent({
-  //     title: task_titles[i] + " assigned to " + task_assignees[i],
-  //     start: due_times[i],
-  //     allDay: false,
-  //   });
-  // }
   calendar.render();
 });
 
@@ -140,6 +129,15 @@ async function logMovies() {
   const houseID = houseCalendar.getAttribute("data-house-id");
   const response = await fetch("/get-tasks/" + houseID);
   const movies = await response.json();
-  console.log(movies);
+  // console.log(movies);
   return movies;
+}
+
+function convertTime(time) {
+  const date = new Date(time);
+  const offset = date.getTimezoneOffset();
+  const offsetMilliseconds = offset * 60 * 1000;
+  const time2 = new Date(date.getTime() + offsetMilliseconds);
+  const adjustedTime = new Date(time2.getTime() - 2 * 60 * 60 * 1000);
+  return adjustedTime;
 }
