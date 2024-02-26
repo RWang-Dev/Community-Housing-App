@@ -1,112 +1,182 @@
 * {
-
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Oswald", sans-serif;
+  /* font-family: "Oswald", sans-serif; */
+  font-family: "Pacifico";
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   text-align: center;
-
 }
 
 #cursor {
-	color: orange;
-	animation: blink 1s linear infinite;
+  color: white;
+  animation: blink 1s linear infinite;
 }
 #typewriter {
-	font-weight: bold;
-	color: orange;
+  font-weight: bold;
+  color: orange;
 }
 
 @keyframes blink {
-	0% {
-		opacity: 100%;
-	}
-	50% {
-		opacity: 0%;
-	}
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
 }
+
 body {
-	background-color: #121212;
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(
+    315deg,
+    rgba(101, 0, 94, 1) 3%,
+    rgba(60, 132, 206, 1) 38%,
+    rgba(48, 238, 226, 1) 68%,
+    rgba(255, 25, 25, 1) 98%
+  );
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  75% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(1);
+  }
 }
 
 header {
-	background-color: #1c1c1c;
-	color: #e0e0e0;
-	padding: 20px;
-	text-align: center;
-	margin-bottom: 20px;
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 main {
-	text-align: center;
-	color: white;
+  text-align: center;
+  color: white;
 }
 
 form {
-	display: inline-block;
-	text-align: left;
+  display: inline-block;
+  text-align: left;
 }
 
 label {
-	display: block;
-	font-size: 1.2em;
+  display: block;
+  font-size: 1.2em;
 }
 
 input[type="text"],
 input[type="datetime-local"] {
-	width: 100%;
-	padding: 10px;
-	margin-right: 10px 1;
-	background-color: #333;
-	border: 1px solid #555;
-	border-radius: 5px;
-	color: #e0e0e0;
-	height: 40px;
+  width: 100%;
+  padding: 10px;
+  margin-right: 10px 1;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #e0e0e0;
+  height: 40px;
 }
 
 #person {
-	width: 100%;
-	padding: 10px;
-	margin-right: 10px 1;
-	background-color: #333;
-	border: 1px solid #555;
-	border-radius: 5px;
-	color: #e0e0e0;
-	height: 40px;
+  width: 100%;
+  padding: 10px;
+  margin-right: 10px 1;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #e0e0e0;
+  height: 40px;
 }
 
 .pure-control-group {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Add a black background color to the top navigation */
 .topnav {
-	background-color: #333;
-	overflow: hidden;
+  background-color: #333;
+  overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-	float: left;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-	background-color: #ddd;
-	color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-
   background-color: #04aa6d;
-
 }
