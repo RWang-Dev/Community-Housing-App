@@ -29,11 +29,11 @@ CREATE TABLE user_houses (
 );
 
 CREATE TABLE restrictions (
+    restriction_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
     house_id INTEGER REFERENCES houses(house_id),
     diet_restrictions VARCHAR(1023),
-    schedule_restrictions VARCHAR(1023),
-    UNIQUE(user_id, house_id)
+    schedule_restrictions VARCHAR(1023)
 );
 
 
