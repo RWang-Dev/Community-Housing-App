@@ -134,7 +134,7 @@ def user_home():
         if not check_house_exists(house_name):
             create_house(house_name, session["user_id"])
 
-        return redirect("/user/home")
+        return redirect("/user/home#load-section")
     else:
         houses = get_houses_to_join(session["user_id"])
         user_houses = get_user_houses(session["user_id"])
@@ -158,6 +158,7 @@ def leave_house_route():
 
     if is_last_member(house_id):
         delete_tasks_by_house(house_id)
+        delete_restrictions_by_house(house_id)
 
     leave_house(user_id, house_id)
 
