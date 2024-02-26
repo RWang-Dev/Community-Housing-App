@@ -142,14 +142,6 @@ def user_home():
         return render_template('user_home.html', houses=houses, user_houses=user_houses, cur_user=session["username"])
 
 @requires_auth
-@app.route("/profile", methods=["GET", "POST"])
-def profile():
-    if request.method == "POST":
-        return redirect(url_for('user_home')) 
-    elif request.method == "GET":
-        return render_template('profile.html')
-
-@requires_auth
 @app.route("/join-house", methods=["POST"])
 def join_house():
     data = request.get_json()
