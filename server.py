@@ -163,7 +163,15 @@ def leave_house_route():
     data = request.get_json()
     user_id = session.get('user_id')
     house_id = data.get('house_id')
+
+    if is_last_member(house_id):
+        delete_tasks_by_house(house_id)
+
     leave_house(user_id, house_id)
+
+    if is_last_member(house_id):
+        delete_house(house_id)
+
     return jsonify({"result": "ok"})
 
 @requires_auth
