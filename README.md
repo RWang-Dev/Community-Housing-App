@@ -5,8 +5,8 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 ## App Info:
 
 * Team Name: The Forge
-* App Name: 
-* App Link: <https://TODO.com/>
+* App Name: The Forge
+* App Link: https://five117project1.onrender.com/
 
 ### Students
 
@@ -22,13 +22,14 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 **Describe the most challenging features you implemented
 (one sentence per bullet, maximum 4 bullets):**
 
-* ...
+* It was challenging figuring out how to have the monthly, weekly, and daily views of the calendar display different texts for the events.
+* It was challenging implementing the GPT feature specifically for meal prep scheduling. 
 
 ## Testing Notes
 
 **Is there anything special we need to know in order to effectively test your app? (optional):**
 
-* ...
+* No
 
 
 ## Screenshots of Site
