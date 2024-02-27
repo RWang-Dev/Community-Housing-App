@@ -23,7 +23,8 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 (one sentence per bullet, maximum 4 bullets):**
 
 * It was challenging figuring out how to have the monthly, weekly, and daily views of the calendar display different texts for the events.
-* It was challenging implementing the GPT feature specifically for meal prep scheduling. 
+* It was challenging implementing the GPT feature specifically for meal prep scheduling.
+* Getting the Auth0 authentication to work while integrating user login information with our database.
 
 ## Testing Notes
 
@@ -53,8 +54,7 @@ For our mock-up, we used moqups.com. Here is the link to our project's mock-up: 
 **Document integrations with 3rd Party code or services here.
 Please do not document required libraries. or libraries that are mentioned in the product requirements**
 
-* Flask-SQLAlchemy: for interacting with Postgres database
-* Flask-Bcrypt: for securely hashing passwords
+* Flask-psycopg2: for interacting with Postgres database
 * Authlib and OAuth: for implementing authentication and user management
 * GPT: for generating AI-generated content for weekly meal schedules based on dietary restrictions and member schedules
 
