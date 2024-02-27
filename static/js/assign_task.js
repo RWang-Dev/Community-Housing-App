@@ -16,7 +16,8 @@ let current_phrase = 0;
 
 // Example color cycle - selected for contrast against the background
 // Adjust colors as needed to match or complement your background animation phases
-const colors = ["#1105b9", "#8000ff", "#0044ff", "#fefefe"];
+// const colors = ["#1105b9", "#8000ff", "#0044ff", "#fefefe"];
+const colors = ["#ffffff"];
 let colorIndex = 0;
 
 const changeTypewriterColor = async () => {

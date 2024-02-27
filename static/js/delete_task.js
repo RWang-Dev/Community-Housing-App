@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function() {
     const house_id = window.location.pathname.split('/').pop();
+    const taskList = document.getElementById('task-list');
 
     document.getElementById('task-form').addEventListener('submit', async function(event) {
         event.preventDefault();
+
+        if (taskList.options.length === 0) {
+            alert('There are no tasks to delete.');
+            return;
+        }
 
         const confirmed = confirm("Are you sure you want to delete this task?");
 
