@@ -53,8 +53,10 @@ For our mock-up, we used moqups.com. Here is the link to our project's mock-up: 
 **Document integrations with 3rd Party code or services here.
 Please do not document required libraries. or libraries that are mentioned in the product requirements**
 
-* Library or service name: description of use
-* ...
+* Flask-SQLAlchemy: for interacting with Postgres database
+* Flask-Bcrypt: for securely hashing passwords
+* Authlib and OAuth: for implementing authentication and user management
+* GPT: for generating AI-generated content for weekly meal schedules based on dietary restrictions and member schedules
 
 **If there's anything else you would like to disclose about how your project
 relied on external code, expertise, or anything else, please disclose that
