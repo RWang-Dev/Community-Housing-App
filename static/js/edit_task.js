@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     document.getElementById('task-form').addEventListener('submit', async function(event) {
         event.preventDefault();
+
+        if (taskList.options.length === 0) {
+            alert('There are no tasks to delete.');
+            return;
+        }
+
         var formData = new FormData(document.getElementById('task-form'));
         console.log(formData);
         const jsonData = {};
