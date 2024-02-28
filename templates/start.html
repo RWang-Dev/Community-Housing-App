@@ -1,45 +1,66 @@
 {% extends "base.html" %} {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/start.css') }}" />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/start.css') }}"
+/>
 <script defer src="{{ url_for('static', filename='js/start.js') }}"></script>
 <title>Landing Page</title>
 {% endblock %} {% block body %}
 <body>
-    <div class="container">
-        <div class="left-section">
-            <div class="hero">
-                <video autoplay loop muted plays-inline class="back-video">
-                    <source src="{{ url_for('static', filename='img/pexels-cityxcape-17153645 (1080p).mp4') }}" type="video/mp4" />
-                </video>
-            </div>
-            <div class="sidebar">
-                <img src="{{ url_for('static', filename='img/The_Forge_Banner_Transparent.jpg') }}" class="logo" />
-            </div>
-        </div>
-        <div class="right-section">
-            <div class="main-stuff-top">
-                <div class="hero-text">
+  <div class="container">
+    <div class="left-section">
+      <div class="hero">
+        <video autoplay loop muted plays-inline class="back-video">
+          <source
+            src="{{ url_for('static', filename='img/pexels-cityxcape-17153645 (1080p).mp4') }}"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div class="sidebar">
+        <img
+          src="{{ url_for('static', filename='img/The_Forge_Banner_Transparent.jpg') }}"
+          class="logo"
+        />
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="main-stuff-top">
+        <h2>Manage Your Virtual Communities With Ease</h2>
+        <p>
+          With The Forge, you can create, join, and manage virtual communities
+          with ease.
+        </p>
+        <!-- <div class="hero-text">
+					
                     <h1>Virtual Home Management At Your Fingertips <hr> <span id="typewriter"></span>
                     <span id="cursor">|</span></h1>
-                </div>
-            </div>
-            
-            <h2>Start Here</h2>
-            <div class="auth0-buttons">
-                <!-- <a href="/login" class="btn">Log in</a> -->
-                <a href="/login">
-                    <button class="button-left" role="button"><span class="text">Log In</span></button>
-                </a>
-                <a href="/signup">
-                    <button class="button-right" role="button"><span class="text">Sign Up</span></button><br>
-                </a>
-            </div>
-            <h2>Browse Houses</h2>
-            <div class="browse-houses">
-                <a href="/browse">
-                    <button class="button-64" role="button"><span class="text">Browse Houses</span></button>
-                </a>
-            </div>
-        </div>
+                </div> -->
+      </div>
+
+      <h2>Start Here</h2>
+      <div class="auth0-buttons">
+        <!-- <a href="/login" class="btn">Log in</a> -->
+        <a href="/login">
+          <button class="button-left" role="button">
+            <span class="text">Log In</span>
+          </button>
+        </a>
+        <a href="/signup">
+          <button class="button-right" role="button">
+            <span class="text">Sign Up</span></button
+          ><br />
+        </a>
+      </div>
+      <h2>Browse Houses</h2>
+      <div class="browse-houses">
+        <a href="/browse">
+          <button class="button-64" role="button">
+            <span class="text">Browse Houses</span>
+          </button>
+        </a>
+      </div>
     </div>
+  </div>
 </body>
 {% endblock %}
