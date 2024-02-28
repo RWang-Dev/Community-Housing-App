@@ -1,41 +1,60 @@
-{% extends "base.html" %}
-{% block head %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/delete_task.css') }}"/>
-    <script src="{{ url_for('static', filename='js/delete_task.js') }}"></script>
-    <title>Delete Task</title>
+{% extends "base.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/delete_task.css') }}"
+/>
+<script src="{{ url_for('static', filename='js/delete_task.js') }}"></script>
+<title>Delete Task</title>
 {% endblock %} {% block body %}
-    
+
 <main>
-    <header>
-        <h1>Delete Task</h1>
-    </header>
-    <body>
-        <div>
-           <div class="wave"></div>
-           <div class="wave"></div>
-           <div class="wave"></div>
-        </div>
-    </body>
-    <form class="pure-form pure-form-stacked" id="task-form" action="{{ url_for('delete_task', house_id=house_id) }}" method="POST">
-        <div class="pure-control-group">
-            <label for="task-list">Select Task</label>
-            <select id="task-list" name="task-list">
-                {% for task_id, task_name in task_list %}
-                    <option value="{{ task_id }}">{{ task_name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="pure-controls">
-            <input type="submit" value="Submit" class="pure-button pure-button-primary">
-        </div>
-    </form>
-    <br><br>
-    <p>OR</p>
-    <br>
-    <div class="back">
-        <button onclick="history.back()" class="pure-button pure-button-primary back-icon">Go Back</button>
+  <header>
+    <h1>Delete Task</h1>
+  </header>
+  <body>
+    <div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
     </div>
+  </body>
+  <form
+    class="pure-form pure-form-stacked"
+    id="task-form"
+    action="{{ url_for('delete_task', house_id=house_id) }}"
+    method="POST"
+  >
+    <div class="pure-control-group">
+      <label for="task-list">Select Task</label>
+      <select id="task-list" name="task-list">
+        {% for task_id, task_name in task_list %}
+        <option value="{{ task_id }}">{{ task_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="pure-controls">
+      <input
+        type="submit"
+        value="Confirm"
+        class="pure-button pure-button-primary"
+      />
+    </div>
+  </form>
+  <br /><br />
+  <p>OR</p>
+  <br />
+  <div class="back">
+    <button
+      onclick="history.back()"
+      class="pure-button pure-button-primary back-icon"
+    >
+      Go Back
+    </button>
+  </div>
 </main>
 
 {% endblock %}

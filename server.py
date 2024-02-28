@@ -291,6 +291,7 @@ def delete_task(house_id):
 @app.route('/restrictions/<int:house_id>', methods=["GET", "POST"])
 def restrictions(house_id):
     if request.method == "POST":
+        print(house_id)
         data = request.get_json()
         user_id = session["user_id"]
         dietary_restrictions = data.get('dietary_restrictions')
@@ -307,15 +308,20 @@ def ai_schedule(house_id):
     member_id_dict = get_member_id_dict(house_id)
     house_members = get_house_members(house_id)
     restrictions = get_restrictions(house_id)
+
     def get_member_by_id(member_id):
         for key, value in member_id_dict.items():
             if value == member_id:
                 return key
+
+    print(restrictions)
     for i in range(len(restrictions)):
+        restrictions[i].pop(0)
         restrictions[i].pop(1)
         restrictions[i][0] = get_member_by_id(restrictions[i][0])
+
     show_schedule = get_openai_weekly_menu(house_members, restrictions)
-    return render_template('gpt.html', show_schedule=show_schedule)
+    return render_template('gpt.html', show_schedule=show_schedule, house_id=house_id)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=env.get("PORT", 3000))
