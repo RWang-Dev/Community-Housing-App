@@ -1,26 +1,21 @@
 {% extends "base.html" %} {% block head %}
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-/>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/gpt.css') }}" />
-<title>AI Meal Scheduling</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gpt.css') }}"/>
+    <title>AI Meal Scheduling</title>
 {% endblock %} {% block body %} {% include 'navbar.html' %}
-<header>
-  <h1>AI Meal Scheduling</h1>
-</header>
-<main>
-  <p class="ai-schedule">{{ show_schedule }}</p>
-  <br />
-  <button
-    onclick="history.back()"
-    class="pure-button pure-button-primary back-icon"
-  >
-    Go Back
-  </button>
-  <a href="/ai_schedule/{{house_id}}"" >
-    <button style="margin-top: 2vh;"class="pure-button pure-button-primary back-icon">Refresh</button>
-
-  </a>
-</main>
+    <header>
+        <h1>AI Meal Scheduling</h1>
+    </header>
+    <main>
+        <p class="ai-schedule">{{ show_schedule }}</p>
+        <a href="/ai_schedule/{{ house_id }}">
+            <button style="margin-top: 2vh;" class="refresh-button">Refresh</button>
+        </a>
+        <br/>
+        <a>
+            <button onclick="history.back()" class="back-button">
+                Go Back
+            </button>
+        </a>
+    </main>
 {% endblock %}
