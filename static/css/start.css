@@ -27,10 +27,49 @@ li {
   position: relative;
 }
 
+.hero-text {
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* White text color */
+  text-align: center;
+  z-index: 2; /* Ensure it's above the video */
+}
+
+
+/* Optional: Style your text */
+.hero-text h1 {
+  font-size: 40px; /* Example size */
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 2em; /* Example size */
+}
+
 .back-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+#cursor {
+  color: white;
+  animation: blink 1s linear infinite;
+}
+#typewriter {
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
 }
 
 .right-section {
@@ -57,12 +96,13 @@ li {
 .auth0-buttons {
   margin-bottom: 20px;
   border-bottom: 5px solid #1d1d1d;
+  display: flex;
 }
 .browse-houses {
   margin-bottom: 20px;
 }
 
-.btn {
+/* .btn {
   display: inline-block;
   width: 100px;
   padding: 12px 20px;
@@ -78,10 +118,9 @@ li {
   margin-right: 3px;
 }
 
-
 .btn:hover {
   background-color: #0056b3;
-}
+} */
 
 h2 {
   margin-bottom: 10px;
@@ -102,4 +141,63 @@ h2 {
 .main-stuff-top p {
   color: white;
   text-align: center;
+}
+
+/* CSS: https://getcssscan.com/css-buttons-examples */
+button {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+button :active,
+button :hover {
+  outline: 0;
+}
+
+button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+button:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  button {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+.button-right {
+  margin-left: 20px;
+}
+
+button, a.button, a {
+  text-decoration: none; /* Removes underlines */
+  /* other styles */
 }

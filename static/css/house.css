@@ -120,10 +120,6 @@ form {
 .button-div {
   padding: 10px;
   text-align: center;
-  /* border-left: 1px solid #ccc; */
-  /* border-right: 1px solid #ccc; */
-  /* border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc; */
 }
 
 .button-div button {
@@ -193,4 +189,74 @@ hr {
 
 .fc .fc-day-today {
   background-color: #3a4c55 !important; /* Slightly lighter or different color */
+}
+
+body {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(
+    315deg,
+    rgb(0, 0, 0) 3%,
+    rgb(32, 32, 32) 38%,
+    rgb(31, 31, 31) 68%,
+    rgb(8, 8, 8) 98%
+  );
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.assign-button,
+.edit-button,
+.delete-button,
+.scheduling-button {
+  background-image: linear-gradient(
+    to right,
+    #283048 0%,
+    #859398 51%,
+    #283048 100%
+  );
+  margin: 10px auto;
+  padding: 10px 20px; /* Adjust the padding as needed to fit your design */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: inline-block;
+  border: none; /* Remove border if Pure CSS adds one */
+  font-size: 0.8em;
+  cursor: pointer;
+  width: auto;
+}
+
+.assign-button:hover,
+.edit-button:hover,
+.delete-button:hover,
+.scheduling-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+button,
+a.button,
+a {
+  text-decoration: none; /* Removes underlines */
+  /* other styles */
 }
