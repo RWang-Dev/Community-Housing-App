@@ -61,9 +61,14 @@ Please do not document required libraries. or libraries that are mentioned in th
 * Flask-psycopg2: for interacting with Postgres database
 * Authlib and OAuth: for implementing authentication and user management
 * GPT: for generating AI-generated content for weekly meal schedules based on dietary restrictions and member schedules
+* Button Inspiration: https://gradientbuttons.colorion.co/ for silverish buttons on /house and https://getcssscan.com/css-buttons-examples for purplish buttons on /start
+* Inspirtion for Wave Gradients on assign-task, edit-task, and delete-task: https://devdevout.com/css/css-animated-backgrounds
+* Video background on start page: https://www.pexels.com/video/night-view-of-minneapolis-city-in-minnesota-usa-17153645/
 
 **If there's anything else you would like to disclose about how your project
 relied on external code, expertise, or anything else, please disclose that
-here:**
+here:
+  A great deal of YouTube, MDN, and docs were used as a means of learning the skills required to build our app.
+**
 
 ...
