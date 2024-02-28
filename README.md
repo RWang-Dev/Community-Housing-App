@@ -24,7 +24,7 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 * It was challenging figuring out how to have the monthly, weekly, and daily views of the calendar display different texts for the events.
 * It was challenging implementing the GPT feature specifically for meal prep scheduling.
-* Getting the Auth0 authentication to work while integrating user login information with our database.
+* It was challenging getting the Auth0 authentication to work while integrating user login information with our database.
 
 ## Testing Notes
 
@@ -34,11 +34,15 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 
 ## Screenshots of Site
-
-**[Add a screenshot of each key page (around 4)](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository)
-along with a very brief caption:**
-
-![](https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif)
+Landing Page:
+Browse Houses (for unauthenticated users)
+User Home: 
+House (includes schedule with tasks for specific house):
+Assign a task:
+Edit a task:
+Delete task:
+Add dietary and scheduling restrictions:
+GPT generated Meal schedule:
 
 
 ## Mock-up 
