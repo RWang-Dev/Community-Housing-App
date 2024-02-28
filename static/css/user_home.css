@@ -519,5 +519,5 @@ table tr:last-child {
 
 .my-houses-list .button-container {
   display: flex; 
-  gap: 20%;
+  justify-content: center;
 }
