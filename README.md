@@ -35,7 +35,7 @@ When you git clone and run it locally, use "python server.py".
 
 ## Screenshots of Site
 Landing Page:
-![start](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/1805df76-1a7e-4931-80d5-c7890a69dd17)
+![start](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/b89f6aa6-61c6-42b8-b32d-5601d7ff2fa9)
 
 Browse Houses (for unauthenticated users):
 ![browse](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/89720671-407f-49fa-b2ef-b22d6ea99b91)
