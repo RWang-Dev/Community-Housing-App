@@ -35,14 +35,32 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 ## Screenshots of Site
 Landing Page:
-Browse Houses (for unauthenticated users)
+![landing](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/80b3fa70-a5c1-4c78-993c-266fa90f70a4)
+
+Browse Houses (for unauthenticated users):
+![browse](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/f3de7bcb-3056-4fc2-874f-aa0a62c0eceb)
+
 User Home: 
+![userhome](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/36e9284b-d099-4516-bc88-c8faa90b3b7a)
+
 House (includes schedule with tasks for specific house):
+![house](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/dbc52fef-8243-4145-9984-edde0de24aa0)
+
 Assign a task:
+![assigntask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/83da778d-1b10-497d-bf0b-c6204d698d4f)
+
 Edit a task:
+![edittask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/a475c1b0-ba1c-4c95-8ebe-e0bbe5d0783d)
+
 Delete task:
+![deletetask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/cdfbb199-5f8a-45e0-90f5-99ced015b9bb)
+
 Add dietary and scheduling restrictions:
+![restrictions](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/0e53d98b-72ed-4213-9780-6586bf89f7ae)
+
 GPT generated Meal schedule:
+![mealscheduling](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/09a21cda-724e-48b1-ba19-1e37cb6ddda6)
+
 
 
 ## Mock-up 
