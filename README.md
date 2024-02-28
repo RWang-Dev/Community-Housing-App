@@ -50,10 +50,10 @@ Assign a task:
 ![assigntask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/83da778d-1b10-497d-bf0b-c6204d698d4f)
 
 Edit a task:
-![edittask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/2c8f5dc8-0e19-4e22-ac22-14534c030256)
+![edittask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/a475c1b0-ba1c-4c95-8ebe-e0bbe5d0783d)
 
 Delete task:
-![deletetask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/30fab3f0-aeca-4f97-9e89-8fa84ad7b008)
+![deletetask](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/cdfbb199-5f8a-45e0-90f5-99ced015b9bb)
 
 Add dietary and scheduling restrictions:
 ![restrictions](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/0e53d98b-72ed-4213-9780-6586bf89f7ae)
