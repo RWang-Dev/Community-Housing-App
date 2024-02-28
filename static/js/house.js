@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
     eventContent: function (arg) {
       // Decide content based on the view
+
       if (arg.view.type === "dayGridMonth" && window.renderMonthly) {
         return { html: `<b>${arg.event.title}</b>` };
       } else if (arg.view.type === "timeGridWeek" && window.renderWeekly) {
@@ -37,14 +38,17 @@ document.addEventListener("DOMContentLoaded", async function () {
         case "dayGridMonth":
           calendar.removeAllEvents();
           for (const date in dayCounts) {
+            console.log(date);
             const count = dayCounts[date];
             var t = "tasks";
             if (count == 1) {
               t = "task";
             }
+            const startTime = convertTime(date);
+            console.log(startTime);
             calendar.addEvent({
               title: `${count} ` + t,
-              start: date,
+              start: startTime,
               allDay: true,
             });
           }
@@ -60,9 +64,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (count == 1) {
               t = "task";
             }
+            const startTime = convertTime(date);
+
             calendar.addEvent({
               title: `${count} ` + t,
-              start: date,
+              start: startTime,
               allDay: true,
             });
           }
@@ -73,14 +79,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         case "timeGridDay":
           calendar.removeAllEvents();
           for (let i = 0; i < due_times.length; i++) {
-            let isoString = due_times[i];
-            let date = new Date(isoString);
-            date.setTime(date.getTime() + 1 * 60 * 60 * 1000);
-            let end_time = date.toISOString();
+            console.log(due_times[i]);
+
+            let isoString1 = due_times[i];
+            let date1 = new Date(isoString1);
+            date1.setTime(date1.getTime() + 1 * 60 * 60 * 1000);
+            let start_time = date1.toISOString();
+
+            let isoString2 = due_times[i];
+            let date2 = new Date(isoString2);
+            date2.setTime(date2.getTime() + 2 * 60 * 60 * 1000);
+            let end_time = date2.toISOString();
 
             calendar.addEvent({
               title: task_titles[i] + " assigned to " + task_assignees[i],
-              start: due_times[i],
+              start: start_time,
               end: end_time,
               allDay: false,
             });
