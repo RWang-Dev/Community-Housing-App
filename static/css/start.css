@@ -37,7 +37,6 @@ li {
   z-index: 2; /* Ensure it's above the video */
 }
 
-
 /* Optional: Style your text */
 .hero-text h1 {
   font-size: 40px; /* Example size */
@@ -140,7 +139,7 @@ h2 {
   text-align: center;
   gap: 10%;
   padding-top: 15%;
-  padding-bottom: 45%;
+  padding-bottom: 25%;
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -153,7 +152,7 @@ h2 {
 /* CSS: https://getcssscan.com/css-buttons-examples */
 button {
   align-items: center;
-  background-image: linear-gradient(144deg, #eece57, #d4d4a3 50%, #e5ecb2);
+  /* background-image: linear-gradient(144deg, #57b7ee, #a3b4d4 50%, #b2daec); */
   /* background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb); */
   border: 0;
   border-radius: 8px;
@@ -173,12 +172,12 @@ button {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
-  transition: box-shadow 0.3s ease; 
+  transition: box-shadow 0.3s ease;
 }
 
 button:hover {
-  box-shadow: 0 0 10px rgba(253, 252, 194, 0.8); 
-  background-image: linear-gradient(144deg, #fff7e1, #faffb8 50%, #ffffff);
+  box-shadow: 0 0 10px rgba(194, 253, 245, 0.8);
+  background-image: linear-gradient(144deg, #e1fdff, #b8fff6 50%, #ffffff);
 }
 
 button :active,
@@ -187,7 +186,7 @@ button :hover {
 }
 
 button span {
-  background-color: rgb(253, 252, 194);
+  background-color: rgb(194, 251, 253);
   padding: 6px 24px;
   border-radius: 6px;
   width: 100%;
@@ -210,7 +209,9 @@ button:hover span {
   margin-left: 20px;
 }
 
-button, a.button, a {
+button,
+a.button,
+a {
   text-decoration: none; /* Removes underlines */
   /* other styles */
 }
