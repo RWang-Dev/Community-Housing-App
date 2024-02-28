@@ -30,15 +30,15 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 **Is there anything special we need to know in order to effectively test your app? (optional):**
 
-* No
+When you git clone and run it locally, use "python server.py".
 
 
 ## Screenshots of Site
 Landing Page:
-![landing](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/80b3fa70-a5c1-4c78-993c-266fa90f70a4)
+![start](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/1805df76-1a7e-4931-80d5-c7890a69dd17)
 
 Browse Houses (for unauthenticated users):
-![browse](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/f3de7bcb-3056-4fc2-874f-aa0a62c0eceb)
+![browse](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/89720671-407f-49fa-b2ef-b22d6ea99b91)
 
 User Home: 
 ![userhome](https://github.com/csci5117s24/project-1-the-forge/assets/96703864/36e9284b-d099-4516-bc88-c8faa90b3b7a)
