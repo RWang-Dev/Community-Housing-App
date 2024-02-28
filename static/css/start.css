@@ -48,6 +48,12 @@ li {
   font-size: 2em; /* Example size */
 }
 
+.text {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
+
 .back-video {
   width: 100%;
   height: 100%;
@@ -133,7 +139,8 @@ h2 {
   align-items: center;
   text-align: center;
   gap: 10%;
-  padding-bottom: 30%;
+  padding-top: 15%;
+  padding-bottom: 45%;
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -146,7 +153,8 @@ h2 {
 /* CSS: https://getcssscan.com/css-buttons-examples */
 button {
   align-items: center;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  background-image: linear-gradient(144deg, #eece57, #d4d4a3 50%, #e5ecb2);
+  /* background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb); */
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -154,7 +162,6 @@ button {
   color: #ffffff;
   display: flex;
   font-family: Phantomsans, sans-serif;
-  font-size: 20px;
   justify-content: center;
   line-height: 1em;
   max-width: 100%;
@@ -166,6 +173,12 @@ button {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  transition: box-shadow 0.3s ease; 
+}
+
+button:hover {
+  box-shadow: 0 0 10px rgba(253, 252, 194, 0.8); 
+  background-image: linear-gradient(144deg, #fff7e1, #faffb8 50%, #ffffff);
 }
 
 button :active,
@@ -174,8 +187,8 @@ button :hover {
 }
 
 button span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
+  background-color: rgb(253, 252, 194);
+  padding: 6px 24px;
   border-radius: 6px;
   width: 100%;
   height: 100%;

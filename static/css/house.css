@@ -199,8 +199,8 @@ body {
   background: linear-gradient(
     315deg,
     rgb(0, 0, 0) 3%,
-    rgb(32, 32, 32) 38%,
-    rgb(31, 31, 31) 68%,
+    rgb(10, 0, 24) 38%,
+    rgb(4, 0, 20) 68%,
     rgb(8, 8, 8) 98%
   );
   animation: gradient 15s ease infinite;
@@ -251,7 +251,12 @@ body {
 .delete-button:hover,
 .scheduling-button:hover {
   background-position: right center;
-  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #283048 0%,
+    #859398 51%,
+    #283048 100%
+  );
   text-decoration: none;
 }
 
