@@ -104,11 +104,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   var task_assignees = [];
   for (var i = 0; i < tasks.length; i++) {
     t_time = tasks[i]["end"];
-    t_day = tasks[i]["end-day"];
     const parsedTime = convertTime(t_time);
-    const parsedDay = convertTime(t_day);
     due_times.push(parsedTime.toISOString());
-    due_days.push(parsedDay.toISOString().split("T")[0]);
+    due_days.push(parsedTime.toISOString().split("T")[0]);
     task_titles.push(tasks[i]["title"]);
     task_assignees.push(tasks[i]["assignee"]);
   }
