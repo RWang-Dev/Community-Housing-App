@@ -84,16 +84,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             let isoString1 = due_times[i];
             let date1 = new Date(isoString1);
             date1.setTime(date1.getTime() + 1 * 60 * 60 * 1000);
-            let start_time = date1.toISOString();
-
-            let isoString2 = due_times[i];
-            let date2 = new Date(isoString2);
-            date2.setTime(date2.getTime() + 2 * 60 * 60 * 1000);
-            let end_time = date2.toISOString();
+            let end_time = date1.toISOString();
 
             calendar.addEvent({
               title: task_titles[i] + " assigned to " + task_assignees[i],
-              start: start_time,
+              start: due_times[i],
               end: end_time,
               allDay: false,
             });
@@ -149,7 +144,6 @@ function convertTime(time) {
   const offset = date.getTimezoneOffset();
   const offsetMilliseconds = offset * 60 * 1000;
   const time2 = new Date(date.getTime() + offsetMilliseconds);
-  // const adjustedTime = new Date(time2.getTime() - 2 * 60 * 60 * 1000);
-  // return adjustedTime;
-  return time2;
+  const adjustedTime = new Date(time2.getTime());
+  return adjustedTime;
 }
