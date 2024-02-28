@@ -263,6 +263,12 @@ body {
   margin: 0 1.5%;
 }
 
+.main-left-block img, 
+.main-right-block img,
+.main-middle-block img {
+  padding-bottom: 15%;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .main-left-block,
