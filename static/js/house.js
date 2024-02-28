@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (count == 1) {
               t = "task";
             }
-            const startTime = convertTime(date);
-            console.log(startTime);
+            // const startTime = convertTime(date);
+            // console.log(startTime);
             calendar.addEvent({
               title: `${count} ` + t,
-              start: startTime,
+              start: date,
               allDay: true,
             });
           }
@@ -64,11 +64,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (count == 1) {
               t = "task";
             }
-            const startTime = convertTime(date);
+            // const startTime = convertTime(date);
 
             calendar.addEvent({
               title: `${count} ` + t,
-              start: startTime,
+              start: date,
               allDay: true,
             });
           }
@@ -149,6 +149,7 @@ function convertTime(time) {
   const offset = date.getTimezoneOffset();
   const offsetMilliseconds = offset * 60 * 1000;
   const time2 = new Date(date.getTime() + offsetMilliseconds);
-  const adjustedTime = new Date(time2.getTime() - 2 * 60 * 60 * 1000);
-  return adjustedTime;
+  // const adjustedTime = new Date(time2.getTime() - 2 * 60 * 60 * 1000);
+  // return adjustedTime;
+  return time2;
 }
