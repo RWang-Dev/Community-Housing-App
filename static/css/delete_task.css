@@ -105,18 +105,13 @@ header {
 }
 
 main {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  text-align: center;
+  color: white;
 }
 
 form {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: inline-block;
+  text-align: left;
 }
 
 label {
@@ -137,70 +132,4 @@ label {
 
 .pure-control-group {
   margin-bottom: 20px;
-}
-
-.submit-button, .back-button {
-    padding: 5px 10px;
-    border-bottom: 5px solid #1d1d1d;
-    display: flex;
-    color: black;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-}
-
-input, button {
-    text-align: center;
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    box-sizing: border-box;
-    color: #ffffff;
-    display: flex;
-    font-family: Phantomsans, sans-serif;
-    justify-content: center;
-    line-height: 1em;
-    max-width: 100%;
-    min-width: 20%;
-    padding: 3px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-}
-
-button:hover {
-    box-shadow: 0 0 10px rgba(194, 253, 245, 0.8);
-    background-image: linear-gradient(144deg, #e1fdff, #b8fff6 50%, #ffffff);
-}
-
-button :active,
-button :hover {
-    outline: 0;
-}
-
-button span {
-    background-color: rgb(194, 251, 253);
-    padding: 6px 24px;
-    border-radius: 6px;
-    width: 100%;
-    height: 100%;
-    transition: 300ms;
-}
-
-button:hover span {
-    background: none;
-}
-
-.button-right {
-    margin-left: 20%;
-}
-
-button,
-a.button,
-a {
-    text-decoration: none;
 }
