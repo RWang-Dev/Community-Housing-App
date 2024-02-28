@@ -15,6 +15,10 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-image: url("../img/browsebg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -39,7 +43,7 @@ main {
   width: 100%;
   max-width: 30%;
   padding: 20px;
-  background-color: #222;
+  background-color: #212121;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
